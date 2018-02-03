@@ -4,8 +4,6 @@ import os.path, os, hashlib, datetime, sqlite3
 
 db = './resources/inky.sqlite'
 
-users = {"brian":"asdf"}
-active_sessions = {}
 
 @route('/')
 def main():
