@@ -1,5 +1,5 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
-import os.path, os, json, Cookie, hashlib, datetime,sqlite3
+import os.path, os, hashlib, datetime, sqlite3
 
 
 db = './resources/inky.sqlite'
