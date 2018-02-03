@@ -36,11 +36,13 @@ def sign_up():
     password = request.forms.get('password')
     if not select_user(username):
         ts = datetime.datetime.now()+datetime.timedelta(days=1)
+        pwhash = hashlib.md5()
+        pwhash.update(password)
         session_id = hashlib.md5()
         session_id.update(str(ts))
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
-        new_user(username,password,session_id.hexdigest())
+        new_user(username,pwhash.hexdigest(),session_id.hexdigest())
         redirect('/profile/'+username)
     else:
         return '<p>Username already exists</p><p>Return <a href="/">HOME</a></p>'
@@ -50,7 +52,9 @@ def sign_up():
 def log_me_in():
     username = request.forms.get('username')
     password = request.forms.get('password')
-    if verify_login(username,password):
+    pwhash = hashlib.md5()
+    pwhash.update(password)
+    if verify_login(username,pwhash.hexdigest()):
         ts = datetime.datetime.now()+datetime.timedelta(days=1)
         session_id = hashlib.md5()
         session_id.update(str(ts))
