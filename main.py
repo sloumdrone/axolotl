@@ -7,20 +7,21 @@ db = './resources/inky.sqlite'
 
 @route('/')
 def main():
-    return '''
-        <form action="/login" method="post">
-            Username: <input name="username" type="text" />
-            Password: <input name="password" type="password" />
-            <input value="Login" type="submit" />
-        </form>
-        <p>Or sign up</p>
-        <form action="/signup" method="post">
-            Username: <input name="username" type="text" />
-            Password: <input name="password" type="password" />
-            Email: <input name="email" type="email" />
-            <input value="Sign Up" type="submit" />
-        </form>
-    '''
+    # return '''
+    #     <form action="/login" method="post">
+    #         Username: <input name="username" type="text" />
+    #         Password: <input name="password" type="password" />
+    #         <input value="Login" type="submit" />
+    #     </form>
+    #     <p>Or sign up</p>
+    #     <form action="/signup" method="post">
+    #         Username: <input name="username" type="text" />
+    #         Password: <input name="password" type="password" />
+    #         Email: <input name="email" type="email" />
+    #         <input value="Sign Up" type="submit" />
+    #     </form>
+    # '''
+    return template('login')
 
 
 @route('/profile/<user>')
@@ -73,6 +74,15 @@ def logout():
     response.delete_cookie("session")
     redirect('/')
 
+@route('/images/<picture>')
+def serve_pictures(picture):
+    return static_file(picture, root='./resources/images/')
+
+@route('/library/<lib>')
+def serve_libs(lib):
+    return static_file(lib, root='./resources/lib/')
+
+
 def is_logged_in():
     if request.get_cookie("user") != None:
         un = request.get_cookie("user")
@@ -82,6 +92,8 @@ def is_logged_in():
                 redirect('/')
         else:
             redirect('/')
+    else:
+        redirect('/')
 
 def verify_login(un,pw):
     udata = select_user(un)
@@ -113,7 +125,7 @@ def select_user(user):
 def logout_user_db(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''UPDATE users SET session_id = NULL WHERE username=?''',(user,))
+    c.execute('''UPDATE users SET session_id = 'Invalid' WHERE username=?''',(user,))
     db_conn.commit()
     db_conn.close()
 
@@ -130,6 +142,8 @@ def new_user(un,pw,sid):
     c.execute('''INSERT INTO users(username,password,session_id) VALUES(?,?,?)''',(un,pw,sid))
     db_conn.commit()
     db_conn.close()
+
+
 
 
 #####---------------------------Run-the-server-----------------------------#####
