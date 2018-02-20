@@ -12,9 +12,9 @@
             <div id="sitelogo"></div>
             <nav>
                 <ul>
-                    <li><a href="/profile/{{username}}">Home</a></li>
+                    <li><a href="/profile">Home</a></li>
                     <li><a href="#">Fellows</a> </li>
-                    <li><a href="#">Settings</a> </li>
+                    <li><a href="/settings">Settings</a> </li>
                     <li><a href="/logout">Log Out</a></li>
                 </ul>
 

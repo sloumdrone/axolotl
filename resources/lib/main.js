@@ -39,6 +39,7 @@ function buildPost(arr){
 
     let $container = $('<div>',{class: 'post-container'}).append($header,$body,$footer);
     $('body').append($container);
+    return $container;
 }
 
 function parseTime(post_time){

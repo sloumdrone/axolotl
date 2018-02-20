@@ -24,18 +24,25 @@ def main():
     return template('login')
 
 
-@route('/profile/<user>')
-def profile(user):
+@route('/profile')
+def profile():
     is_logged_in()
+    user = request.get_cookie('user')
     return template('profile',username=user)
     # return retrieve_posts(user)
+
+@route('/settings')
+def settings():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return template('settings', username=user)
 
 @route('/post', method='POST')
 def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
     post_to_db(username,message)
-    return redirect('/profile/' + username)
+    return redirect('/profile')
 
 @route('/new-fellow/<new_fellow>')
 def handle_new_fellow(new_fellow):
@@ -63,7 +70,7 @@ def sign_up():
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
-        redirect('/profile/'+username)
+        redirect('/profile')
     else:
         return '<p>Username already exists</p><p>Return <a href="/">HOME</a></p>'
 
@@ -81,7 +88,7 @@ def log_me_in():
         create_session_db(username,session_id.hexdigest())
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
-        redirect('/profile/'+username)
+        redirect('/profile')
     else:
         return '<p>Login Failed</p><p>Return <a href="/">HOME</a></p>'
 
