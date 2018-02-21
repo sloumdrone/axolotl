@@ -35,7 +35,17 @@ def profile():
 def settings():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('settings', username=user)
+    if os.path.isfile('./resources/images/' + str(user) + '.jpg'):
+        photo = str(user) + '.jpg'
+    else:
+        photo = 'axolotl.png'
+    return template('settings', username=user, userpic=photo)
+
+@route('/fellows')
+def fellows():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return template('fellows',username=user)
 
 @route('/post', method='POST')
 def handle_post():
@@ -208,6 +218,17 @@ def retrieve_posts(user):
     output = []
     for row in c:
         output.append([row[1],row[2],row[3]])
+    db_conn.commit()
+    db_conn.close()
+    return output
+
+def retrieve_fellows(user):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    c.execute('''SELECT DISTINCT friend FROM friends WHERE username=? ORDER BY friend ASC''',(user,))
+    output = []
+    for row in c:
+        output.append(row[0])
     db_conn.commit()
     db_conn.close()
     return output
