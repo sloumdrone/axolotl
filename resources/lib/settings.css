@@ -1,0 +1,145 @@
+body {
+    background-color: #FCFDFF;
+}
+
+#logout {
+    display: inline-block;
+    position: fixed;
+    top: 10px;
+    right: 25px;
+}
+
+#sitelogo {
+    background-image: url(/images/axolotl.png);
+    background-size: cover;
+    border-radius: 100%;
+    border: 3px solid #706F6F;
+    background-position: bottom;
+    width: 110px;
+    height: 110px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    position: relative;
+    width: 750px;
+    height: 150px;
+    background-color: #B8E1FF;
+    color: #2F3331;
+    margin: 10px auto 0 auto;
+    border: 3px solid #706F6F;
+    border-bottom: 1px solid antiquewhite;
+    border-radius: 50px 50px 0 0;
+}
+
+nav {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+nav ul {
+    list-style: none;
+    margin-bottom: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    color: #706F6F;
+    font-size: 1.1em;
+    font-family: monospace;
+    background-color: antiquewhite;
+    padding: 5px 10px;
+    border-radius: 5px 5px 0 0;
+}
+
+.user-icon {
+    border-left: 3px solid #706F6F;
+    border-right: 3px solid #706F6F;
+    margin: 0 auto;
+    background-color: #87D68D;
+    padding: 10px 0;
+    width: 750px;
+    text-align: center;
+    font-family: 'Averia Libre', monospace;
+}
+
+.user-icon p {
+    color: #FCFDFF;
+    font-size: 1.4em;
+}
+
+.delete-account {
+    border-left: 3px solid #706F6F;
+    border-right: 3px solid #706F6F;
+    margin: 0 auto;
+    background-color: white;
+    padding: 10px 20px;
+    width: 710px;
+    text-align: center;
+    font-family: 'Averia Libre', monospace;
+}
+
+.delete-account p {
+    font-size: 1em;
+    color: red;
+    font-family: monospace;
+}
+
+.delete-account p:first-child {
+    color: #2F3331;
+    font-size: 1.4em;
+}
+
+#crop-container {
+    display: inline-block;
+}
+
+.cr-slider {
+    width: 100px;
+}
+
+.update-cropper {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.image-control {
+    padding: 5px 15px;
+    background-color: white;
+    border-bottom: 2px solid #706F6F;
+    border-right: 2px solid #706F6F;
+    border-left: 2px solid #2F3331;
+    border-top: 2px solid #2F3331;
+    border-radius: 5px;
+    margin: 5px;
+    user-select: none;
+    cursor: pointer;
+    font-family: monospace;
+    box-shadow: 2px 2px 8px #2F3331;
+}
+
+.delete-account .image-control {
+    display: inline-block;
+    background-color: red;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.currentUser {
+    display: inline-block;
+    position: absolute;
+    bottom: -1px;
+    left: 20px;
+    color: white;
+    font-size: 2em;
+    font-family: 'Neucha', sans-serif;
+    text-shadow: 1px 1px 3px #2F3331;
+}
