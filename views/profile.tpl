@@ -13,7 +13,7 @@
             <nav>
                 <ul>
                     <li><a href="/profile">Home</a></li>
-                    <li><a href="#">Fellows</a> </li>
+                    <li><a href="/fellows">Fellows</a> </li>
                     <li><a href="/settings">Settings</a> </li>
                     <li><a href="/logout">Log Out</a></li>
                 </ul>
