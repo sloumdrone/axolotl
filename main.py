@@ -23,6 +23,11 @@ def main():
     # '''
     return template('login')
 
+@route('/home')
+def home():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return template('home',username=user)
 
 @route('/profile')
 def profile():
