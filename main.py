@@ -8,7 +8,6 @@ db = './resources/inky.sqlite'
 @route('/')
 def main():
     status = str(request.query.statusCode)
-
     return template('login', loginissue=status)
 
 
@@ -17,7 +16,6 @@ def profile():
     is_logged_in()
     user = request.get_cookie('user')
     return template('profile',username=user)
-    # return retrieve_posts(user)
 
 @route('/settings')
 def settings():

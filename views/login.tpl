@@ -137,9 +137,7 @@
     </head>
     <body>
         <section>
-            <div id="logoimage">
-
-            </div>
+            <div id="logoimage"></div>
             %if loginissue:
             <div class="wordBubble">
                 %if loginissue == '111':
