@@ -7,21 +7,9 @@ db = './resources/inky.sqlite'
 
 @route('/')
 def main():
-    # return '''
-    #     <form action="/login" method="post">
-    #         Username: <input name="username" type="text" />
-    #         Password: <input name="password" type="password" />
-    #         <input value="Login" type="submit" />
-    #     </form>
-    #     <p>Or sign up</p>
-    #     <form action="/signup" method="post">
-    #         Username: <input name="username" type="text" />
-    #         Password: <input name="password" type="password" />
-    #         Email: <input name="email" type="email" />
-    #         <input value="Sign Up" type="submit" />
-    #     </form>
-    # '''
-    return template('login')
+    status = str(request.query.statusCode)
+
+    return template('login', loginissue=status)
 
 
 @route('/profile')
@@ -82,7 +70,7 @@ def sign_up():
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
         redirect('/profile')
     else:
-        return '<p>Username already exists</p><p>Return <a href="/">HOME</a></p>'
+        redirect('/?statusCode=222')
 
 
 @post('/login', method='POST')
@@ -100,7 +88,7 @@ def log_me_in():
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         redirect('/profile')
     else:
-        return '<p>Login Failed</p><p>Return <a href="/">HOME</a></p>'
+        redirect('/?statusCode=111')
 
 @route('/logout')
 def logout():

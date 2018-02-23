@@ -50,7 +50,7 @@
                 viewport: { width: 50, height: 50 },
                 boundary: { width: 65, height: 65 },
                 showZoomer: true,
-                url: `/images/${user}.jpg`
+                url: '/images/' + {{username}} + '.jpg'
             });
         </script>
     </body>
