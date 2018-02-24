@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #eceaea;
     height: 100%;
@@ -23,7 +27,7 @@ body {
     height: 220px;
     background-color: #FFF;
     position: absolute;
-    top: 10%;
+    top: 31%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -40,7 +44,7 @@ section.make-post {
 header {
     position: fixed;
     width: 100%;
-    height: 25vmin;
+    height: 17vh;
     background-color: #3BB3C2;
     color: #2F3331;
     /* margin: 10px auto 0 auto; */
@@ -78,6 +82,13 @@ nav ul li {
 .nav-icon {
     width: 11vmin;
     filter: invert(100%);
+}
+
+.thread-container {
+    height: 70vh;
+    position: relative;
+    top: 17vh;
+    overflow: scroll;
 }
 
 #make-post-form {
@@ -124,7 +135,6 @@ nav ul li {
 .post-container {
     width: 90%;
     height: auto;
-    /* position: relative; */
     border-left: 3px solid #dbd8d8;
     border-right: 3px solid #dbd8d8;
     margin: 0 auto;
@@ -155,19 +165,21 @@ nav ul li {
     color: #928E8E;
     display: inline-block;
     margin: 10px 10px 0 10px;
-    font-size: 3.5vmin;
+    font-size: 4vmin;
     vertical-align: middle;
+    font-family: monospace;
 }
 
 .post-body {
-    font-size: 2.5vmin;
+    font-size: 4.5vmin;
     color: #2F3331;
     text-align: center;
     padding-left: 15px;
     padding-right: 15px;
     margin: 5px auto;
     width: 80%;
-    line-height: 2vmin;
+    line-height: 4.5vmin;
+    word-wrap: break-word;
 }
 
 .post-like {
@@ -182,7 +194,7 @@ nav ul li {
 footer {
     position: fixed;
     bottom: 0;
-    height: 18vmin;
+    height: 13vh;
     background-color: #3BB3C2;
     width: 100%;
 }
@@ -191,6 +203,7 @@ footer {
     font-family: monospace;
     color: #fafafa;
     float: right;
-    font-size: 7vmin;
+    font-size: 8vmin;
     margin-right: 1%;
+    margin-top: 10%;
 }

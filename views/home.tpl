@@ -22,6 +22,8 @@
                 </ul>
             </nav>
         </header>
+        <section class='thread-container'>
+        </section>
         <!-- <section class="make-post">
             <form action="/post" id="make-post-form" method="post">
                 <textarea name="message" autocomplete="off"></textarea>
