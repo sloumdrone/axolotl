@@ -1,5 +1,5 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
-import os.path, os, hashlib, datetime, sqlite3, time, json
+import os.path, os, hashlib, datetime, sqlite3, time, json, re
 
 
 db = './resources/inky.sqlite'
@@ -61,7 +61,11 @@ def retrievePosts():
 @route('/signup', method='POST')
 def sign_up():
     username = request.forms.get('username')
+    if not re.match(r"[A-Za-z0-9]{4,12}",username):
+        return redirect('/?statusCode=223')
     password = request.forms.get('password')
+    if not re.match(r"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{6,15}$",password):
+        return redirect('/?statusCode=224')
     if not select_user(username):
         ts = datetime.datetime.now()+datetime.timedelta(days=1)
         pwhash = hashlib.md5()
@@ -71,9 +75,9 @@ def sign_up():
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
-        redirect('/profile')
+        return redirect('/profile')
     else:
-        redirect('/?statusCode=222')
+        return redirect('/?statusCode=222')
 
 
 @post('/login', method='POST')
