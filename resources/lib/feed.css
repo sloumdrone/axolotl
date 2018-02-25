@@ -7,7 +7,7 @@ section.make-post {
     top: 17vh;
 }
 
-nav ul li {
+/* nav ul li {
     display: inline-block;
     color: #706F6F;
     font-size: 11vmin;
@@ -16,12 +16,12 @@ nav ul li {
     padding: 2% 0;
     border-radius: 5px 5px 0 0;
     width: 24.5%;
-}
+} */
 
-.nav-icon {
+/* .nav-icon {
     width: 11vmin;
     filter: invert(100%);
-}
+} */
 
 .thread-container {
     height: 70vh;

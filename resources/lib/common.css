@@ -46,7 +46,6 @@ header {
     text-align: center;
     margin: 0;
     color: #fafafa;
-    border-bottom: 1px solid #eceaea;
     font-family: monospace;
     padding: 2% 0;
 }
@@ -60,17 +59,23 @@ nav ul {
 nav ul li {
     display: inline-block;
     color: #706F6F;
-    font-size: 11vmin;
+    font-size: 13vmin;
     font-family: monospace;
     text-align: center;
-    padding: 2% 0;
+    padding-top: 2%;
     border-radius: 5px 5px 0 0;
     width: 24.5%;
+    box-shadow: 5px -5px 9px 0px #34a3b1;
+}
+
+nav ul li:hover {
+    background-color: #34a3b1;
 }
 
 .nav-icon {
-    width: 11vmin;
+    width: 9vmin;
     filter: invert(100%);
+    padding-bottom: 1vmin;
 }
 
 footer {
