@@ -1,5 +1,5 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
-import os.path, os, hashlib, datetime, sqlite3, time, json
+import os.path, os, hashlib, datetime, sqlite3, time, json, re
 
 
 db = './resources/inky.sqlite'
@@ -7,29 +7,20 @@ db = './resources/inky.sqlite'
 
 @route('/')
 def main():
-    # return '''
-    #     <form action="/login" method="post">
-    #         Username: <input name="username" type="text" />
-    #         Password: <input name="password" type="password" />
-    #         <input value="Login" type="submit" />
-    #     </form>
-    #     <p>Or sign up</p>
-    #     <form action="/signup" method="post">
-    #         Username: <input name="username" type="text" />
-    #         Password: <input name="password" type="password" />
-    #         Email: <input name="email" type="email" />
-    #         <input value="Sign Up" type="submit" />
-    #     </form>
-    # '''
-    return template('login')
+    status = str(request.query.statusCode)
+    return template('login', loginissue=status)
 
+@route('/home')
+def home():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return template('home',username=user)
 
 @route('/profile')
 def profile():
     is_logged_in()
     user = request.get_cookie('user')
     return template('profile',username=user)
-    # return retrieve_posts(user)
 
 @route('/settings')
 def settings():
@@ -70,7 +61,11 @@ def retrievePosts():
 @route('/signup', method='POST')
 def sign_up():
     username = request.forms.get('username')
+    if not re.match(r"[A-Za-z0-9]{4,12}",username):
+        return redirect('/?statusCode=223')
     password = request.forms.get('password')
+    if not re.match(r"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{6,15}$",password):
+        return redirect('/?statusCode=224')
     if not select_user(username):
         ts = datetime.datetime.now()+datetime.timedelta(days=1)
         pwhash = hashlib.md5()
@@ -80,9 +75,9 @@ def sign_up():
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
-        redirect('/profile')
+        return redirect('/profile')
     else:
-        return '<p>Username already exists</p><p>Return <a href="/">HOME</a></p>'
+        return redirect('/?statusCode=222')
 
 
 @post('/login', method='POST')
@@ -100,7 +95,7 @@ def log_me_in():
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         redirect('/profile')
     else:
-        return '<p>Login Failed</p><p>Return <a href="/">HOME</a></p>'
+        redirect('/?statusCode=111')
 
 @route('/logout')
 def logout():

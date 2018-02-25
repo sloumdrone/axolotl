@@ -21,7 +21,7 @@ function retrievePosts(){
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
-            $('body').append($container);
+            $('.thread-container').append($container);
         }
     })
 }
@@ -38,7 +38,7 @@ function buildPost(arr){
     let $time_elapsed = $('<div>',{class: 'post-like',text: parseTime(arr[2])}).appendTo($footer);
 
     let $container = $('<div>',{class: 'post-container'}).append($header,$body,$footer);
-    $('body').append($container);
+    $('.thread-container').append($container);
     return $container;
 }
 

@@ -1,5 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #FCFDFF;
+    background-color: #eceaea;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Mukta Malar', sans-serif;
 }
 
 #logout {
@@ -15,17 +23,17 @@ body {
     border-radius: 100%;
     border: 3px solid #706F6F;
     background-position: bottom;
-    width: 110px;
-    height: 110px;
+    width: 220px;
+    height: 220px;
     background-color: #FFF;
     position: absolute;
-    top: 50%;
+    top: 31%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 section.make-post {
-    width: 750px;
+    width: 100%;
     border-left: 3px solid #706F6F;
     border-right: 3px solid #706F6F;
     margin: 0 auto;
@@ -34,36 +42,53 @@ section.make-post {
 }
 
 header {
-    position: relative;
-    width: 750px;
-    height: 150px;
-    background-color: #B8E1FF;
+    position: fixed;
+    width: 100%;
+    height: 17vh;
+    background-color: #3BB3C2;
     color: #2F3331;
-    margin: 10px auto 0 auto;
-    border: 3px solid #706F6F;
-    border-bottom: 1px solid antiquewhite;
-    border-radius: 50px 50px 0 0;
+    /* margin: 10px auto 0 auto; */
+    /* border: 3px solid #928E8E; */
+    border-bottom: 1px solid #928E8E;
 }
 
-nav {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+.currentUser {
+    font-size: 6vmin;
+    text-align: center;
+    margin: 0;
+    color: #fafafa;
+    border-bottom: 1px solid #eceaea;
+    font-family: monospace;
+    padding: 2% 0;
 }
 
 nav ul {
     list-style: none;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
     display: inline-block;
     color: #706F6F;
-    font-size: 1.1em;
+    font-size: 11vmin;
     font-family: monospace;
-    background-color: antiquewhite;
-    padding: 5px 10px;
+    text-align: center;
+    padding: 2% 0;
     border-radius: 5px 5px 0 0;
+    width: 24.5%;
+}
+
+.nav-icon {
+    width: 11vmin;
+    filter: invert(100%);
+}
+
+.thread-container {
+    height: 70vh;
+    position: relative;
+    top: 17vh;
+    overflow: scroll;
 }
 
 #make-post-form {
@@ -108,13 +133,12 @@ nav ul li {
 
 
 .post-container {
-    width: 750px;
+    width: 90%;
     height: auto;
-    position: relative;
-    border-left: 3px solid #706F6F;
-    border-right: 3px solid #706F6F;
+    border-left: 3px solid #dbd8d8;
+    border-right: 3px solid #dbd8d8;
     margin: 0 auto;
-    background-color: white;
+    background-color: #fafafa;
 }
 
 .post-header {
@@ -124,8 +148,8 @@ nav ul li {
 }
 
 .post-user-image {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 5px;
     float: left;
     margin: 10px;
@@ -133,35 +157,53 @@ nav ul li {
     background-image: url(/images/axolotl.png);
     background-size: cover;
     background-color: white;
-    border: 2px solid #706F6F;
+    border: 2px solid #928E8E;
 }
 
 .post-user-name {
     float:left;
-    color: #2F3331;
+    color: #928E8E;
     display: inline-block;
-    margin: 10px;
-    font-family: monospace;
-    font-size: 1.5em;
+    margin: 10px 10px 0 10px;
+    font-size: 4vmin;
     vertical-align: middle;
+    font-family: monospace;
 }
 
 .post-body {
-    font-size: 1.3em;
+    font-size: 4.5vmin;
     color: #2F3331;
     text-align: center;
-    font-family: sans-serif, serif;
     padding-left: 15px;
     padding-right: 15px;
     margin: 5px auto;
     width: 80%;
+    line-height: 4.5vmin;
+    word-wrap: break-word;
 }
 
 .post-like {
-    color: #706F6F;
+    color: #928E8E;
     border-bottom: 1px solid #706F6F;
     font-size: 1em;
     padding-right: 20px;
     text-align: right;
     padding-bottom: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    height: 13vh;
+    background-color: #3BB3C2;
+    width: 100%;
+}
+
+.title {
+    font-family: monospace;
+    color: #fafafa;
+    float: right;
+    font-size: 8vmin;
+    margin-right: 1%;
+    margin-top: 10%;
 }
