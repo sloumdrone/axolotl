@@ -1,98 +1,40 @@
-body {
-    background-color: #FCFDFF;
-}
-
-#logout {
-    display: inline-block;
-    position: fixed;
-    top: 10px;
-    right: 25px;
-}
-
-#sitelogo {
-    background-image: url(/images/axolotl.png);
-    background-size: cover;
-    border-radius: 100%;
-    border: 3px solid #706F6F;
-    background-position: bottom;
-    width: 110px;
-    height: 110px;
-    background-color: #FFF;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-header {
-    position: relative;
-    width: 750px;
-    height: 150px;
-    background-color: #B8E1FF;
-    color: #2F3331;
-    margin: 10px auto 0 auto;
-    border: 3px solid #706F6F;
-    border-bottom: 1px solid antiquewhite;
-    border-radius: 50px 50px 0 0;
-}
-
-nav {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-nav ul {
-    list-style: none;
-    margin-bottom: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    color: #706F6F;
-    font-size: 1.1em;
-    font-family: monospace;
-    background-color: antiquewhite;
-    padding: 5px 10px;
-    border-radius: 5px 5px 0 0;
-}
 
 .user-icon {
-    border-left: 3px solid #706F6F;
-    border-right: 3px solid #706F6F;
+    height: 25vh;
     margin: 0 auto;
-    background-color: #87D68D;
+    /* background-color: #87D68D; */
     padding: 10px 0;
-    width: 750px;
     text-align: center;
     font-family: 'Averia Libre', monospace;
+    position: relative;
+    top: 17vh;
 }
 
 .user-icon p {
-    color: #FCFDFF;
-    font-size: 1.4em;
+    color: #616060;
+    font-size: 6vmin;
 }
 
 .delete-account {
-    border-left: 3px solid #706F6F;
-    border-right: 3px solid #706F6F;
     margin: 0 auto;
     background-color: white;
     padding: 10px 20px;
-    width: 710px;
     text-align: center;
     font-family: 'Averia Libre', monospace;
+    position: relative;
+    top: 17vh;
+    height: 35vh;
 }
 
 .delete-account p {
-    font-size: 1em;
+    font-size: 3.5vmin;
     color: red;
     font-family: monospace;
 }
 
 .delete-account p:first-child {
-    color: #2F3331;
-    font-size: 1.4em;
+    color: #616060;
+    font-size: 6vmin;
 }
 
 #crop-container {
@@ -109,7 +51,10 @@ nav ul li {
 }
 
 .image-control {
-    padding: 5px 15px;
+    width: 30vw;
+    height: 5vh;
+    padding: 5%;
+    font-size: 3vmin;
     background-color: white;
     border-bottom: 2px solid #706F6F;
     border-right: 2px solid #706F6F;
@@ -127,19 +72,9 @@ nav ul li {
     display: inline-block;
     background-color: red;
     color: white;
+    padding: 2%;
 }
 
 .hidden {
     display: none;
-}
-
-.currentUser {
-    display: inline-block;
-    position: absolute;
-    bottom: -1px;
-    left: 20px;
-    color: white;
-    font-size: 2em;
-    font-family: 'Neucha', sans-serif;
-    text-shadow: 1px 1px 3px #2F3331;
 }
