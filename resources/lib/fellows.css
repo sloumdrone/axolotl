@@ -1,92 +1,37 @@
-body {
-    background-color: #FCFDFF;
-}
 
-#logout {
-    display: inline-block;
-    position: fixed;
-    top: 10px;
-    right: 25px;
-}
-
-#sitelogo {
-    background-image: url(/images/axolotl.png);
-    background-size: cover;
-    border-radius: 100%;
-    border: 3px solid #706F6F;
-    background-position: bottom;
-    width: 110px;
-    height: 110px;
-    background-color: #FFF;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-section.green-container {
-    width: 750px;
-    /* height: 75px; */
-    border-left: 3px solid #706F6F;
-    border-right: 3px solid #706F6F;
+section.green-container, section.white-container {
+    width: 100%;
+    height: 20vh;
     margin: 0 auto;
-    background-color: #87D68D;
+    background-color: #E3F2FD;
     padding: 10px 0;
     position: relative;
+    top: 17vh;
+    font-size: 4vmin;
+}
+
+section.green-container p {
+    padding-left: 4%;
+    color: #616060;
 }
 
 section.white-container {
-    width: 750px;
-    border-left: 3px solid #706F6F;
-    border-right: 3px solid #706F6F;
-    margin: 0 auto;
     background-color: white;
-    padding: 10px 0;
-}
-
-header {
-    position: relative;
-    width: 750px;
-    height: 150px;
-    background-color: #B8E1FF;
-    color: #2F3331;
-    margin: 10px auto 0 auto;
-    border: 3px solid #706F6F;
-    border-bottom: 1px solid antiquewhite;
-    border-radius: 50px 50px 0 0;
-}
-
-nav {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-}
-
-nav ul {
-    list-style: none;
-    margin-bottom: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    color: #706F6F;
-    font-size: 1.1em;
-    font-family: monospace;
-    background-color: antiquewhite;
-    padding: 5px 10px;
-    border-radius: 5px 5px 0 0;
 }
 
 section > .user-search-container, section > .fellow-list-container {
-    width: 60%;
     text-align: center;
     padding: 5px;
     margin: 0 auto;
 }
 
+.fellow-list-container h2 {
+    color: #616060;
+}
+
 .user-search-container input {
-    width: 30%;
-    height: 35px;
+    width: 50vw;
+    height: 7vh;
     border-radius: 5px 0 0 5px;
     border: 2px solid #2F3331;
     border-right: none;
@@ -98,9 +43,9 @@ section > .user-search-container, section > .fellow-list-container {
 }
 
 .user-search-container div {
-    width: 35px;
-    height: 35px;
-    background-color: #9fd0f4;
+    width: 15vw;
+    height: 7vh;
+    background-color: #928E8E;
     border: 2px solid #2F3331;
     border-left: 1px solid #2F3331;
     border-radius: 0 5px 5px 0;
@@ -113,20 +58,8 @@ section > .user-search-container, section > .fellow-list-container {
     text-align: center;
 }
 
-.currentUser {
-    display: inline-block;
-    position: absolute;
-    bottom: -1px;
-    left: 20px;
-    color: white;
-    font-size: 2em;
-    font-family: 'Neucha', sans-serif;
-    text-shadow: 1px 1px 3px #2F3331;
-}
-
-
-
-
-
-
+.search-icon {
+    width: 11vmin;
+    filter: invert(100%);
+    padding: 5%;
 }

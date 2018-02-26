@@ -1,130 +1,78 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #eceaea;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Mukta Malar', sans-serif;
-}
-
-#logout {
-    display: inline-block;
-    position: fixed;
-    top: 10px;
-    right: 25px;
-}
-
-#sitelogo {
-    background-image: url(/images/axolotl.png);
-    background-size: cover;
-    border-radius: 100%;
-    border: 3px solid #706F6F;
-    background-position: bottom;
-    width: 220px;
-    height: 220px;
-    background-color: #FFF;
-    position: absolute;
-    top: 31%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 section.make-post {
-    width: 100%;
-    border-left: 3px solid #706F6F;
-    border-right: 3px solid #706F6F;
     margin: 0 auto;
-    background-color: #87D68D;
     padding: 10px 0;
+    position: relative;
+    height: 37vh;
+    top: 47vh;
 }
 
-header {
-    position: fixed;
-    width: 100%;
-    height: 17vh;
-    background-color: #3BB3C2;
-    color: #2F3331;
-    /* margin: 10px auto 0 auto; */
-    /* border: 3px solid #928E8E; */
-    border-bottom: 1px solid #928E8E;
+.hide {
+    display: none;
 }
 
-.currentUser {
-    font-size: 6vmin;
-    text-align: center;
-    margin: 0;
-    color: #fafafa;
-    border-bottom: 1px solid #eceaea;
-    font-family: monospace;
-    padding: 2% 0;
+.show {
+    display: block;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline-block;
-    color: #706F6F;
-    font-size: 11vmin;
-    font-family: monospace;
-    text-align: center;
-    padding: 2% 0;
-    border-radius: 5px 5px 0 0;
-    width: 24.5%;
-}
-
-.nav-icon {
-    width: 11vmin;
-    filter: invert(100%);
+.think-bubble {
+    height: 40vh;
+    position: relative;
+    transform: translate(43%, -12%);
+    filter: invert(50%);
 }
 
 .thread-container {
     height: 70vh;
-    position: relative;
+    position: absolute;
     top: 17vh;
     overflow: scroll;
 }
 
 #make-post-form {
-    width: 90%;
-    height: 100px;
-    color: #FCFDFF;
+    width: 60%;
+    height: 19vh;
+    color: #fafafa;
     text-align: center;
     margin: 0 auto;
     position: relative;
     font-size: 0;
+    bottom: 40vh;
+    left: 13%;
 }
 
 #make-post-form textarea {
-    width: 80%;
-    height: 90%;
-    border-radius: 10px 0 0 10px;
-    border: 3px solid #2F3331;
-    border-right: none;
+    height: 95%;
     box-sizing: border-box;
-    font-size: 1rem;
+    font-size: 5vmin;
     resize: none;
     overflow: hidden;
     padding: 5px;
+    border-radius: 5px;
+    border: white;
+    letter-spacing: 1px;
+    line-height: 5vmin;
+    outline-color: #808080;
+    background-color: #808080;
+    color: white;
+    font-family: 'Mukta Malar', sans-serif;
 }
 
 #make-post-form input {
-    width: 20%;
-    height: 90%;
-    background-color: #9fd0f4;
-    border: 3px solid #2F3331;
-    border-left: 1px solid #2F3331;
-    border-radius: 0 10px 10px 0;
+    width: 23vw;
+    height: 6vh;
+    background-color: #808080;
+    border: 1px solid #FAFAFA;
+    border-radius: 10px;
     vertical-align: top;
     box-sizing: border-box;
-    font-size: 3rem;
+    font-size: 5vmin;
     cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 66%;
+    top: 28vh;
+    font-family: 'Mukta Malar', sans-serif;
 }
 
 #make-post-form input:hover {
@@ -148,8 +96,8 @@ nav ul li {
 }
 
 .post-user-image {
-    width: 100px;
-    height: 100px;
+    width: 13vw;
+    height: 7vh;
     border-radius: 5px;
     float: left;
     margin: 10px;
@@ -189,21 +137,4 @@ nav ul li {
     padding-right: 20px;
     text-align: right;
     padding-bottom: 5px;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    height: 13vh;
-    background-color: #3BB3C2;
-    width: 100%;
-}
-
-.title {
-    font-family: monospace;
-    color: #fafafa;
-    float: right;
-    font-size: 8vmin;
-    margin-right: 1%;
-    margin-top: 10%;
 }
