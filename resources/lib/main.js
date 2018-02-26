@@ -1,4 +1,17 @@
-$(document).ready(retrievePosts);
+$(document).ready(function () {
+    retrievePosts();
+    applyClickHandlers();
+});
+
+function applyClickHandlers(){
+    let $postBtn = $('#sitelogo');
+    let $post = $('.make-post');
+
+    $postBtn.click(() => {
+        $post.toggleClass( 'hide', 'show');
+    })
+
+}
 
 
 function addNewFellow(fellow){
