@@ -3,6 +3,8 @@ $(document).ready(function () {
     applyClickHandlers();
 });
 
+var last_post = 0;
+
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
     let $post = $('.make-post');
@@ -18,7 +20,7 @@ function addNewFellow(fellow){
     $.ajax({
         url: `/new-fellow/${fellow}`
 
-    })
+    });
 }
 
 function retrievePosts(){
@@ -26,8 +28,12 @@ function retrievePosts(){
         url: '/get_posts',
         dataType: 'json',
         method: 'POST',
+        data: {
+            offset: parseInt(last_post),
+            qty: 10
+        },
         success: function(result){
-
+            console.log(result);
             for (let row in result){
                 buildPost(result[row]);
             }
@@ -52,6 +58,7 @@ function buildPost(arr){
 
     let $container = $('<div>',{class: 'post-container'}).append($header,$body,$footer);
     $('.thread-container').append($container);
+    last_post = arr[3];
     return $container;
 }
 
