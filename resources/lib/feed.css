@@ -2,9 +2,8 @@
 section.make-post {
     margin: 0 auto;
     padding: 10px 0;
-    position: relative;
-    height: 37vh;
-    top: 47vh;
+    position: absolute;
+    transform: translate(37vw, 50vh);
 }
 
 .hide {
@@ -16,9 +15,8 @@ section.make-post {
 }
 
 .think-bubble {
-    height: 40vh;
-    position: relative;
-    transform: translate(43%, -12%);
+    height: inherit;
+    /* transform: translate(43%, -12%); */
     filter: invert(50%);
 }
 
@@ -30,25 +28,29 @@ section.make-post {
 }
 
 #make-post-form {
-    width: 60%;
-    height: 19vh;
+    width: 55vw;
+    height: 35vh;
     color: #fafafa;
     text-align: center;
     margin: 0 auto;
     position: relative;
     font-size: 0;
-    bottom: 40vh;
-    left: 13%;
+    bottom: 0;
+    /* left: 35.5%; */
 }
 
 #make-post-form textarea {
-    height: 95%;
+    height: 30vmin;
+    width: 40vmin;
+    position: relative;
+    bottom: 55vmin;
+    left: 2vmin;
     box-sizing: border-box;
     font-size: 5vmin;
     resize: none;
     overflow: hidden;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: white;
     letter-spacing: 1px;
     line-height: 5vmin;
@@ -59,8 +61,11 @@ section.make-post {
 }
 
 #make-post-form input {
-    width: 23vw;
-    height: 6vh;
+    width: 20vw;
+    height: 5vh;
+    position: relative;
+    bottom: 40vmin;
+    left: 20vmin;
     background-color: #808080;
     border: 1px solid #FAFAFA;
     border-radius: 10px;
@@ -69,9 +74,9 @@ section.make-post {
     font-size: 5vmin;
     cursor: pointer;
     color: white;
-    position: absolute;
-    left: 66%;
-    top: 28vh;
+    /* position: absolute;
+    left: 131%;
+    top: 30vh; */
     font-family: 'Mukta Malar', sans-serif;
 }
 
