@@ -1,56 +1,57 @@
 
 section.make-post {
     margin: 0 auto;
-    background-color: #E3F2FD;
     padding: 10px 0;
     position: relative;
-    top: 17vh;
+    height: 37vh;
+    top: 47vh;
 }
 
-/* nav ul li {
-    display: inline-block;
-    color: #706F6F;
-    font-size: 11vmin;
-    font-family: monospace;
-    text-align: center;
-    padding: 2% 0;
-    border-radius: 5px 5px 0 0;
-    width: 24.5%;
-} */
+.hide {
+    display: none;
+}
 
-/* .nav-icon {
-    width: 11vmin;
-    filter: invert(100%);
-} */
+.show {
+    display: block;
+}
+
+.think-bubble {
+    height: 40vh;
+    position: relative;
+    transform: translate(43%, -12%);
+    filter: invert(50%);
+}
 
 .thread-container {
     height: 70vh;
-    position: relative;
+    position: absolute;
     top: 17vh;
     overflow: scroll;
 }
 
 #make-post-form {
-    width: 90%;
-    height: 100px;
-    color: #FCFDFF;
+    width: 60%;
+    height: 19vh;
+    color: #fafafa;
     text-align: center;
     margin: 0 auto;
     position: relative;
     font-size: 0;
+    bottom: 40vh;
+    left: 13%;
 }
 
 #make-post-form textarea {
-    width: 80%;
     height: 90%;
-    border-radius: 10px 0 0 10px;
-    border: 3px solid #2F3331;
-    border-right: none;
     box-sizing: border-box;
     font-size: 1rem;
     resize: none;
     overflow: hidden;
     padding: 5px;
+    border-radius: 5%;
+    border: white;
+    outline-color: #fafafa;
+    background-color: #eceaea;
 }
 
 #make-post-form input {
@@ -87,8 +88,8 @@ section.make-post {
 }
 
 .post-user-image {
-    width: 100px;
-    height: 100px;
+    width: 13vw;
+    height: 7vh;
     border-radius: 5px;
     float: left;
     margin: 10px;

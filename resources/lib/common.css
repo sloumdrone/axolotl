@@ -23,8 +23,8 @@ body {
     border-radius: 100%;
     border: 3px solid #706F6F;
     background-position: bottom;
-    width: 220px;
-    height: 220px;
+    width: 100px;
+    height: 100px;
     background-color: #FFF;
     position: absolute;
     top: 31%;
@@ -37,6 +37,7 @@ header {
     width: 100%;
     height: 17vh;
     background-color: #3BB3C2;
+    /* background-color: #233287; */
     color: #2F3331;
     border-bottom: 1px solid #928E8E;
 }
@@ -64,7 +65,7 @@ nav ul li {
     text-align: center;
     padding-top: 2%;
     border-radius: 5px 5px 0 0;
-    width: 24.5%;
+    width: 24%;
     box-shadow: 5px -5px 9px 0px #34a3b1;
 }
 
@@ -83,6 +84,7 @@ footer {
     bottom: 0;
     height: 13vh;
     background-color: #3BB3C2;
+    /* background-color: #233287; */
     width: 100%;
 }
 

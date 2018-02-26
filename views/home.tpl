@@ -14,6 +14,13 @@
         % include('header.tpl')
         <section class='thread-container'>
         </section>
+        <section class="make-post hide">
+            <img class='think-bubble' src='/images/thinkbubble.png' />
+            <form action="/post" id="make-post-form" method="post">
+                <textarea name="message" autocomplete="off"></textarea>
+                <!-- <input type="submit" name="submit" value="&#x270E;"> -->
+            </form>
+        </section>
         % include('footer.tpl')
     </body>
 </html>
