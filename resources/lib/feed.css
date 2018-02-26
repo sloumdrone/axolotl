@@ -42,29 +42,37 @@ section.make-post {
 }
 
 #make-post-form textarea {
-    height: 90%;
+    height: 95%;
     box-sizing: border-box;
-    font-size: 1rem;
+    font-size: 5vmin;
     resize: none;
     overflow: hidden;
     padding: 5px;
-    border-radius: 5%;
+    border-radius: 5px;
     border: white;
-    outline-color: #fafafa;
-    background-color: #eceaea;
+    letter-spacing: 1px;
+    line-height: 5vmin;
+    outline-color: #808080;
+    background-color: #808080;
+    color: white;
+    font-family: 'Mukta Malar', sans-serif;
 }
 
 #make-post-form input {
-    width: 20%;
-    height: 90%;
-    background-color: #9fd0f4;
-    border: 3px solid #2F3331;
-    border-left: 1px solid #2F3331;
-    border-radius: 0 10px 10px 0;
+    width: 23vw;
+    height: 6vh;
+    background-color: #808080;
+    border: 1px solid #FAFAFA;
+    border-radius: 10px;
     vertical-align: top;
     box-sizing: border-box;
-    font-size: 3rem;
+    font-size: 5vmin;
     cursor: pointer;
+    color: white;
+    position: absolute;
+    left: 66%;
+    top: 28vh;
+    font-family: 'Mukta Malar', sans-serif;
 }
 
 #make-post-form input:hover {

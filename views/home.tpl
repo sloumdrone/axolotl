@@ -18,7 +18,7 @@
             <img class='think-bubble' src='/images/thinkbubble.png' />
             <form action="/post" id="make-post-form" method="post">
                 <textarea name="message" autocomplete="off"></textarea>
-                <!-- <input type="submit" name="submit" value="&#x270E;"> -->
+                <input type="submit" name="submit" value="post">
             </form>
         </section>
         % include('footer.tpl')
