@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Axolotl</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             section {
                 height: 550px;
@@ -183,10 +184,11 @@
             $('.alt-action').click(function(){
                 $('form').toggleClass('hidden');
             });
-
-            setTimeout(function(){
-                $('.wordBubble').hide('fast');
-            },8000);
         </script>
+            <script type="text/javascript">
+                setTimeout(function(){
+                    $('.wordBubble').hide('fast');
+                },8000);
+            </script>  
     </body>
 </html>
