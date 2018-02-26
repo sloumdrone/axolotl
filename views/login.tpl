@@ -185,12 +185,10 @@
                 $('form').toggleClass('hidden');
             });
         </script>
-        %if loginissue:
             <script type="text/javascript">
                 setTimeout(function(){
                     $('.wordBubble').hide('fast');
                 },8000);
-            </script>
-        %end    
+            </script>  
     </body>
 </html>
