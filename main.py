@@ -213,7 +213,7 @@ def retrieve_posts(user,offset,qty):
     c = db_conn.cursor()
     if offset > 1:
         c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
-    else:
+    elif offset == 0:
         c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT ?''',(user,qty))
     output = []
     for row in c:

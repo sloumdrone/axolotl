@@ -5,6 +5,8 @@ $(document).ready(function () {
 });
 
 var last_post = 0;
+var loading = false;
+var endoffeed = false;
 
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
@@ -18,11 +20,14 @@ function applyClickHandlers(){
 
 function addScrollHandler(){
     $('.thread-container').on('scroll',function(){
-        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 10){
-            alert('At bottom!!');
-            //add a function call here to a new function that builds the loading spinner
-            //then make the retrieve posts ajax call and delete the spinner div
-            //adding the results of the next call
+        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 10 && !loading && !endoffeed){
+            loading = true;
+            handleLoading();
+            setTimeout(()=>{
+                retrievePosts();
+                $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
+                loading = false;
+            },2000);
         }
     });
 }
@@ -43,9 +48,14 @@ function retrievePosts(){
             qty: 10
         },
         success: function(result){
-            for (let row in result){
-                buildPost(result[row]);
+            if (Object.keys(result).length == 0){
+                endoffeed = true;
+            } else {
+                for (let row in result){
+                    buildPost(result[row]);
+                }
             }
+
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
@@ -85,4 +95,12 @@ function parseTime(post_time){
     } else {
         return `${Math.round(((elapsed_time/60) / 60) / 24)}d ago`;
     }
+}
+
+
+function handleLoading(){
+    $container = $('<div>',{'id':'loadContainer'});
+    $spinnyLoader = $('<div>',{'id':'loadingSpinner'});
+    $spinnyLoader.appendTo($container);
+    $('.thread-container').append($container);
 }
