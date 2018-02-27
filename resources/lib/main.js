@@ -10,12 +10,10 @@ var endoffeed = false;
 
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
-    let $post = $('.make-post');
 
     $postBtn.click(() => {
         $post.toggleClass( 'show', 'hide');
-    })
-
+    });
 }
 
 function addScrollHandler(){
@@ -32,11 +30,7 @@ function addScrollHandler(){
     });
 }
 
-function addNewFellow(fellow){
-    $.ajax({
-        url: `/new-fellow/${fellow}`
-    });
-}
+
 
 function retrievePosts(){
     $.ajax({

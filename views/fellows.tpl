@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/fellows.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="/library/fellows.js"></script>
     </head>
     <body>
         % include('header.tpl')
@@ -26,19 +27,5 @@
                 </ul>
             </div>
         </section>
-        <script>
-            $('.search-button').on('click',function(){
-                $.ajax({
-                    url: 'new-fellow/' + $('input[name=usersearch]').val(),
-                    success: function(result){
-                        console.log('Added ' + $('input[name=usersearch]').val() + ' ' + result);
-                        $('input[name=usersearch]').val('');
-                    },
-                    error: function(result){
-                        console.warn(result);
-                    }
-                });
-            })
-        </script>
     </body>
 </html>

@@ -50,8 +50,8 @@ def handle_new_fellow(new_fellow):
     username = request.get_cookie('user')
     if username and new_fellow:
         if follow(username,new_fellow):
-            return 'It worked!'
-    return 'It didnt work :('
+            return json.dumps({'success': True})
+    return json.dumps({'success': False})
 
 @route('/get_posts', method='POST')
 def retrievePosts():
@@ -200,11 +200,15 @@ def post_to_db(user, message):
 def follow(user,new_friend):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
+    c.execute('''SELECT * FROM users WHERE username = ?''',(new_friend,))
     lastid = c.lastrowid
-    db_conn.commit()
+    c.execute('''SELECT * FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
+    nonduplicate = c.lastrowid
+    if nonduplicate:
+        c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
+        db_conn.commit()
     db_conn.close()
-    if lastid:
+    if lastid and nonduplicate:
         return True
     return False
 
