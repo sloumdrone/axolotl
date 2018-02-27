@@ -14,9 +14,8 @@
         % include('header.tpl')
         <section class='thread-container'>
         </section>
-        <section class="make-post hide">
+        <section class="make-post">
             <form action="/post" id="make-post-form" method="post">
-                <img class='think-bubble' src='/images/thinkbubble.png' />
                 <textarea name="message" autocomplete="off"></textarea>
                 <input type="submit" name="submit" value="post">
             </form>

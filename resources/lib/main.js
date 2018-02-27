@@ -8,7 +8,7 @@ function applyClickHandlers(){
     let $post = $('.make-post');
 
     $postBtn.click(() => {
-        $post.toggleClass( 'hide', 'show');
+        $post.toggleClass( 'show', 'hide');
     })
 
 }
