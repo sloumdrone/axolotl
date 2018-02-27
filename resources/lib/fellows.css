@@ -33,7 +33,7 @@ section > .user-search-container, section > .fellow-list-container {
     width: 50vw;
     height: 7vh;
     border-radius: 5px 0 0 5px;
-    border: 2px solid #2F3331;
+    border: 1px solid #2F3331;
     border-right: none;
     box-sizing: border-box;
     font-size: 1.5rem;
@@ -46,7 +46,7 @@ section > .user-search-container, section > .fellow-list-container {
     width: 15vw;
     height: 7vh;
     background-color: #928E8E;
-    border: 2px solid #2F3331;
+    border: 1px solid #2F3331;
     border-left: 1px solid #2F3331;
     border-radius: 0 5px 5px 0;
     vertical-align: top;

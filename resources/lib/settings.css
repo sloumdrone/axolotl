@@ -56,10 +56,10 @@
     padding: 5%;
     font-size: 3vmin;
     background-color: white;
-    border-bottom: 2px solid #706F6F;
-    border-right: 2px solid #706F6F;
-    border-left: 2px solid #2F3331;
-    border-top: 2px solid #2F3331;
+    border-bottom: 1px solid #706F6F;
+    border-right: 1px solid #706F6F;
+    border-left: 1px solid #2F3331;
+    border-top: 1px solid #2F3331;
     border-radius: 5px;
     margin: 5px;
     user-select: none;

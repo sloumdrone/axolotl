@@ -26,5 +26,19 @@
                 </ul>
             </div>
         </section>
+        <script>
+            $('.search-button').on('click',function(){
+                $.ajax({
+                    url: 'new-fellow/' + $('input[name=usersearch]').val(),
+                    success: function(result){
+                        console.log('Added ' + $('input[name=usersearch]').val() + ' ' + result);
+                        $('input[name=usersearch]').val('');
+                    },
+                    error: function(result){
+                        console.warn(result);
+                    }
+                });
+            })
+        </script>
     </body>
 </html>
