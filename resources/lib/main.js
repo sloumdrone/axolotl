@@ -1,6 +1,7 @@
 $(document).ready(function () {
     retrievePosts();
     applyClickHandlers();
+    addScrollHandler();
 });
 
 var last_post = 0;
@@ -15,11 +16,20 @@ function applyClickHandlers(){
 
 }
 
+function addScrollHandler(){
+    $('.thread-container').on('scroll',function(){
+        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 10){
+            alert('At bottom!!');
+            //add a function call here to a new function that builds the loading spinner
+            //then make the retrieve posts ajax call and delete the spinner div
+            //adding the results of the next call
+        }
+    });
+}
 
 function addNewFellow(fellow){
     $.ajax({
         url: `/new-fellow/${fellow}`
-
     });
 }
 
@@ -29,11 +39,10 @@ function retrievePosts(){
         dataType: 'json',
         method: 'POST',
         data: {
-            offset: parseInt(last_post),
+            offset: last_post,
             qty: 10
         },
         success: function(result){
-            console.log(result);
             for (let row in result){
                 buildPost(result[row]);
             }
