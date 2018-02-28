@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/feed.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script type="text/javascript" src="/library/main.js"></script>
+        <script type="text/javascript" src="/library/home.js"></script>
     </head>
     <body>
         % include('header.tpl')
