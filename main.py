@@ -50,13 +50,15 @@ def handle_new_fellow(new_fellow):
     username = request.get_cookie('user')
     if username and new_fellow:
         if follow(username,new_fellow):
-            return 'It worked!'
-    return 'It didnt work :('
+            return json.dumps({'success': True})
+    return json.dumps({'success': False})
 
 @route('/get_posts', method='POST')
 def retrievePosts():
     username = request.get_cookie('user')
-    return json.dumps(retrieve_posts(username))
+    offset = int(request.forms.get('offset'))
+    qty = int(request.forms.get('qty'))
+    return json.dumps(retrieve_posts(username,offset,qty))
 
 @route('/signup', method='POST')
 def sign_up():
@@ -198,21 +200,28 @@ def post_to_db(user, message):
 def follow(user,new_friend):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
+    c.execute('''SELECT * FROM users WHERE username = ?''',(new_friend,))
     lastid = c.lastrowid
-    db_conn.commit()
+    c.execute('''SELECT * FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
+    nonduplicate = c.lastrowid
+    if nonduplicate:
+        c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
+        db_conn.commit()
     db_conn.close()
-    if lastid:
+    if lastid and nonduplicate:
         return True
     return False
 
-def retrieve_posts(user):
+def retrieve_posts(user,offset,qty):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT 10''',(user,))
+    if offset > 1:
+        c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
+    elif offset == 0:
+        c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT ?''',(user,qty))
     output = []
     for row in c:
-        output.append([row[1],row[2],row[3]])
+        output.append([row[1],row[2],row[3],row[0]])
     db_conn.commit()
     db_conn.close()
     return output

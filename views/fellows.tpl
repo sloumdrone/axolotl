@@ -3,28 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>Axolotl: Fellows - {{username}}</title>
+        <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
+        <link rel=stylesheet href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />
         <link href="https://fonts.googleapis.com/css?family=Averia+Libre|Neucha" rel="stylesheet">
+        <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/fellows.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="/library/fellows.js"></script>
     </head>
     <body>
-        <header class="topbar">
-            <div id="sitelogo"></div>
-            <nav>
-                <ul>
-                    <li><a href="/profile">Home</a></li>
-                    <li><a href="/fellows">Fellows</a> </li>
-                    <li><a href="/settings">Settings</a> </li>
-                    <li><a href="/logout">Log Out</a></li>
-                </ul>
-
-            </nav>
-            <span class="currentUser">{{username}}</span>
-        </header>
+        % include('header.tpl')
         <section class="green-container">
             <p>Add a new fellow:</p>
             <div class="user-search-container">
-                <input type="text" name="usersearch" value="" placeholder="Username"><div class="search-button">&#x270A;</div>
+                <input type="text" name="usersearch" value="" placeholder="Username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
             </div>
         </section>
         <section class="white-container">
