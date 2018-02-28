@@ -10,6 +10,7 @@ var endoffeed = false;
 
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
+    let $post = $('section.make-post');
 
     $postBtn.click(() => {
         $post.toggleClass( 'show', 'hide');

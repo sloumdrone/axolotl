@@ -223,7 +223,6 @@ def follow(user,new_friend):
     return False
 
 def retrieve_posts(user,offset,qty):
-    print 'Getting profile posts'
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     if offset > 1:
