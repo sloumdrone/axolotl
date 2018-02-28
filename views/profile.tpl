@@ -8,10 +8,18 @@
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/feed.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script type="text/javascript" src="/library/main.js"></script>
+        <script type="text/javascript" src="/library/profile.js"></script>
     </head>
     <body>
         % include('header.tpl')
+        <section class='thread-container'>
+            <div class="post-container">
+                <div class="post-header">
+                    <!-- <div class="post-user-image"></div> -->
+                    <div class="post-user-name">{{posts_user}}'s Profile</div>
+                </div>
+            </div>
+        </section>
         <section class="make-post">
             <form action="/post" id="make-post-form" method="post">
                 <textarea name="message" autocomplete="off"></textarea>

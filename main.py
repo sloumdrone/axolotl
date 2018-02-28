@@ -16,11 +16,13 @@ def home():
     user = request.get_cookie('user')
     return template('home',username=user)
 
-@route('/profile')
-def profile():
+@route('/profile/<user>')
+def profile(user):
     is_logged_in()
-    user = request.get_cookie('user')
-    return template('profile',username=user)
+    logged_in_user = request.get_cookie('user')
+    if not select_user(user):
+        user = request.get_cookie('user')
+    return template('profile',username=logged_in_user,posts_user=user)
 
 @route('/settings')
 def settings():
@@ -59,6 +61,14 @@ def retrievePosts():
     offset = int(request.forms.get('offset'))
     qty = int(request.forms.get('qty'))
     return json.dumps(retrieve_posts(username,offset,qty))
+
+@route('/get_profile_posts/<user>', method='POST')
+def retrieveProfilePosts(user):
+    if select_user(user):
+        username = user
+        offset = int(request.forms.get('offset'))
+        qty = int(request.forms.get('qty'))
+        return json.dumps(retrieve_profile_posts(username,offset,qty))
 
 @route('/signup', method='POST')
 def sign_up():
@@ -213,12 +223,27 @@ def follow(user,new_friend):
     return False
 
 def retrieve_posts(user,offset,qty):
+    print 'Getting profile posts'
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     if offset > 1:
         c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
     elif offset == 0:
         c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT ?''',(user,qty))
+    output = []
+    for row in c:
+        output.append([row[1],row[2],row[3],row[0]])
+    db_conn.commit()
+    db_conn.close()
+    return output
+
+def retrieve_profile_posts(user,offset,qty):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    if offset > 1:
+        c.execute('''SELECT * FROM posts WHERE username=? and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
+    elif offset == 0:
+        c.execute('''SELECT * FROM posts WHERE username=? ORDER BY post_time DESC LIMIT ?''',(user,qty))
     output = []
     for row in c:
         output.append([row[1],row[2],row[3],row[0]])
