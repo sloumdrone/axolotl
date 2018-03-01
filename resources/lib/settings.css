@@ -1,13 +1,16 @@
+section {
+    position: absolute;
+    width: 100vw;
+    top: 17vh;
+    left: 0;
+    height: 83vh;
+}
 
 .user-icon {
-    height: 25vh;
     margin: 0 auto;
-    /* background-color: #87D68D; */
     padding: 10px 0;
     text-align: center;
     font-family: 'Averia Libre', monospace;
-    position: relative;
-    top: 17vh;
 }
 
 .user-icon p {
@@ -16,14 +19,12 @@
 }
 
 .delete-account {
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     background-color: white;
     padding: 10px 20px;
     text-align: center;
     font-family: 'Averia Libre', monospace;
     position: relative;
-    top: 17vh;
-    height: 35vh;
 }
 
 .delete-account p {
@@ -39,6 +40,7 @@
 
 #crop-container {
     display: inline-block;
+    height: 70px;
 }
 
 .cr-slider {
@@ -77,4 +79,27 @@
 
 .hidden {
     display: none;
+}
+
+#crop-container {
+    width: 50%;
+}
+
+#uploadBtn {
+    display: none;
+}
+
+.customUploadBtn {
+    width: 30%;
+    height: 10%;
+    font-size: 1.5em;
+    border: 2px solid red;
+    color: whitesmoke;
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+#iconPreview {
+    width: 70px;
+    height: 70px;
 }

@@ -35,7 +35,7 @@ function addScrollHandler(){
 
 function retrieveProfilePosts(){
     $.ajax({
-        url: '/get_profile_posts/'+$('p.currentUser').text(),
+        url: '/get_profile_posts/'+$('#postsToGrab').text(),
         dataType: 'json',
         method: 'POST',
         data: {

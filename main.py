@@ -1,5 +1,6 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
+from PIL import Image
 
 
 db = './resources/inky.sqlite'
@@ -22,6 +23,7 @@ def profile(user):
     logged_in_user = request.get_cookie('user')
     if not select_user(user):
         user = request.get_cookie('user')
+    print user
     return template('profile',username=logged_in_user,posts_user=user)
 
 @route('/settings')
@@ -40,12 +42,18 @@ def fellows():
     user = request.get_cookie('user')
     return template('fellows',username=user)
 
+@route('/get_fellows')
+def get_fellows():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return json.dumps(retrieve_fellows(user))
+
 @route('/post', method='POST')
 def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
     post_to_db(username,message)
-    return redirect('/profile')
+    return redirect('/home')
 
 @route('/new-fellow/<new_fellow>')
 def handle_new_fellow(new_fellow):
@@ -64,6 +72,7 @@ def retrievePosts():
 
 @route('/get_profile_posts/<user>', method='POST')
 def retrieveProfilePosts(user):
+    print user
     if select_user(user):
         username = user
         offset = int(request.forms.get('offset'))
@@ -87,7 +96,8 @@ def sign_up():
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
-        return redirect('/profile')
+        follow(username,username)
+        return redirect('/home')
     else:
         return redirect('/?statusCode=222')
 
@@ -105,7 +115,7 @@ def log_me_in():
         create_session_db(username,session_id.hexdigest())
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
-        redirect('/profile')
+        redirect('/home')
     else:
         redirect('/?statusCode=111')
 
@@ -127,6 +137,32 @@ def serve_pictures(picture):
 def serve_libs(lib):
     return static_file(lib, root='./resources/lib/')
 
+@route('/upload_file', method='POST')
+def do_upload():
+    username = request.get_cookie('user')
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+
+    size = (128, 128)
+    error = json.dumps({'success':False,'error':'Filetype not accepted'})
+    if ext not in ('.png', '.jpg', '.jpeg', '.gif'):
+        return error
+
+
+    outfile = './resources/images/user/' + username + ".JPEG"
+    if upload.filename != outfile:
+        try:
+            # raw = upload.file.read()
+            im = Image.open(upload.file)
+            print im.format, "%dx%d" % im.size, im.mode
+            im.thumbnail(size)
+            im.save(outfile, "JPEG")
+        except IOError:
+            print "cannot create thumbnail for", upload.filename
+
+    return redirect('/settings')
+
+###################################Routes Above/Functions below######################
 
 def is_logged_in():
     if request.get_cookie("user") != None:
