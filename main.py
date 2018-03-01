@@ -1,5 +1,7 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
+from PIL import Image
+from shutil import copyfile
 
 
 db = './resources/inky.sqlite'
@@ -16,11 +18,14 @@ def home():
     user = request.get_cookie('user')
     return template('home',username=user)
 
-@route('/profile')
-def profile():
+@route('/profile/<user>')
+def profile(user):
     is_logged_in()
-    user = request.get_cookie('user')
-    return template('profile',username=user)
+    logged_in_user = request.get_cookie('user')
+    if not select_user(user):
+        user = request.get_cookie('user')
+    print user
+    return template('profile',username=logged_in_user,posts_user=user)
 
 @route('/settings')
 def settings():
@@ -38,25 +43,42 @@ def fellows():
     user = request.get_cookie('user')
     return template('fellows',username=user)
 
+@route('/get_fellows')
+def get_fellows():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return json.dumps(retrieve_fellows(user))
+
 @route('/post', method='POST')
 def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
     post_to_db(username,message)
-    return redirect('/profile')
+    return redirect('/home')
 
 @route('/new-fellow/<new_fellow>')
 def handle_new_fellow(new_fellow):
     username = request.get_cookie('user')
     if username and new_fellow:
         if follow(username,new_fellow):
-            return 'It worked!'
-    return 'It didnt work :('
+            return json.dumps({'success': True})
+    return json.dumps({'success': False})
 
 @route('/get_posts', method='POST')
 def retrievePosts():
     username = request.get_cookie('user')
-    return json.dumps(retrieve_posts(username))
+    offset = int(request.forms.get('offset'))
+    qty = int(request.forms.get('qty'))
+    return json.dumps(retrieve_posts(username,offset,qty))
+
+@route('/get_profile_posts/<user>', method='POST')
+def retrieveProfilePosts(user):
+    print user
+    if select_user(user):
+        username = user
+        offset = int(request.forms.get('offset'))
+        qty = int(request.forms.get('qty'))
+        return json.dumps(retrieve_profile_posts(username,offset,qty))
 
 @route('/signup', method='POST')
 def sign_up():
@@ -75,7 +97,10 @@ def sign_up():
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
-        return redirect('/profile')
+        follow(username,username)
+        newdefault = './resources/images/user/'+ username +'.JPEG'
+        copyfile('./resources/images/user/axolotl.JPEG',newdefault)
+        return redirect('/home')
     else:
         return redirect('/?statusCode=222')
 
@@ -93,7 +118,7 @@ def log_me_in():
         create_session_db(username,session_id.hexdigest())
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
-        redirect('/profile')
+        redirect('/home')
     else:
         redirect('/?statusCode=111')
 
@@ -107,14 +132,38 @@ def logout():
     response.delete_cookie("session")
     redirect('/')
 
-@route('/images/<picture>')
-def serve_pictures(picture):
-    return static_file(picture, root='./resources/images/')
+@route('/images/<path:path>')
+def serve_pictures(path):
+    return static_file(path, root='./resources/images/')
 
 @route('/library/<lib>')
 def serve_libs(lib):
     return static_file(lib, root='./resources/lib/')
 
+@route('/upload_file', method='POST')
+def do_upload():
+    username = request.get_cookie('user')
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+
+    size = (128, 128)
+    error = json.dumps({'success':False,'error':'Filetype not accepted'})
+    if ext.lower() not in ('.png', '.jpg', '.jpeg', '.gif'):
+        return error
+
+
+    outfile = './resources/images/user/' + username + ".JPEG"
+    if upload.filename != outfile:
+        try:
+            im = Image.open(upload.file)
+            # print im.format, "%dx%d" % im.size, im.mode
+            im.resize(size).save(outfile, "JPEG",quality=100)
+        except IOError:
+            print "cannot create thumbnail for", upload.filename
+
+    return redirect('/settings')
+
+###################################Routes Above/Functions below######################
 
 def is_logged_in():
     if request.get_cookie("user") != None:
@@ -196,23 +245,47 @@ def post_to_db(user, message):
     return False
 
 def follow(user,new_friend):
+    print user, new_friend
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
-    lastid = c.lastrowid
-    db_conn.commit()
-    db_conn.close()
-    if lastid:
+    c.execute('''SELECT count(*) FROM users WHERE username = ?''',(new_friend,))
+    validfriend = c.fetchone()[0]
+    print validfriend
+    c.execute('''SELECT count(*) FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
+    duplicate = c.fetchone()[0]
+    print validfriend, duplicate
+    if validfriend == 1 and duplicate == 0:
+        c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
+        db_conn.commit()
+        db_conn.close()
         return True
+    db_conn.close()
     return False
 
-def retrieve_posts(user):
+def retrieve_posts(user,offset,qty):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT 10''',(user,))
+    if offset > 1:
+        c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
+    elif offset == 0:
+        c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT ?''',(user,qty))
     output = []
     for row in c:
-        output.append([row[1],row[2],row[3]])
+        output.append([row[1],row[2],row[3],row[0]])
+    db_conn.commit()
+    db_conn.close()
+    return output
+
+def retrieve_profile_posts(user,offset,qty):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    if offset > 1:
+        c.execute('''SELECT * FROM posts WHERE username=? and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
+    elif offset == 0:
+        c.execute('''SELECT * FROM posts WHERE username=? ORDER BY post_time DESC LIMIT ?''',(user,qty))
+    output = []
+    for row in c:
+        output.append([row[1],row[2],row[3],row[0]])
     db_conn.commit()
     db_conn.close()
     return output
