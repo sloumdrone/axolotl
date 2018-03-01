@@ -71,6 +71,8 @@ function buildPost(arr){
     let $time_elapsed = $('<div>',{class: 'post-like',text: parseTime(arr[2])}).appendTo($footer);
 
     let $container = $('<div>',{class: 'post-container'}).append($header,$body,$footer);
+    $image.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $username.wrap(`<a href="/profile/${arr[0]}"></a>`);
     $('.thread-container').append($container);
     last_post = arr[3];
     return $container;

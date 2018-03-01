@@ -21,7 +21,8 @@ function addNewFellow(fellow){
     $.ajax({
         url: `/new-fellow/${fellow}`,
         success: function(result){
-            if (JSON.parse(result).success){
+            result = JSON.parse(result);
+            if (result.success){
                 getFellowsList();
             }
         }
