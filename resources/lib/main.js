@@ -11,7 +11,25 @@ function applyClickHandlers(){
         $post.toggleClass( 'hide', 'show');
     })
 
+    $('.home').click(() => {
+        $('.home').addClass('current');
+    })
+
+    $('.profile').click(() => {
+        $('.profile').addClass('current');
+    })
+
+    $('.fellows').click(() => {
+        $('.fellows').addClass('current');
+    })
+
+    $('.settings').click(() => {
+        $('.settings').addClass('current');
+    })
+
 }
+
+
 
 
 function addNewFellow(fellow){

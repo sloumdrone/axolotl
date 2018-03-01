@@ -74,6 +74,10 @@ nav ul li:hover {
     background-color: #34a3b1;
 }
 
+.current {
+    background-color: #34a3b1;
+}
+
 .nav-icon {
     width: 9vmin;
     filter: invert(100%);
