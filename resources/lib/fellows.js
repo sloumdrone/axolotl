@@ -19,11 +19,17 @@ function applyClickHandlers(){
 
 function addNewFellow(fellow){
     $.ajax({
-        url: `/new-fellow/${fellow}`
+        url: `/new-fellow/${fellow}`,
+        success: function(result){
+            if (JSON.parse(result).success){
+                getFellowsList();
+            }
+        }
     });
 }
 
 function getFellowsList(){
+    $('#fellow-list').empty();
     $.ajax({
         url: '/get_fellows',
         method: 'GET',

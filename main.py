@@ -1,6 +1,7 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
 from PIL import Image
+from shutil import copyfile
 
 
 db = './resources/inky.sqlite'
@@ -97,6 +98,8 @@ def sign_up():
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
         follow(username,username)
+        newdefault = './resources/images/user/'+ username +'.JPEG'
+        copyfile('./resources/images/user/axolotl.JPEG',newdefault)
         return redirect('/home')
     else:
         return redirect('/?statusCode=222')
@@ -129,9 +132,9 @@ def logout():
     response.delete_cookie("session")
     redirect('/')
 
-@route('/images/<picture>')
-def serve_pictures(picture):
-    return static_file(picture, root='./resources/images/')
+@route('/images/<path:path>')
+def serve_pictures(path):
+    return static_file(path, root='./resources/images/')
 
 @route('/library/<lib>')
 def serve_libs(lib):
@@ -145,18 +148,16 @@ def do_upload():
 
     size = (128, 128)
     error = json.dumps({'success':False,'error':'Filetype not accepted'})
-    if ext not in ('.png', '.jpg', '.jpeg', '.gif'):
+    if ext.lower() not in ('.png', '.jpg', '.jpeg', '.gif'):
         return error
 
 
     outfile = './resources/images/user/' + username + ".JPEG"
     if upload.filename != outfile:
         try:
-            # raw = upload.file.read()
             im = Image.open(upload.file)
-            print im.format, "%dx%d" % im.size, im.mode
-            im.thumbnail(size)
-            im.save(outfile, "JPEG")
+            # print im.format, "%dx%d" % im.size, im.mode
+            im.resize(size).save(outfile, "JPEG",quality=100)
         except IOError:
             print "cannot create thumbnail for", upload.filename
 
@@ -244,18 +245,21 @@ def post_to_db(user, message):
     return False
 
 def follow(user,new_friend):
+    print user, new_friend
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT * FROM users WHERE username = ?''',(new_friend,))
-    lastid = c.lastrowid
-    c.execute('''SELECT * FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
-    nonduplicate = c.lastrowid
-    if nonduplicate:
+    c.execute('''SELECT count(*) FROM users WHERE username = ?''',(new_friend,))
+    validfriend = c.fetchone()[0]
+    print validfriend
+    c.execute('''SELECT count(*) FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
+    duplicate = c.fetchone()[0]
+    print validfriend, duplicate
+    if validfriend == 1 and duplicate == 0:
         c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
         db_conn.commit()
-    db_conn.close()
-    if lastid and nonduplicate:
+        db_conn.close()
         return True
+    db_conn.close()
     return False
 
 def retrieve_posts(user,offset,qty):

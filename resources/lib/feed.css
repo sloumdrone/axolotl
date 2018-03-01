@@ -52,10 +52,6 @@
     color: #808080;
     font-family: 'Mukta Malar', sans-serif;
     box-shadow: 2px 2px 10px 0px;
-    /* background-image: url('../images/post-it.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain; */
 }
 
 #make-post-form input {
@@ -96,14 +92,14 @@
 }
 
 .post-user-image {
-    width: 13vw;
-    height: 7vh;
+    width: 13vmin;
+    height: 13vmin;
     border-radius: 5px;
     float: left;
     margin: 10px;
     display: inline-block;
-    background-image: url(/images/axolotl.png);
     background-size: cover;
+    background-position: center;
     background-color: white;
     border: 2px solid #928E8E;
 }

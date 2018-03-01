@@ -90,12 +90,9 @@ footer {
 .title {
     font-family: monospace;
     color: #fafafa;
-    /* float: right; */
     font-size: 8vmin;
-    /* margin-right: 1%; */
-    /* margin-top: 10%; */
     position: absolute;
-    bottom: 25px;
-    right: 25px;
+    bottom: 2px;
+    right: 5px;
     margin: 0;
 }

@@ -20,8 +20,8 @@
             <div class="user-icon">
                 <p>User Icon:</p>
                 <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
-                    <img id="iconPreview" alt="your image" src="/images/user/axolotl.png">
-                    <button type="button" name="button" onclick="this.form.reset">X</button>
+                    <img id="iconPreview" alt="your image">
+                    <input type="reset" name="cancel">
                     <label for="uploadBtn" class="customUploadBtn">-></label>
                     <input id="uploadBtn" type="file" name="upload">
                     <input type="submit" id="submitBtn" name="submit" value="Save">
