@@ -13,8 +13,8 @@ function applyClickHandlers(){
     let $post = $('section.make-post');
 
     $postBtn.click(() => {
-        $post.toggleClass( 'show', 'hide');
-    });
+        $post.toggleClass('show');
+    })
 }
 
 function addScrollHandler(){
