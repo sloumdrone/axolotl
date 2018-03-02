@@ -6,7 +6,6 @@ from shutil import copyfile
 
 db = './resources/inky.sqlite'
 
-
 @route('/')
 def main():
     status = str(request.query.statusCode)
@@ -53,7 +52,9 @@ def get_fellows():
 def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
-    post_to_db(username,message)
+    length = len(message)
+    if length > 0 and length <= 200:
+        post_to_db(username,message)
     return redirect('/home')
 
 @route('/new-fellow/<new_fellow>')
@@ -73,7 +74,6 @@ def retrievePosts():
 
 @route('/get_profile_posts/<user>', method='POST')
 def retrieveProfilePosts(user):
-    print user
     if select_user(user):
         username = user
         offset = int(request.forms.get('offset'))
@@ -159,7 +159,9 @@ def do_upload():
             # print im.format, "%dx%d" % im.size, im.mode
             im.resize(size).save(outfile, "JPEG",quality=100)
         except IOError:
-            print "cannot create thumbnail for", upload.filename
+            print "Cannot create thumbnail for", upload.filename
+            newdefault = './resources/images/user/'+ username + '.JPEG'
+            copyfile('./resources/images/user/axolotl.JPEG',newdefault)
 
     return redirect('/settings')
 

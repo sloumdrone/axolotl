@@ -15,6 +15,15 @@ function applyClickHandlers(){
     $postBtn.click(() => {
         $post.toggleClass('show');
     });
+
+    $('.textAreaContainer textarea').on('keyup',function(){
+        let length = $(this).val().length
+        if (length > 200){
+            $(this).val($(this).val().substring(0,200));
+            length = 200;
+        }
+        $('#textCounter').text(`${length}/200`);
+    })
 }
 
 function addScrollHandler(){

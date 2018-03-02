@@ -14,7 +14,7 @@ function applyClickHandlers(){
 
     $postBtn.click(() => {
         $post.toggleClass('show');
-    })
+    });
 }
 
 function addScrollHandler(){

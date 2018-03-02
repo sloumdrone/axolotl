@@ -23,7 +23,10 @@
         </section>
         <section class="make-post">
             <form action="/post" id="make-post-form" method="post">
-                <textarea name="message" autocomplete="off"></textarea>
+                <div class="textAreaContainer">
+                    <textarea name="message" autocomplete="off" maxlength="200" minlength="1"></textarea>
+                    <span id="textCounter">0/200</span>
+                </div>
                 <input type="submit" name="submit" value="post">
             </form>
         </section>
