@@ -71,3 +71,18 @@ section.current-fellows-container {
 .fellow-list-container h2 {
     color: #616060;
 }
+
+footer {
+    height: 10vh;
+    background-color: #3BB3C2;
+}
+
+.title {
+    font-family: monospace;
+    color: #fafafa;
+    font-size: 8vmin;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    margin: 0;
+}
