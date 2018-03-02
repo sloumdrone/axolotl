@@ -91,11 +91,14 @@ function buildPost(arr){
 
 function parseUserLinks(message){
     const regex = /@{1}\S*\W{1}/g;
+    message = message + ' ';
+
     let matches = message.match(regex);
     let uniqueMatches = [...new Set(matches)];
     let edited_message = message;
 
     uniqueMatches.forEach(function(link){
+        let user = link.substring(1);
         let alink = `<a href="/profile/${link.substring(1)}">${link}</a>`;
         edited_message = edited_message.replace(link,alink);
     });
