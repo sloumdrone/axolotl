@@ -3,7 +3,7 @@
 
 }
 
-section.green-container, section.white-container {
+section.search-container, section.current-fellows-container {
     width: 100%;
     height: 20vh;
     margin: 0 auto;
@@ -14,23 +14,17 @@ section.green-container, section.white-container {
     font-size: 4vmin;
 }
 
-section.green-container p {
+section.search-container p {
     padding-left: 4%;
     color: #616060;
-}
-
-section.white-container {
-    background-color: white;
+    font-size: 6vmin;
+    margin: 1%;
 }
 
 section > .user-search-container, section > .fellow-list-container {
     text-align: center;
     padding: 5px;
     margin: 0 auto;
-}
-
-.fellow-list-container h2 {
-    color: #616060;
 }
 
 .user-search-container input {
@@ -66,4 +60,14 @@ section > .user-search-container, section > .fellow-list-container {
     width: 11vmin;
     filter: invert(100%);
     padding: 5%;
+}
+
+/************** current fellows ********************/
+
+section.current-fellows-container {
+    background-color: white;
+}
+
+.fellow-list-container h2 {
+    color: #616060;
 }

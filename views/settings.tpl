@@ -18,13 +18,13 @@
         % include('header.tpl')
         <section>
             <div class="user-icon">
-                <p>User Icon:</p>
+                <button class='logoutBtn'><a href='/logout'>Log Out</a></button>
                 <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
                     <img id="iconPreview" alt="your image">
-                    <input type="reset" name="cancel">
-                    <label for="uploadBtn" class="customUploadBtn">-></label>
+                    <input id="cancelBtn" type="reset" name="cancel" value="cancel">
+                    <label for="uploadBtn" class="customUploadBtn"><img src='../images/camera.png'</label>
                     <input id="uploadBtn" type="file" name="upload">
-                    <input type="submit" id="submitBtn" name="submit" value="Save">
+                    <input id="saveBtn" type="submit"  name="submit" value="save">
                 </form>
             </div>
             <div class="delete-account">

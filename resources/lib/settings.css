@@ -10,34 +10,37 @@ section {
     background-color: #34a3b1;
 }
 
+/******* user icon ************/
+
+.logoutBtn {
+    position: absolute;
+    right: 2%;
+    cursor: pointer;
+}
+
+.logoutBtn a {
+    text-decoration: none;
+    color: #3BB3C2;
+    font-family: monospace;
+    font-size: 5vmin;
+    text-shadow: 1px 1px #eceaea;
+}
+
+#upload {
+    position: relative;
+    text-align: center;
+}
+
 .user-icon {
     margin: 0 auto;
     padding: 10px 0;
-    text-align: center;
+    /* text-align: center; */
     font-family: 'Averia Libre', monospace;
+    background-color: #fafafa;
+
 }
 
 .user-icon p {
-    color: #616060;
-    font-size: 6vmin;
-}
-
-.delete-account {
-    margin: 10px auto 0 auto;
-    background-color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-family: 'Averia Libre', monospace;
-    position: relative;
-}
-
-.delete-account p {
-    font-size: 3.5vmin;
-    color: red;
-    font-family: monospace;
-}
-
-.delete-account p:first-child {
     color: #616060;
     font-size: 6vmin;
 }
@@ -74,6 +77,77 @@ section {
     box-shadow: 2px 2px 8px #2F3331;
 }
 
+#crop-container {
+    width: 50%;
+}
+
+#uploadBtn {
+    display: none;
+}
+
+#saveBtn, #cancelBtn {
+    width: 20%;
+    background-color: #b4b2b2;
+    /* height: 6vh; */
+    border-radius: 5px;
+    border-style: none;
+    color: whitesmoke;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* .customUploadBtn {
+    border: 2px solid #eceaea;
+    color: whitesmoke;
+    background-color: #eceaea;
+    cursor: pointer;
+} */
+
+.customUploadBtn img {
+    height: 35px;
+    width: 35px;
+    filter: invert(100%);
+    position: absolute;
+    top: 18vh;
+    right: 31vw;
+    background: #5f6060;
+    border-radius: 25%;
+    padding: 1%;
+}
+
+#iconPreview {
+    width: 40%;
+    height: 40%;
+    display: block;
+    margin: 3% auto;
+    border-radius: 50%;
+}
+
+
+
+/************* delete account *************/
+
+.delete-account {
+    margin: 10px auto 0 auto;
+    background-color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Averia Libre', monospace;
+    position: relative;
+}
+
+.delete-account p {
+    font-size: 3.5vmin;
+    color: red;
+    font-family: monospace;
+}
+
+.delete-account p:first-child {
+    color: #616060;
+    font-size: 6vmin;
+}
+
 .delete-account .image-control {
     display: inline-block;
     background-color: red;
@@ -83,27 +157,4 @@ section {
 
 .hidden {
     display: none;
-}
-
-#crop-container {
-    width: 50%;
-}
-
-#uploadBtn {
-    display: none;
-}
-
-.customUploadBtn {
-    width: 30%;
-    height: 10%;
-    font-size: 1.5em;
-    border: 2px solid red;
-    color: whitesmoke;
-    background-color: skyblue;
-    cursor: pointer;
-}
-
-#iconPreview {
-    width: 70px;
-    height: 70px;
 }

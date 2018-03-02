@@ -14,13 +14,13 @@
     </head>
     <body>
         % include('header.tpl')
-        <section class="green-container">
+        <section class="search-container">
             <p>Add a new fellow:</p>
             <div class="user-search-container">
                 <input type="text" name="usersearch" value="" placeholder="Username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
             </div>
         </section>
-        <section class="white-container">
+        <section class="current-fellows-container">
             <div class="fellow-list-container">
                 <h2>Current Fellows</h2>
                 <ul id="fellow-list">

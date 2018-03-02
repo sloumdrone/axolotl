@@ -37,6 +37,7 @@ header {
     color: #fafafa;
     font-family: monospace;
     padding: 2% 0;
+    height: 7vh;
 }
 
 nav ul {
@@ -48,6 +49,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
+    height: 10vh;
     color: #706F6F;
     font-size: 10vmin;
     font-family: monospace;
