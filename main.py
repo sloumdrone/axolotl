@@ -36,6 +36,12 @@ def settings():
         photo = 'axolotl.png'
     return template('settings', username=user, userpic=photo)
 
+@route('/contact')
+def contact():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return template('contact', username=user)
+
 @route('/fellows')
 def fellows():
     is_logged_in()

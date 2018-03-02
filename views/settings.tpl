@@ -18,7 +18,7 @@
         % include('header.tpl')
         <section>
             <div class="user-icon">
-                <a href='/logout' class='logoutBtn'><button>Log Out</button></a>
+                <a href='/logout' class='logoutBtn'><button>log out</button></a>
                 <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
                     <img id="iconPreview" alt="your image">
                     <input id="cancelBtn" type="reset" name="cancel" value="cancel">
@@ -28,16 +28,16 @@
                 </form>
             </div>
             <div button-container>
-                <button class='settingsBtn'><img src='/images/unicorn.svg' />Contact Us</button>
-                <button class='settingsBtn'><img src='/images/pencil.svg' />Edit Email</button>
-                <button class='settingsBtn'><img src='/images/edit.svg' />Edit Bio</button>
-                <button class='settingsBtn deleteBtn'><img src='/images/trashcan.svg' />Delete Account</button>
+                <button class='settingsBtn'><img class='button-icon' src='/images/unicorn.svg' />contact us<img class='arrow' src='/images/arrow.svg' /></button>
+                <button class='settingsBtn'><img class='button-icon' src='/images/pencil.svg' />edit email</button>
+                <button class='settingsBtn'><img class='button-icon' src='/images/edit.svg' />edit bio</button>
+                <button class='settingsBtn deleteBtn'><img class='button-icon' src='/images/trashcan.svg' />delete account</button>
             </div>
-            <!-- <div class="delete-account">
-                <p>Delete Account:</p>
-                <p>WARNING!!! This cannot be undone. Only click the button below if you really want to delete your account. You will not be prompted for more information, your account will just be gone. This is not recoverable.</p>
-                <div class="image-control">Delete Account</div>
-            </div> -->
+            <div class="delete-account">
+                <p>WARNING!!! This CANNOT be undone and is not recoverable.</p>
+                <div class='image-control cancel-delete'>cancel</div>
+                <div class="image-control confirm-delete">delete account</div>
+            </div>
             <footer>
                 <h2 class='title'>Axolotl</h2>
             </footer>
