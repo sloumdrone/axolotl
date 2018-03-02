@@ -2,6 +2,7 @@ from bottle import route, run, template, static_file, post, request, get, post, 
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
 from PIL import Image
 from shutil import copyfile
+from cgi import escape as sanitize
 
 
 db = './resources/inky.sqlite'
@@ -60,6 +61,8 @@ def handle_post():
     message = request.forms.get('message')
     length = len(message)
     if length > 0 and length <= 200:
+        message = re.sub('<[^<]+?>', '', message)
+        message = sanitize(message, True)
         post_to_db(username,message)
     return redirect('/home')
 
