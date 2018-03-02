@@ -1,22 +1,24 @@
 
-section.green-container, section.white-container {
+.fellows {
+    background-color: #34a3b1;
+}
+
+section.search-container, section.current-fellows-container {
     width: 100%;
     height: 20vh;
     margin: 0 auto;
-    background-color: #E3F2FD;
+    background-color: #eceaea;
     padding: 10px 0;
     position: relative;
     top: 17vh;
     font-size: 4vmin;
 }
 
-section.green-container p {
+section.search-container p {
     padding-left: 4%;
-    color: #616060;
-}
-
-section.white-container {
-    background-color: white;
+    color: #727070;
+    font-size: 6vmin;
+    margin: 1%;
 }
 
 section > .user-search-container, section > .fellow-list-container {
@@ -25,18 +27,14 @@ section > .user-search-container, section > .fellow-list-container {
     margin: 0 auto;
 }
 
-.fellow-list-container h2 {
-    color: #616060;
-}
-
 .user-search-container input {
     width: 50vw;
     height: 7vh;
     border-radius: 5px 0 0 5px;
-    border: 1px solid #2F3331;
+    border: 1px solid #928E8E;
     border-right: none;
     box-sizing: border-box;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     resize: none;
     overflow: hidden;
     padding: 5px;
@@ -45,9 +43,9 @@ section > .user-search-container, section > .fellow-list-container {
 .user-search-container div {
     width: 15vw;
     height: 7vh;
-    background-color: #928E8E;
-    border: 1px solid #2F3331;
-    border-left: 1px solid #2F3331;
+    background-color: #9c9c9c;
+    border: 1px solid #9c9c9c;
+    border-left: 1px solid #9c9c9c;
     border-radius: 0 5px 5px 0;
     vertical-align: top;
     box-sizing: border-box;
@@ -62,4 +60,59 @@ section > .user-search-container, section > .fellow-list-container {
     width: 11vmin;
     filter: invert(100%);
     padding: 5%;
+}
+
+/************** current fellows ********************/
+
+section.current-fellows-container {
+    background-color: white;
+    height: 73vh;
+    overflow: auto;
+}
+
+.fellow-list-container h2 {
+    color: #727070;
+    margin: 0;
+}
+
+#fellow-list {
+    list-style: none;
+    padding: 0;
+}
+
+#fellow-list li {
+    margin: 0% auto;
+    padding: 2%;
+    width: 80vw;
+    border-bottom: 1px solid #eceaea;
+}
+
+#fellow-list li:nth-child(1) {
+    border-top: 1px solid #eceaea;
+}
+
+#fellow-list li a {
+    text-decoration: none;
+    font-size: 6vmin;
+    color: #928E8E;
+}
+
+
+/************** footer ********************/
+
+
+
+footer {
+    height: 10vh;
+    background-color: #3BB3C2;
+}
+
+.title {
+    font-family: monospace;
+    color: #fafafa;
+    font-size: 8vmin;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    margin: 0;
 }

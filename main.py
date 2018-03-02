@@ -1,9 +1,11 @@
 from bottle import route, run, template, static_file, post, request, get, post, redirect, response
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
+from PIL import Image
+from shutil import copyfile
+from cgi import escape as sanitize
 
 
 db = './resources/inky.sqlite'
-
 
 @route('/')
 def main():
@@ -16,11 +18,13 @@ def home():
     user = request.get_cookie('user')
     return template('home',username=user)
 
-@route('/profile')
-def profile():
+@route('/profile/<user>')
+def profile(user):
     is_logged_in()
-    user = request.get_cookie('user')
-    return template('profile',username=user)
+    logged_in_user = request.get_cookie('user')
+    if not select_user(user):
+        user = request.get_cookie('user')
+    return template('profile',username=logged_in_user,posts_user=user)
 
 @route('/settings')
 def settings():
@@ -32,18 +36,41 @@ def settings():
         photo = 'axolotl.png'
     return template('settings', username=user, userpic=photo)
 
+@route('/contact')
+def contact():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return template('contact', username=user)
+
 @route('/fellows')
 def fellows():
     is_logged_in()
     user = request.get_cookie('user')
     return template('fellows',username=user)
 
+@route('/get_fellows')
+def get_fellows():
+    is_logged_in()
+    user = request.get_cookie('user')
+    return json.dumps(retrieve_fellows(user))
+
 @route('/post', method='POST')
 def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
-    post_to_db(username,message)
-    return redirect('/profile')
+    message = message + ' '
+    regex = r'@{1}\w*\(?=W{1}|$'
+
+    for name in re.findall(regex,message):
+        if not select_user(str(name[1:]).rstrip()):
+            message = str.replace(message,name,name[1:])
+
+    length = len(message)
+    if length > 0 and length <= 200:
+        message = re.sub('<[^<]+?>', '', message)
+        message = sanitize(message, True)
+        post_to_db(username,message)
+    return redirect('/home')
 
 @route('/new-fellow/<new_fellow>')
 def handle_new_fellow(new_fellow):
@@ -59,6 +86,14 @@ def retrievePosts():
     offset = int(request.forms.get('offset'))
     qty = int(request.forms.get('qty'))
     return json.dumps(retrieve_posts(username,offset,qty))
+
+@route('/get_profile_posts/<user>', method='POST')
+def retrieveProfilePosts(user):
+    if select_user(user):
+        username = user
+        offset = int(request.forms.get('offset'))
+        qty = int(request.forms.get('qty'))
+        return json.dumps(retrieve_profile_posts(username,offset,qty))
 
 @route('/signup', method='POST')
 def sign_up():
@@ -77,7 +112,10 @@ def sign_up():
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),session_id.hexdigest())
-        return redirect('/profile')
+        follow(username,username)
+        newdefault = './resources/images/user/'+ username +'.JPEG'
+        copyfile('./resources/images/user/axolotl.JPEG',newdefault)
+        return redirect('/home')
     else:
         return redirect('/?statusCode=222')
 
@@ -95,7 +133,7 @@ def log_me_in():
         create_session_db(username,session_id.hexdigest())
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
-        redirect('/profile')
+        redirect('/home')
     else:
         redirect('/?statusCode=111')
 
@@ -109,14 +147,40 @@ def logout():
     response.delete_cookie("session")
     redirect('/')
 
-@route('/images/<picture>')
-def serve_pictures(picture):
-    return static_file(picture, root='./resources/images/')
+@route('/images/<path:path>')
+def serve_pictures(path):
+    return static_file(path, root='./resources/images/')
 
 @route('/library/<lib>')
 def serve_libs(lib):
     return static_file(lib, root='./resources/lib/')
 
+@route('/upload_file', method='POST')
+def do_upload():
+    username = request.get_cookie('user')
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+
+    size = (128, 128)
+    error = json.dumps({'success':False,'error':'Filetype not accepted'})
+    if ext.lower() not in ('.png', '.jpg', '.jpeg', '.gif'):
+        return error
+
+
+    outfile = './resources/images/user/' + username + ".JPEG"
+    if upload.filename != outfile:
+        try:
+            im = Image.open(upload.file)
+            im.resize(size).save(outfile, "JPEG",quality=100)
+        except IOError:
+            print "Cannot create thumbnail for", upload.filename
+            newdefault = './resources/images/user/'+ username + '.JPEG'
+            copyfile('./resources/images/user/axolotl.JPEG',newdefault)
+
+    return redirect('/settings')
+
+
+###################################Routes Above/Functions below######################
 
 def is_logged_in():
     if request.get_cookie("user") != None:
@@ -153,10 +217,11 @@ def select_user(user):
     c = db_conn.cursor()
     c.execute('''SELECT username, password, session_id FROM users WHERE username=?''',(user,))
     row_data = c.fetchone()
+    db_conn.close()
     if row_data is None:
         return False
     user_data = {"username":row_data[0],"password":row_data[1],"session_id":row_data[2]}
-    db_conn.close()
+
     return user_data
 
 def logout_user_db(user):
@@ -200,16 +265,16 @@ def post_to_db(user, message):
 def follow(user,new_friend):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT * FROM users WHERE username = ?''',(new_friend,))
-    lastid = c.lastrowid
-    c.execute('''SELECT * FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
-    nonduplicate = c.lastrowid
-    if nonduplicate:
+    c.execute('''SELECT count(*) FROM users WHERE username = ?''',(new_friend,))
+    validfriend = c.fetchone()[0]
+    c.execute('''SELECT count(*) FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
+    duplicate = c.fetchone()[0]
+    if validfriend == 1 and duplicate == 0:
         c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
         db_conn.commit()
-    db_conn.close()
-    if lastid and nonduplicate:
+        db_conn.close()
         return True
+    db_conn.close()
     return False
 
 def retrieve_posts(user,offset,qty):
@@ -219,6 +284,20 @@ def retrieve_posts(user,offset,qty):
         c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
     elif offset == 0:
         c.execute('''SELECT * FROM posts WHERE username IN (SELECT friend FROM friends WHERE username=?) ORDER BY post_time DESC LIMIT ?''',(user,qty))
+    output = []
+    for row in c:
+        output.append([row[1],row[2],row[3],row[0]])
+    db_conn.commit()
+    db_conn.close()
+    return output
+
+def retrieve_profile_posts(user,offset,qty):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    if offset > 1:
+        c.execute('''SELECT * FROM posts WHERE username=? and id < ? ORDER BY post_time DESC LIMIT ?''',(user,offset,qty))
+    elif offset == 0:
+        c.execute('''SELECT * FROM posts WHERE username=? ORDER BY post_time DESC LIMIT ?''',(user,qty))
     output = []
     for row in c:
         output.append([row[1],row[2],row[3],row[0]])
@@ -237,17 +316,17 @@ def retrieve_fellows(user):
     db_conn.close()
     return output
 
-def verify_user_existence(user):
-    db_conn = sqlite3.connect(db)
-    c = db_conn.cursor()
-    c.execute('''SELECT * FROM users WHERE username=?''',(user,))
-    data = c.fetchone()
-    db_conn.commit()
-    db_conn.close()
-    if data is None:
-        return False
-    return True
-
+# def verify_user_existence(user):
+#     db_conn = sqlite3.connect(db)
+#     c = db_conn.cursor()
+#     c.execute('''SELECT count(username) FROM users WHERE username=?''',(user,))
+#     data = c.fetchone()[0]
+#     print str(data) + ' results found for ' + user
+#     db_conn.commit()
+#     db_conn.close()
+#     if data==0:
+#         return False
+#     return True
 
 #####---------------------------Run-the-server-----------------------------#####
 if __name__ == '__main__':
