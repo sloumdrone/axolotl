@@ -35,7 +35,7 @@ function addScrollHandler(){
                 retrievePosts();
                 $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
                 loading = false;
-            },2000);
+            },800);
         }
     });
 }
@@ -71,7 +71,8 @@ function retrievePosts(){
 
 function buildPost(arr){
     let $header = $('<div>',{class: 'post-header'});
-    let $body = $('<div>',{class: 'post-body',text: arr[1]});
+    let linkText = parseUserLinks(arr[1]);
+    let $body = $('<div>',{class: 'post-body'}).html(linkText);
     let $footer = $('<div>',{class: 'post-footer'});
 
     let $image = $('<div>',{class: 'post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG)`).appendTo($header);
@@ -85,6 +86,21 @@ function buildPost(arr){
     $('.thread-container').append($container);
     last_post = arr[3];
     return $container;
+}
+
+
+function parseUserLinks(message){
+    const regex = /@{1}\S*\W{1}/g;
+    let matches = message.match(regex);
+    let uniqueMatches = [...new Set(matches)];
+    let edited_message = message;
+
+    uniqueMatches.forEach(function(link){
+        let alink = `<a href="/profile/${link.substring(1)}">${link}</a>`;
+        edited_message = edited_message.replace(link,alink);
+    });
+
+    return edited_message;
 }
 
 
