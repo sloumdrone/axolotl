@@ -64,21 +64,14 @@ button {
 }
 
 .image-control {
-    width: 30vw;
-    height: 5vh;
-    padding: 5%;
-    font-size: 3vmin;
-    background-color: white;
-    border-bottom: 1px solid #706F6F;
-    border-right: 1px solid #706F6F;
-    border-left: 1px solid #2F3331;
-    border-top: 1px solid #2F3331;
+    width: 35vw;
+    height: 7vh;
+    font-size: 1.15em;
+    border: 1px solid white;
     border-radius: 5px;
     margin: 5px;
     user-select: none;
     cursor: pointer;
-    font-family: monospace;
-    box-shadow: 2px 2px 8px #2F3331;
 }
 
 #crop-container {
@@ -123,7 +116,7 @@ button {
     width: 40%;
     height: 40%;
     display: block;
-    margin: 1% auto;
+    margin: 2% auto 1% auto;
     border-radius: 50%;
 }
 
@@ -147,7 +140,7 @@ button {
     outline-color: #3BB3C2;
 }
 
-.settingsBtn img {
+.button-icon {
     width: 9vmin;
     filter: invert(100%);
     margin-right: 15px;
@@ -157,22 +150,36 @@ button {
     border-radius: 5px;
 }
 
+.arrow {
+    filter: invert(80%);
+    float: right;
+    margin-right: 10px;
+    width: 10vmin;
+    padding: 2%;
+}
+
 
 /************* delete account *************/
 
 .delete-account {
-    margin: 10px auto 0 auto;
     background-color: white;
     padding: 10px 20px;
     text-align: center;
-    font-family: 'Averia Libre', monospace;
-    position: relative;
+    position: absolute;
+    bottom: -38vh;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    height: 37vh;
+    background-color: #eceaea;
+}
+
+.show {
+    bottom: 10vh;
 }
 
 .delete-account p {
     font-size: 3.5vmin;
     color: red;
-    font-family: monospace;
 }
 
 .delete-account p:first-child {
@@ -182,13 +189,13 @@ button {
 
 .delete-account .image-control {
     display: inline-block;
-    background-color: red;
+    background-color: #ec1212;
     color: white;
-    padding: 2%;
+    padding: 2% 0;
 }
 
 .deleteBtn {
-    color: red;
+    color: #ec1212;
 }
 
 .hidden {
