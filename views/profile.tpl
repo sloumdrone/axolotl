@@ -21,12 +21,6 @@
                 </div>
             </div>
         </section>
-        <section class="make-post">
-            <form action="/post" id="make-post-form" method="post">
-                <textarea name="message" autocomplete="off"></textarea>
-                <input type="submit" name="submit" value="post">
-            </form>
-        </section>
         % include('footer.tpl')
     </body>
 </html>
