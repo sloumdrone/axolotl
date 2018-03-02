@@ -9,9 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Averia+Libre|Neucha" rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/settings.css">
-        <link rel="stylesheet" href="/library/croppie.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script src="/library/croppie.js"></script>
         <script src="/library/settings.js" defer></script>
     </head>
     <body>
