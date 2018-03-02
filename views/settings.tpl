@@ -18,7 +18,7 @@
         % include('header.tpl')
         <section>
             <div class="user-icon">
-                <button class='logoutBtn'><a href='/logout'>Log Out</a></button>
+                <a href='/logout' class='logoutBtn'><button>Log Out</button></a>
                 <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
                     <img id="iconPreview" alt="your image">
                     <input id="cancelBtn" type="reset" name="cancel" value="cancel">
@@ -27,11 +27,20 @@
                     <input id="saveBtn" type="submit"  name="submit" value="save">
                 </form>
             </div>
-            <div class="delete-account">
+            <div button-container>
+                <button class='settingsBtn'><img src='/images/unicorn.svg' />Contact Us</button>
+                <button class='settingsBtn'><img src='/images/pencil.svg' />Edit Email</button>
+                <button class='settingsBtn'><img src='/images/edit.svg' />Edit Bio</button>
+                <button class='settingsBtn deleteBtn'><img src='/images/trashcan.svg' />Delete Account</button>
+            </div>
+            <!-- <div class="delete-account">
                 <p>Delete Account:</p>
                 <p>WARNING!!! This cannot be undone. Only click the button below if you really want to delete your account. You will not be prompted for more information, your account will just be gone. This is not recoverable.</p>
                 <div class="image-control">Delete Account</div>
-            </div>
+            </div> -->
+            <footer>
+                <h2 class='title'>Axolotl</h2>
+            </footer>
         </section>
     </body>
 </html>

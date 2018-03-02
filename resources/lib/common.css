@@ -111,7 +111,7 @@ nav ul li {
     resize: none;
     overflow: hidden;
     padding: 5%;
-    border-radius: 1%;
+    border-radius: 5px;
     letter-spacing: 1px;
     line-height: 5vmin;
     outline-color: #3bb3c2;
@@ -126,8 +126,8 @@ nav ul li {
 #textCounter {
     position: absolute;
     color: white;
-    font-size: 4vmin;
-    bottom: -2.1vh;
+    font-size: 6vmin;
+    bottom: -4.1vh;
     left: 12vw;
 }
 
@@ -138,7 +138,7 @@ nav ul li {
     top: 0;
     left: 30vmin;
     background-color: #eceaea;
-    border-radius: 4%;
+    border-radius: 5px;
     vertical-align: top;
     box-sizing: border-box;
     box-shadow: 0px 0px 5px 0px;

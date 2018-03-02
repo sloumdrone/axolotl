@@ -10,16 +10,20 @@ section {
     background-color: #34a3b1;
 }
 
+button {
+    font-family: 'Mukta Malar', sans-serif;
+}
+
 /******* user icon ************/
 
 .logoutBtn {
     position: absolute;
     right: 2%;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.logoutBtn a {
-    text-decoration: none;
+.logoutBtn button {
     color: #3BB3C2;
     font-family: monospace;
     font-size: 5vmin;
@@ -37,7 +41,7 @@ section {
     /* text-align: center; */
     font-family: 'Averia Libre', monospace;
     background-color: #fafafa;
-
+    height: 36vh;
 }
 
 .user-icon p {
@@ -88,12 +92,11 @@ section {
 #saveBtn, #cancelBtn {
     width: 20%;
     background-color: #b4b2b2;
-    /* height: 6vh; */
+    height: 5vh;
     border-radius: 5px;
     border-style: none;
     color: whitesmoke;
-    font-family: 'Mukta Malar', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.25em;
     cursor: pointer;
 }
 
@@ -105,14 +108,14 @@ section {
 } */
 
 .customUploadBtn img {
-    height: 35px;
-    width: 35px;
+    height: 8vmin;
+    width: 9vmin;
     filter: invert(100%);
     position: absolute;
-    top: 18vh;
+    top: 17vh;
     right: 31vw;
     background: #5f6060;
-    border-radius: 25%;
+    border-radius: 15%;
     padding: 1%;
 }
 
@@ -120,10 +123,39 @@ section {
     width: 40%;
     height: 40%;
     display: block;
-    margin: 3% auto;
+    margin: 1% auto;
     border-radius: 50%;
 }
 
+/************* Setting Buttons *************/
+
+.button-container {
+    height: 38vh;
+}
+
+.settingsBtn {
+    display: block;
+    width: 95%;
+    background-color: #fafafa;
+    display: block;
+    font-size: 6vmin;
+    height: 8.5vh;
+    border-radius: 5px;
+    margin: 1% auto;
+    text-align: left;
+    color: #616060;
+    outline-color: #3BB3C2;
+}
+
+.settingsBtn img {
+    width: 9vmin;
+    filter: invert(100%);
+    margin-right: 15px;
+    vertical-align: middle;
+    background-color: #a04f45;
+    padding: 1%;
+    border-radius: 5px;
+}
 
 
 /************* delete account *************/
@@ -155,6 +187,25 @@ section {
     padding: 2%;
 }
 
+.deleteBtn {
+    color: red;
+}
+
 .hidden {
     display: none;
+}
+
+footer {
+    height: 10vh;
+    background-color: #3BB3C2;
+}
+
+.title {
+    font-family: monospace;
+    color: #fafafa;
+    font-size: 8vmin;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    margin: 0;
 }

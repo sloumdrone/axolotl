@@ -28,5 +28,8 @@
                 </ul>
             </div>
         </section>
+        <footer>
+            <h2 class='title'>Axolotl</h2>
+        </footer>
     </body>
 </html>
