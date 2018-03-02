@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href='/library/profile.css' >
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="/library/posts.js"></script>
         <script type="text/javascript" src="/library/profile.js"></script>
     </head>
     <body>
