@@ -23,7 +23,7 @@ function applyClickHandlers(){
             length = 200;
         }
         $('#textCounter').text(`${length}/200`);
-    })
+    });
 }
 
 function addScrollHandler(){

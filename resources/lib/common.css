@@ -200,6 +200,7 @@ nav ul li {
     line-height: 5vmin;
     word-wrap: break-word;
     letter-spacing: .25px;
+    clear: both;
 }
 
 .post-like {
