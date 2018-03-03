@@ -5,10 +5,10 @@ $('document').ready(() => {
 function applyClickHandlers() {
     $('.deleteBtn').click(() => {
         $('.delete-account').addClass('show');
-    })
+    });
     $('.cancel-delete').click(() => {
         $('.delete-account').removeClass('show');
-    })
+    });
 }
 
 var user = $('p.currentUser').text();

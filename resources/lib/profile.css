@@ -1,3 +1,51 @@
 .profile {
     background-color: #34a3b1;
 }
+
+.profile-header {
+    position: relative;
+    top: 17vh;
+    background-color: #fafafa;
+    height: 20vh;
+}
+
+.profile-header .post-user-name {
+    font-size: 6vmin;
+    float: none;
+    margin: 0;
+}
+
+.post-container:nth-child(1){
+    border-top: 1px solid #eceaea;
+}
+
+.profile-pic {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 16vh;
+    display: inline-block;
+    width: 16vh;
+    border: 2px solid #928E8E;
+    border-radius: 5px;
+    margin: 2%;
+    float: left;
+}
+
+.user-info {
+    float: left;
+}
+
+.add-btn {
+    font-size: 11vmin;
+    color: #928E8E;
+    vertical-align: middle;
+}
+
+.fa-plus-circle {
+    text-shadow: 1px 1px 5px #d4ced1;
+}
+
+.thread-container {
+    top: 37vh;
+    height: 50vh;
+}

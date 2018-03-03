@@ -24,7 +24,6 @@ def profile(user):
     logged_in_user = request.get_cookie('user')
     if not select_user(user):
         user = request.get_cookie('user')
-    print user
     return template('profile',username=logged_in_user,posts_user=user)
 
 @route('/settings')
@@ -59,6 +58,13 @@ def get_fellows():
 def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
+    message = message + ' '
+    regex = r'@{1}\w*\(?=W{1}|$'
+
+    for name in re.findall(regex,message):
+        if not select_user(str(name[1:]).rstrip()):
+            message = str.replace(message,name,name[1:])
+
     length = len(message)
     if length > 0 and length <= 200:
         message = re.sub('<[^<]+?>', '', message)
@@ -165,7 +171,6 @@ def do_upload():
     if upload.filename != outfile:
         try:
             im = Image.open(upload.file)
-            # print im.format, "%dx%d" % im.size, im.mode
             im.resize(size).save(outfile, "JPEG",quality=100)
         except IOError:
             print "Cannot create thumbnail for", upload.filename
@@ -173,6 +178,7 @@ def do_upload():
             copyfile('./resources/images/user/axolotl.JPEG',newdefault)
 
     return redirect('/settings')
+
 
 ###################################Routes Above/Functions below######################
 
@@ -211,10 +217,11 @@ def select_user(user):
     c = db_conn.cursor()
     c.execute('''SELECT username, password, session_id FROM users WHERE username=?''',(user,))
     row_data = c.fetchone()
+    db_conn.close()
     if row_data is None:
         return False
     user_data = {"username":row_data[0],"password":row_data[1],"session_id":row_data[2]}
-    db_conn.close()
+
     return user_data
 
 def logout_user_db(user):
@@ -256,15 +263,12 @@ def post_to_db(user, message):
     return False
 
 def follow(user,new_friend):
-    print user, new_friend
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     c.execute('''SELECT count(*) FROM users WHERE username = ?''',(new_friend,))
     validfriend = c.fetchone()[0]
-    print validfriend
     c.execute('''SELECT count(*) FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
     duplicate = c.fetchone()[0]
-    print validfriend, duplicate
     if validfriend == 1 and duplicate == 0:
         c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
         db_conn.commit()
@@ -312,17 +316,17 @@ def retrieve_fellows(user):
     db_conn.close()
     return output
 
-def verify_user_existence(user):
-    db_conn = sqlite3.connect(db)
-    c = db_conn.cursor()
-    c.execute('''SELECT * FROM users WHERE username=?''',(user,))
-    data = c.fetchone()
-    db_conn.commit()
-    db_conn.close()
-    if data is None:
-        return False
-    return True
-
+# def verify_user_existence(user):
+#     db_conn = sqlite3.connect(db)
+#     c = db_conn.cursor()
+#     c.execute('''SELECT count(username) FROM users WHERE username=?''',(user,))
+#     data = c.fetchone()[0]
+#     print str(data) + ' results found for ' + user
+#     db_conn.commit()
+#     db_conn.close()
+#     if data==0:
+#         return False
+#     return True
 
 #####---------------------------Run-the-server-----------------------------#####
 if __name__ == '__main__':

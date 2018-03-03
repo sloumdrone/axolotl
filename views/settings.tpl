@@ -9,9 +9,7 @@
         <link href="https://fonts.googleapis.com/css?family=Averia+Libre|Neucha" rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/settings.css">
-        <link rel="stylesheet" href="/library/croppie.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script src="/library/croppie.js"></script>
         <script src="/library/settings.js" defer></script>
     </head>
     <body>
@@ -28,7 +26,7 @@
                 </form>
             </div>
             <div button-container>
-                <button class='settingsBtn'><img class='button-icon' src='/images/unicorn.svg' />contact us<img class='arrow' src='/images/arrow.svg' /></button>
+                <a class='contact-link' href='/contact'><button class='settingsBtn'><img class='button-icon' src='/images/unicorn.svg' />contact us<img class='arrow' src='/images/arrow.svg' /></button></a>
                 <button class='settingsBtn'><img class='button-icon' src='/images/pencil.svg' />edit email</button>
                 <button class='settingsBtn'><img class='button-icon' src='/images/edit.svg' />edit bio</button>
                 <button class='settingsBtn deleteBtn'><img class='button-icon' src='/images/trashcan.svg' />delete account</button>
