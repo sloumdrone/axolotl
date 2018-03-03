@@ -31,7 +31,18 @@
                 <button class='settingsBtn edit-bio-btn'><img class='button-icon' src='/images/edit.svg' />edit bio</button>
                 <button class='settingsBtn deleteBtn'><img class='button-icon' src='/images/trashcan.svg' />delete account</button>
             </div>
+            <section class="edit-email">
+                <h3>edit email</h3>
+                <form action="/post" id="bio-form" method="post">
+                    <div class="textAreaContainer">
+                        <textarea name="message" autocomplete="off" minlength="1"></textarea>
+                    </div>
+                    <input class='save-email bio-btn' type="submit" name="submit" value="save">
+                    <input class='cancel-email bio-btn' type="button" name="submit" value="cancel">
+                </form>
+            </section>
             <section class="edit-bio">
+                <h3>edit bio</h3>
                 <form action="/post" id="bio-form" method="post">
                     <div class="textAreaContainer">
                         <textarea name="message" autocomplete="off" maxlength="85" minlength="1"></textarea>
