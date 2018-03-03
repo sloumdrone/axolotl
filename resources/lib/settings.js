@@ -9,6 +9,12 @@ function applyClickHandlers() {
     $('.cancel-delete').click(() => {
         $('.delete-account').removeClass('show');
     });
+    $('.edit-email-btn').click(() => {
+        $('.edit-email').addClass('show');
+    });
+    $('.cancel-email').click(() => {
+        $('.edit-email').removeClass('show');
+    });
     $('.edit-bio-btn').click(() => {
         $('.edit-bio').addClass('show');
     });
