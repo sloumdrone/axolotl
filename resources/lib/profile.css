@@ -3,9 +3,7 @@
 }
 
 .profile-header {
-    position: relative;
-    top: 17vh;
-    background-color: #fafafa;
+    background-color: #E3F2FD;
     height: 20vh;
 }
 
@@ -15,37 +13,35 @@
     margin: 0;
 }
 
-.post-container:nth-child(1){
+.post-container:nth-child(2){
     border-top: 1px solid #eceaea;
 }
 
 .profile-pic {
     background-repeat: no-repeat;
     background-size: cover;
-    height: 16vh;
+    height: 15vh;
+    width: 15vh;
     display: inline-block;
-    width: 16vh;
     border: 2px solid #928E8E;
     border-radius: 5px;
-    margin: 2%;
+    margin: 4.5% 2%;
     float: left;
 }
 
 .user-info {
     float: left;
+    width: 64%;
 }
 
 .add-btn {
     font-size: 11vmin;
-    color: #928E8E;
+    color: #cbc8c8;
     vertical-align: middle;
+    position: relative;
+    left: 16vh;
 }
 
-.fa-plus-circle {
-    text-shadow: 1px 1px 5px #d4ced1;
-}
-
-.thread-container {
-    top: 37vh;
-    height: 50vh;
+.bio {
+    font-size: 3.75vmin;
 }

@@ -9,6 +9,23 @@ function applyClickHandlers() {
     $('.cancel-delete').click(() => {
         $('.delete-account').removeClass('show');
     });
+    $('.edit-bio-btn').click(() => {
+        $('.edit-bio').addClass('show');
+    });
+    $('.cancel-bio').click(() => {
+        $('.edit-bio').removeClass('show');
+    });
+    $('.edit-email-btn').click(() => {
+        $('.edit-email').addClass('show');
+    });
+    $('.textAreaContainer textarea').on('keyup',function(){
+        let length = $(this).val().length
+        if (length > 85){
+            $(this).val($(this).val().substring(0,85));
+            length = 85;
+        }
+        $('#textCounter').text(`${length}/85`);
+    });
 }
 
 var user = $('p.currentUser').text();

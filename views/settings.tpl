@@ -14,7 +14,7 @@
     </head>
     <body>
         % include('header.tpl')
-        <section>
+        <section id='content-container'>
             <div class="user-icon">
                 <a href='/logout' class='logoutBtn'><button>log out</button></a>
                 <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
@@ -27,10 +27,20 @@
             </div>
             <div button-container>
                 <a class='contact-link' href='/contact'><button class='settingsBtn'><img class='button-icon' src='/images/unicorn.svg' />contact us<img class='arrow' src='/images/arrow.svg' /></button></a>
-                <button class='settingsBtn'><img class='button-icon' src='/images/pencil.svg' />edit email</button>
-                <button class='settingsBtn'><img class='button-icon' src='/images/edit.svg' />edit bio</button>
+                <button class='settingsBtn edit-email-btn'><img class='button-icon' src='/images/pencil.svg' />edit email</button>
+                <button class='settingsBtn edit-bio-btn'><img class='button-icon' src='/images/edit.svg' />edit bio</button>
                 <button class='settingsBtn deleteBtn'><img class='button-icon' src='/images/trashcan.svg' />delete account</button>
             </div>
+            <section class="edit-bio">
+                <form action="/post" id="bio-form" method="post">
+                    <div class="textAreaContainer">
+                        <textarea name="message" autocomplete="off" maxlength="85" minlength="1"></textarea>
+                        <span id="textCounter">0/85</span>
+                    </div>
+                    <input class='save-bio bio-btn' type="submit" name="submit" value="save">
+                    <input class='cancel-bio bio-btn' type="button" name="submit" value="cancel">
+                </form>
+            </section>
             <div class="delete-account">
                 <p>WARNING!!! This CANNOT be undone and is not recoverable.</p>
                 <div class='image-control cancel-delete'>cancel</div>
