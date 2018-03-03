@@ -158,6 +158,10 @@ button {
     padding: 2%;
 }
 
+.contact-link {
+    text-decoration: none;
+}
+
 
 /************* delete account *************/
 

@@ -26,7 +26,7 @@
                 </form>
             </div>
             <div button-container>
-                <button class='settingsBtn'><img class='button-icon' src='/images/unicorn.svg' />contact us<img class='arrow' src='/images/arrow.svg' /></button>
+                <a class='contact-link' href='/contact'><button class='settingsBtn'><img class='button-icon' src='/images/unicorn.svg' />contact us<img class='arrow' src='/images/arrow.svg' /></button></a>
                 <button class='settingsBtn'><img class='button-icon' src='/images/pencil.svg' />edit email</button>
                 <button class='settingsBtn'><img class='button-icon' src='/images/edit.svg' />edit bio</button>
                 <button class='settingsBtn deleteBtn'><img class='button-icon' src='/images/trashcan.svg' />delete account</button>
