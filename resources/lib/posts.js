@@ -81,5 +81,31 @@ function handleLoading(){
     $spinnyLoader.appendTo($container);
     $('.thread-container').append($container);
 }
-//---XX
-//---XX
+//---**
+//---**
+function retrievePosts(){
+    let page = window.location.pathname == '/home' ? '/get_posts' : '/get_profile_posts/'+$('#postsToGrab').text();
+    $.ajax({
+        url: page,
+        dataType: 'json',
+        method: 'POST',
+        data: {
+            offset: last_post,
+            qty: 10
+        },
+        success: function(result){
+            if (Object.keys(result).length == 0){
+                endoffeed = true;
+            } else {
+                for (let row in result){
+                    buildPost(result[row]);
+                }
+            }
+
+        },
+        error: function(result){
+            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
+            $('.thread-container').append($container);
+        }
+    })
+}
