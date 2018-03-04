@@ -59,11 +59,15 @@ def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
     message = message + ' '
-    regex = r'@{1}\w*\(?=W{1}|$'
+    regex = r'@{1}\w*(?=[\W!?\s]{1})'
+
+    print re.findall(regex,message)
 
     for name in re.findall(regex,message):
+        print name
         if not select_user(str(name[1:]).rstrip()):
             message = str.replace(message,name,name[1:])
+            print name[1:]
 
     length = len(message)
     if length > 0 and length <= 200:

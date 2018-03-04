@@ -52,7 +52,7 @@ function buildPost(arr){
 //---**
 //---**
 function parseUserLinks(message){
-    const regex = /@{1}\S*\W{1}/g;
+    const regex = /@{1}\w*(?=[\W!?\s]{1})/g;
     message = message + ' ';
 
     let matches = message.match(regex);
@@ -62,7 +62,7 @@ function parseUserLinks(message){
     uniqueMatches.forEach(function(link){
         let user = link.substring(1);
         let alink = `<a href="/profile/${link.substring(1)}">${link}</a>`;
-        edited_message = edited_message.replace(link,alink);
+        edited_message = edited_message.replace(new RegExp(`${link}`,"g"),alink);
     });
 
     return edited_message;
