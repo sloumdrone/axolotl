@@ -38,6 +38,7 @@ section > .user-search-container, section > .fellow-list-container {
     resize: none;
     overflow: hidden;
     padding: 5px;
+    outline-color: #928E8E;
 }
 
 .user-search-container div {
@@ -78,23 +79,50 @@ section.current-fellows-container {
 #fellow-list {
     list-style: none;
     padding: 0;
+    width: 85vw;
+    margin: auto;
+    border: 1px solid #eceaea;
+    border-radius: 5px;
 }
 
 #fellow-list li {
-    margin: 0% auto;
     padding: 2%;
-    width: 80vw;
-    border-bottom: 1px solid #eceaea;
+    clear: both;
+    height: 11vh;
 }
 
-#fellow-list li:nth-child(1) {
-    border-top: 1px solid #eceaea;
+#fellow-list li:nth-child(2n+1){
+    background-color: #E3F2FD;
 }
 
 #fellow-list li a {
     text-decoration: none;
     font-size: 6vmin;
     color: #928E8E;
+}
+
+i {
+    display: block;
+    color: #ec1212;
+    float: right;
+    text-decoration: none;
+    color: red;
+    padding: 4%;
+}
+
+.fa {
+    font-size: 7vmin;
+}
+
+.post-user-image {
+    margin: 2%;
+}
+
+.username {
+    margin: 4% 0px;
+    display: inline-block;
+    font-size: 5.5vmin;
+    font-weight: normal;
 }
 
 

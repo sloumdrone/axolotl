@@ -49,8 +49,10 @@ function getFellowsList(){
 function buildFellowForList(fellow){
     let $ul = $('#fellow-list');
     let $listItem = $('<li>');
-    let $aLink = $('<a>',{href: '/profile/' + fellow,text: fellow})
-    let $image = $('<div>',{class: 'post-user-image'}).css({'background-image':`url(/images/user/${fellow}.JPEG)`,'float':'none'}).prependTo($aLink);
+    let $aLink = $('<a>',{href: '/profile/' + fellow})
+    let $image = $('<div>',{class: 'post-user-image'}).css({'background-image':`url(/images/user/${fellow}.JPEG)`}).prependTo($aLink);
+    let $userName = $('<h1>', {class: 'username', text: fellow}).appendTo($aLink);
+    let $deleteBtn = $('<i>', {class: 'fa fa-trash'}).appendTo($aLink);
     $aLink.appendTo($listItem)
 
 

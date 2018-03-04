@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/library/home.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="/library/posts.js"></script>
-        <script type="text/javascript" src="/library/home.js"></script>
+        <!-- <script type="text/javascript" src="/library/home.js"></script> -->
     </head>
     <body>
         % include('header.tpl')

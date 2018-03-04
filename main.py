@@ -59,7 +59,7 @@ def handle_post():
     username = request.get_cookie('user')
     message = request.forms.get('message')
     message = message + ' '
-    regex = r'@{1}\w*\(?=W{1}|$'
+    regex = r'@{1}\w*(?=[\W!?\s]{1})'
 
     for name in re.findall(regex,message):
         if not select_user(str(name[1:]).rstrip()):

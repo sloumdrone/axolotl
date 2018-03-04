@@ -21,6 +21,7 @@ button {
     right: 2%;
     cursor: pointer;
     text-decoration: none;
+    z-index: 100;
 }
 
 .logoutBtn button {
@@ -108,8 +109,8 @@ button {
 }
 
 #iconPreview {
-    width: 40%;
-    height: 40%;
+    width: 22vh;
+    height: 22vh;
     display: block;
     margin: 2% auto 1% auto;
     border-radius: 50%;
