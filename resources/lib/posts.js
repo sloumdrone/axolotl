@@ -1,10 +1,36 @@
 //--->>
 //--->>
+$(document).ready(function () {
+    retrievePosts();
+    applyClickHandlers();
+    addScrollHandler();
+});
+//---**
+//---**
+function applyClickHandlers(){
+    let $postBtn = $('#sitelogo');
+    let $post = $('section.make-post');
+
+    $postBtn.click(() => {
+        $post.toggleClass('show');
+    });
+
+    $('.textAreaContainer textarea').on('keyup',function(){
+        let length = $(this).val().length
+        if (length > 200){
+            $(this).val($(this).val().substring(0,200));
+            length = 200;
+        }
+        $('#textCounter').text(`${length}/200`);
+    });
+}
+//---**=
+//---**=
 var last_post = 0;
 var loading = false;
 var endoffeed = false;
-//---**
-//---**
+//---**/
+//---**/
 function buildPost(arr){
     let $header = $('<div>',{class: 'post-header'});
     let linkText = parseUserLinks(arr[1]);
@@ -45,14 +71,15 @@ function parseUserLinks(message){
 //---**
 function addScrollHandler(){
     $('.thread-container').on('scroll',function(){
-        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 10 && !loading && !endoffeed){
+        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
+            console.log('adding scroll');
             loading = true;
             handleLoading();
             setTimeout(()=>{
                 retrievePosts();
                 $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
                 loading = false;
-            },800);
+            },300);
         }
     });
 }
@@ -91,7 +118,7 @@ function retrievePosts(){
         method: 'POST',
         data: {
             offset: last_post,
-            qty: 10
+            qty: 20
         },
         success: function(result){
             if (Object.keys(result).length == 0){
