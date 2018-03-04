@@ -72,7 +72,6 @@ function parseUserLinks(message){
 function addScrollHandler(){
     $('.thread-container').on('scroll',function(){
         if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
-            console.log('adding scroll');
             loading = true;
             handleLoading();
             setTimeout(()=>{
