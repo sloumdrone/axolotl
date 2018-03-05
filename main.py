@@ -23,8 +23,9 @@ def profile(user):
     is_logged_in()
     logged_in_user = request.get_cookie('user')
     if not select_user(user):
-        user = request.get_cookie('user')
-    return template('profile',username=logged_in_user,posts_user=user)
+        user = logged_in_user
+    biography = retrieve_bio(user) or ' '
+    return template('profile',username=logged_in_user,posts_user=user,bio=biography)
 
 @route('/settings')
 def settings():
@@ -98,9 +99,12 @@ def retrieveProfilePosts(user):
 @route('/signup', method='POST')
 def sign_up():
     username = request.forms.get('username')
-    if not re.match(r"[A-Za-z0-9]{4,12}",username):
+    if not re.match(r"^[A-Za-z0-9]{4,15}$",username):
         return redirect('/?statusCode=223')
     password = request.forms.get('password')
+    email = request.forms.get('email')
+    if not re.match(r"[.\w-]+@{1}[\w-]+.{1}\w+",email) and len(email) < 200:
+        return redirect('/?statusCode=225')
     if not re.match(r"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{6,15}$",password):
         return redirect('/?statusCode=224')
     if not select_user(username):
@@ -111,7 +115,7 @@ def sign_up():
         session_id.update(str(ts))
         response.set_cookie('user',username,expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
-        new_user(username,pwhash.hexdigest(),session_id.hexdigest())
+        new_user(username,pwhash.hexdigest(),email,session_id.hexdigest())
         follow(username,username)
         newdefault = './resources/images/user/'+ username +'.JPEG'
         copyfile('./resources/images/user/axolotl.JPEG',newdefault)
@@ -179,6 +183,19 @@ def do_upload():
 
     return redirect('/settings')
 
+@route('/user_update', method='POST')
+def update_user():
+    username = request.get_cookie('user')
+    update_type = request.forms.get('type')
+    update_content = request.forms.get('content')
+    if update_type == 'bio':
+        if update_user_info(username,update_content,'bio'):
+            return json.dumps({'success':True, 'updated':'bio', 'user':username})
+    elif update_type == 'email':
+        if update_user_info(username,update_content,'email'):
+            return json.dumps({'success':True, 'updated':'email', 'user':username})
+    return json.dumps({'success':False,'error':'Issue updating ' + update_type})
+
 
 ###################################Routes Above/Functions below######################
 
@@ -206,7 +223,7 @@ def check_and_build_db():
     if not os.path.isfile(db):
         db_conn = sqlite3.connect('./resources/inky.sqlite')
         c = db_conn.cursor()
-        c.execute("CREATE TABLE users (username text PRIMARY KEY, password text NOT NULL,session_id text DEFAULT null)")
+        c.execute("CREATE TABLE users (username text PRIMARY KEY, password text NOT NULL,email text NOT NULL,bio text DEFAULT null,session_id text DEFAULT null)")
         c.execute("CREATE TABLE friends (ID integer PRIMARY KEY AUTOINCREMENT, username text NOT NULL, friend text NOT NULL)")
         c.execute("CREATE TABLE posts (ID integer PRIMARY KEY AUTOINCREMENT, username text NOT NULL, post_body text NOT NULL, post_time real NOT NULL)")
         db_conn.commit()
@@ -238,10 +255,10 @@ def create_session_db(user,session):
     db_conn.commit()
     db_conn.close()
 
-def new_user(un,pw,sid):
+def new_user(un,pw,em,sid):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''INSERT INTO users(username,password,session_id) VALUES(?,?,?)''',(un,pw,sid))
+    c.execute('''INSERT INTO users(username,password,email,session_id) VALUES(?,?,?,?)''',(un,pw,em,sid))
     lastid = c.lastrowid
     db_conn.commit()
     db_conn.close()
@@ -315,6 +332,28 @@ def retrieve_fellows(user):
     db_conn.commit()
     db_conn.close()
     return output
+
+def retrieve_bio(user):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    c.execute('''SELECT bio FROM users WHERE username=?''',(user,))
+    bio = c.fetchone()[0]
+    db_conn.commit()
+    db_conn.close()
+    return bio
+
+def update_user_info(user,text,col):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    c.execute('''UPDATE users SET ? = ? WHERE username=?''',(col,text,user))
+    success = c.rowcount
+    db_conn.commit()
+    db_conn.close()
+    if success:
+        return True
+    return False
+
+
 
 # def verify_user_existence(user):
 #     db_conn = sqlite3.connect(db)
