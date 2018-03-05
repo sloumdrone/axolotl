@@ -21,7 +21,7 @@
                     <div class="post-user-name"><span id="postsToGrab">{{posts_user}}</span></div>
                     <button class='add-btn'><i class='fa fa-plus-circle'></i></button>
                     <div class='bio'>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor quis.
+                        {{bio}}
                     </div>
                 </div>
             </div>

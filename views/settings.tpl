@@ -33,23 +33,25 @@
             </div>
             <section class="edit-email">
                 <h3>edit email</h3>
-                <form action="/post" id="bio-form" method="post">
+                <form action="/user_update" id="bio-form" method="post">
                     <div class="textAreaContainer">
-                        <input name="message" autocomplete="off" minlength="1"></input>
+                        <textarea name="content" autocomplete="off" minlength="1"></textarea>
+                        <input type="hidden" name="type" value="email">
                     </div>
-                    <input class='save-email bio-btn' type="submit" name="submit" value="save">
-                    <input class='cancel-email bio-btn' type="button" name="submit" value="cancel">
+                    <input class='save-email bio-btn' type="submit" name="emailsave" value="save">
+                    <input class='cancel-email bio-btn' type="reset" name="emailcancel" value="cancel">
                 </form>
             </section>
             <section class="edit-bio">
                 <h3>edit bio</h3>
-                <form action="/post" id="bio-form" method="post">
+                <form id="bio-form" action="/user_update" method="post">
                     <div class="textAreaContainer">
-                        <textarea name="message" autocomplete="off" maxlength="85" minlength="1"></textarea>
+                        <textarea name="content" autocomplete="off" maxlength="85" minlength="1"></textarea>
                         <span id="textCounter">0/85</span>
+                        <input type="hidden" name="type" value="bio">
                     </div>
-                    <input class='save-bio bio-btn' type="submit" name="submit" value="save">
-                    <input class='cancel-bio bio-btn' type="button" name="submit" value="cancel">
+                    <input class='save-bio bio-btn' type="submit" name="biosave" value="save">
+                    <input class='cancel-bio bio-btn' type="reset" name="biocancel" value="cancel">
                 </form>
             </section>
             <div class="delete-account">
