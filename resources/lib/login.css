@@ -1,3 +1,7 @@
+body {
+    background-color: #fafafa;
+}
+
 section {
     height: 550px;
     width: 320px;
@@ -9,7 +13,7 @@ section {
     transform: translate(-50%,-50%);
     border-radius: 10px;
     padding: 10px;
-    background-color: #FCFDFF;
+    background-color: #FAFAFA;
     box-shadow: 5px 5px 10px silver;
 }
 
@@ -22,18 +26,20 @@ form {
 form input {
     width: 90%;
     height: 50px;
-    border: 1px solid #2F3331;
+    border: 1px solid #706F6F;
     border-radius: 5px;
-    color: black;
+    color: #706F6F;
     font-size: 0.9em;
     font-family: sans-serif, monospace;
     margin: 5px auto;
     padding-left: 10px;
+    outline-color: #3BB3C2;
+    background-color: #E3F2FD;
 }
 
 form input[type=submit] {
     width: 45%;
-    background-color: #87D68D;
+    background-color: #86c351;
     color: #FCFDFF;
     cursor: pointer;
     font-size: 1.5em;
@@ -46,6 +52,19 @@ form input[type=submit] {
 form input[type=submit]:hover {
     background-color: #86c98b;
     color: #FCFDFF;
+}
+
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background-color: #E3F2FD !important;
+    color: #706F6F;
 }
 
 .small-helper {
@@ -75,13 +94,12 @@ form input[type=submit]:hover {
 .logotext {
     width: 67%;
     height: 11%;
-    color: #706F6F;
-    background-color: #B8E1FF;
+    color: #FAFAFA;
+    background-color: #3BB3C2;
     font-size: 3em;
     margin: -10px auto 20px auto;
     border-radius: 10px;
     font-family: monospace;
-    text-shadow: 1px 1px 4px #FCFDFF;
     border: 3px solid #706F6F;
     position: relative;
 }
@@ -146,7 +164,7 @@ form input[type=submit]:hover {
 
     form input {
         width: 90vw;
-        padding-left: none;
+        padding-left: 3%;
     }
 
     form input[type=submit] {
