@@ -35,7 +35,7 @@
                 <h3>edit email</h3>
                 <form action="/post" id="bio-form" method="post">
                     <div class="textAreaContainer">
-                        <textarea name="message" autocomplete="off" minlength="1"></textarea>
+                        <input name="message" autocomplete="off" minlength="1"></input>
                     </div>
                     <input class='save-email bio-btn' type="submit" name="submit" value="save">
                     <input class='cancel-email bio-btn' type="button" name="submit" value="cancel">

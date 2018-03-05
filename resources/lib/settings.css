@@ -89,7 +89,7 @@ button {
     border-radius: 5px;
     border-style: none;
     color: whitesmoke;
-    font-size: 1.25em;
+    font-size: 5.25vw;
     cursor: pointer;
     box-shadow: 1px 1px 3px buttonface;
     outline-color: #3BB3C2;
@@ -167,10 +167,14 @@ button {
 }
 
 .edit-bio h3, .edit-email h3 {
-    margin: 1%;
+    margin: 3% 0;
     text-align: center;
     font-size: 6vmin;
     color: #727070;
+}
+
+.edit-bio h3 {
+    margin: 1%;
 }
 
 .edit-bio, .edit-email {
@@ -184,6 +188,18 @@ button {
     width: 100%;
 }
 
+.textAreaContainer input {
+    width: 100%;
+    height: 12vmin;
+    border-radius: 5px;
+    margin-bottom: 5%;
+    border-style: solid;
+    color: #727070;
+    outline-color: #eceaea;
+    padding-left: 3%;
+    border: 1px solid #eceaea;
+}
+
 .textAreaContainer textarea{
     width: 100%;
     height: 20vh;
@@ -192,10 +208,14 @@ button {
     outline-color: #eceaea;
     font-family: 'Mukta Malar', sans-serif;
     font-size: 5vmin;
+    padding-left: 3%;
+    border-radius: 5px;
+    border-color: #eceaea;
 }
 
 #textCounter {
     color: #727070;
+    left: 7vw;
 }
 
 .bio-btn {
