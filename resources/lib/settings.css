@@ -1,9 +1,9 @@
-section {
+#content-container {
     position: absolute;
     width: 100vw;
     top: 17vh;
     left: 0;
-    height: 83vh;
+    height: 73vh;
 }
 
 .settings {
@@ -21,6 +21,7 @@ button {
     right: 2%;
     cursor: pointer;
     text-decoration: none;
+    z-index: 100;
 }
 
 .logoutBtn button {
@@ -38,7 +39,6 @@ button {
 .user-icon {
     margin: 0 auto;
     padding: 10px 0;
-    /* text-align: center; */
     font-family: 'Averia Libre', monospace;
     background-color: #fafafa;
     height: 36vh;
@@ -91,14 +91,9 @@ button {
     color: whitesmoke;
     font-size: 1.25em;
     cursor: pointer;
+    box-shadow: 1px 1px 3px buttonface;
+    outline-color: #3BB3C2;
 }
-
-/* .customUploadBtn {
-    border: 2px solid #eceaea;
-    color: whitesmoke;
-    background-color: #eceaea;
-    cursor: pointer;
-} */
 
 .customUploadBtn img {
     height: 8vmin;
@@ -110,11 +105,12 @@ button {
     background: #5f6060;
     border-radius: 15%;
     padding: 1%;
+    box-shadow: 1px 1px 3px #8d8989;
 }
 
 #iconPreview {
-    width: 40%;
-    height: 40%;
+    width: 22vh;
+    height: 22vh;
     display: block;
     margin: 2% auto 1% auto;
     border-radius: 50%;
@@ -138,6 +134,8 @@ button {
     text-align: left;
     color: #616060;
     outline-color: #3BB3C2;
+    border-style: solid;
+    box-shadow: 1px 1px 3px buttonface;
 }
 
 .button-icon {
@@ -158,6 +156,65 @@ button {
     padding: 2%;
 }
 
+.contact-link {
+    text-decoration: none;
+}
+
+/************* edit email, bio *************/
+#bio-form {
+    width: 80%;
+    margin: auto;
+}
+
+.edit-bio h3, .edit-email h3 {
+    margin: 1%;
+    text-align: center;
+    font-size: 6vmin;
+    color: #727070;
+}
+
+.edit-bio, .edit-email {
+    background-color: white;
+    position: absolute;
+    bottom: -38vh;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    height: 37vh;
+    background-color: #E3F2FD;
+    width: 100%;
+}
+
+.textAreaContainer textarea{
+    width: 100%;
+    height: 20vh;
+    font-size: 4vmin;
+    color: #727070;
+    outline-color: #eceaea;
+    font-family: 'Mukta Malar', sans-serif;
+    font-size: 5vmin;
+}
+
+#textCounter {
+    color: #727070;
+}
+
+.bio-btn {
+    width: 20vw;
+    height: 6vh;
+    color: #727070;
+    border-style: solid;
+    background-color: #fafafa;
+    float: right;
+    font-size: 5vmin;
+    border-radius: 5px;
+    outline-color: #bebdbd;
+}
+
+.save-bio, .save-email {
+    margin-left: 5px;
+}
+
+
 
 /************* delete account *************/
 
@@ -174,7 +231,7 @@ button {
 }
 
 .show {
-    bottom: 10vh;
+    bottom: 0;
 }
 
 .delete-account p {

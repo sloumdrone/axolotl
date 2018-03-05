@@ -1,10 +1,36 @@
 //--->>
 //--->>
+$(document).ready(function () {
+    retrievePosts();
+    applyClickHandlers();
+    addScrollHandler();
+});
+//---**
+//---**
+function applyClickHandlers(){
+    let $postBtn = $('#sitelogo');
+    let $post = $('section.make-post');
+
+    $postBtn.click(() => {
+        $post.toggleClass('show');
+    });
+
+    $('.textAreaContainer textarea').on('keyup',function(){
+        let length = $(this).val().length
+        if (length > 200){
+            $(this).val($(this).val().substring(0,200));
+            length = 200;
+        }
+        $('#textCounter').text(`${length}/200`);
+    });
+}
+//---**=
+//---**=
 var last_post = 0;
 var loading = false;
 var endoffeed = false;
-//---**
-//---**
+//---**/
+//---**/
 function buildPost(arr){
     let $header = $('<div>',{class: 'post-header'});
     let linkText = parseUserLinks(arr[1]);
@@ -26,7 +52,7 @@ function buildPost(arr){
 //---**
 //---**
 function parseUserLinks(message){
-    const regex = /@{1}\S*\W{1}/g;
+    const regex = /@{1}\w*(?=[\W!?\s]{1})/g;
     message = message + ' ';
 
     let matches = message.match(regex);
@@ -36,7 +62,7 @@ function parseUserLinks(message){
     uniqueMatches.forEach(function(link){
         let user = link.substring(1);
         let alink = `<a href="/profile/${link.substring(1)}">${link}</a>`;
-        edited_message = edited_message.replace(link,alink);
+        edited_message = edited_message.replace(new RegExp(`${link}`,"g"),alink);
     });
 
     return edited_message;
@@ -45,14 +71,14 @@ function parseUserLinks(message){
 //---**
 function addScrollHandler(){
     $('.thread-container').on('scroll',function(){
-        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 10 && !loading && !endoffeed){
+        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
             loading = true;
             handleLoading();
             setTimeout(()=>{
                 retrievePosts();
                 $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
                 loading = false;
-            },800);
+            },300);
         }
     });
 }
@@ -81,5 +107,33 @@ function handleLoading(){
     $spinnyLoader.appendTo($container);
     $('.thread-container').append($container);
 }
-//---XX
-//---XX
+//---**
+//---**
+function retrievePosts(){
+    let page = window.location.pathname == '/home' ? '/get_posts' : '/get_profile_posts/'+$('#postsToGrab').text();
+    $.ajax({
+        url: page,
+        dataType: 'json',
+        method: 'POST',
+        data: {
+            offset: last_post,
+            qty: 20
+        },
+        success: function(result){
+            if (Object.keys(result).length == 0){
+                endoffeed = true;
+            } else {
+                for (let row in result){
+                    buildPost(result[row]);
+                }
+            }
+
+        },
+        error: function(result){
+            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
+            $('.thread-container').append($container);
+        }
+    })
+}
+//---xx
+//---xx

@@ -24,32 +24,5 @@ function applyClickHandlers(){
         $('#textCounter').text(`${length}/200`);
     });
 }
-//---**
-//---**
-function retrievePosts(){
-    $.ajax({
-        url: '/get_posts',
-        dataType: 'json',
-        method: 'POST',
-        data: {
-            offset: last_post,
-            qty: 10
-        },
-        success: function(result){
-            if (Object.keys(result).length == 0){
-                endoffeed = true;
-            } else {
-                for (let row in result){
-                    buildPost(result[row]);
-                }
-            }
-
-        },
-        error: function(result){
-            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
-            $('.thread-container').append($container);
-        }
-    })
-}
 //---XX
 //---XX

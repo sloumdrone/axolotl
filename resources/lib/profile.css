@@ -1,3 +1,46 @@
 .profile {
     background-color: #34a3b1;
 }
+
+.profile-header {
+    background-color: #E3F2FD;
+    height: 20vh;
+}
+
+.profile-header .post-user-name {
+    font-size: 5vmin;
+    float: none;
+    margin: 0;
+}
+
+.post-container:nth-child(2){
+    border-top: 1px solid #eceaea;
+    clear: both;
+}
+
+.profile-pic {
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 15vh;
+    width: 15vh;
+    display: inline-block;
+    border: 2px solid #928E8E;
+    border-radius: 5px;
+    margin: 4.5% 2%;
+    float: left;
+}
+
+.user-info {
+    float: left;
+    width: 64%;
+}
+
+.add-btn {
+    font-size: 9vmin;
+    color: #cbc8c8;
+    vertical-align: middle;
+}
+
+.bio {
+    font-size: 3.75vmin;
+}
