@@ -35,7 +35,7 @@
                 <h3>edit email</h3>
                 <form action="/user_update" id="bio-form" method="post">
                     <div class="textAreaContainer">
-                        <textarea name="content" autocomplete="off" minlength="1"></textarea>
+                        <input name="content" autocomplete="off" minlength="1"></input>
                         <input type="hidden" name="type" value="email">
                     </div>
                     <input class='save-email bio-btn' type="submit" name="emailsave" value="save">
