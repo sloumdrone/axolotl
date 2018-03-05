@@ -190,10 +190,10 @@ def update_user():
     update_content = request.forms.get('content')
     if update_type == 'bio':
         if update_user_info(username,update_content,'bio'):
-            return json.dumps({'success':True, 'updated':'bio', 'user':username})
+            return redirect('/profile/'+username)
     elif update_type == 'email':
         if update_user_info(username,update_content,'email'):
-            return json.dumps({'success':True, 'updated':'email', 'user':username})
+            return redirect('/profile/'+username)
     return json.dumps({'success':False,'error':'Issue updating ' + update_type})
 
 
@@ -345,7 +345,10 @@ def retrieve_bio(user):
 def update_user_info(user,text,col):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''UPDATE users SET ? = ? WHERE username=?''',(col,text,user))
+    if col == 'bio':
+        c.execute('''UPDATE users SET bio=? WHERE username=?''',(text,user))
+    else:
+        c.execute('''UPDATE users SET email=? WHERE username=?''',(text,user))
     success = c.rowcount
     db_conn.commit()
     db_conn.close()

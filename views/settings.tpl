@@ -35,8 +35,7 @@
                 <h3>edit email</h3>
                 <form action="/user_update" id="bio-form" method="post">
                     <div class="textAreaContainer">
-                        <textarea name="email-value" autocomplete="off" minlength="1"></textarea>
-                        <input type="hidden" name="user" value="{{username}}">
+                        <textarea name="content" autocomplete="off" minlength="1"></textarea>
                         <input type="hidden" name="type" value="email">
                     </div>
                     <input class='save-email bio-btn' type="submit" name="emailsave" value="save">
@@ -47,9 +46,8 @@
                 <h3>edit bio</h3>
                 <form id="bio-form" action="/user_update" method="post">
                     <div class="textAreaContainer">
-                        <textarea name="bio-message" autocomplete="off" maxlength="85" minlength="1"></textarea>
+                        <textarea name="content" autocomplete="off" maxlength="85" minlength="1"></textarea>
                         <span id="textCounter">0/85</span>
-                        <input type="hidden" name="user" value="{{username}}">
                         <input type="hidden" name="type" value="bio">
                     </div>
                     <input class='save-bio bio-btn' type="submit" name="biosave" value="save">
