@@ -67,7 +67,7 @@ section > .user-search-container, section > .fellow-list-container {
 
 section.current-fellows-container {
     background-color: white;
-    height: 73vh;
+    height: 53vh;
     overflow: auto;
 }
 
