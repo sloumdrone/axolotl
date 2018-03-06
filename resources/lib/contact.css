@@ -71,3 +71,15 @@ footer {
     right: 5px;
     margin: 0;
 }
+
+/********************** media queries *********************/
+
+/******* iPhone X **********/
+
+
+@media screen and (min-width: 375px) and (max-width:375px)
+   and (min-height: 812px) and (max-height: 812px){
+       .profile-container {
+           padding: 9vh 0;
+       }
+}
