@@ -67,7 +67,7 @@ section > .user-search-container, section > .fellow-list-container {
 
 section.current-fellows-container {
     background-color: white;
-    height: 73vh;
+    height: 53vh;
     overflow: auto;
 }
 
@@ -122,6 +122,11 @@ i {
     display: inline-block;
     font-size: 5.5vmin;
     font-weight: normal;
+}
+
+.material-icons {
+    color: gold;
+    text-shadow: 0 0 1px black;
 }
 
 
