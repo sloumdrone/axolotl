@@ -64,7 +64,7 @@ button {
 }
 
 .image-control {
-    width: 35vw;
+    width: 37vw;
     height: 7vh;
     font-size: 3vh;
     border: 1px solid white;
@@ -231,7 +231,7 @@ button {
     float: right;
     font-size: 5vmin;
     border-radius: 5px;
-    outline-color: #bebdbd;
+    outline-color: #E3F2FD;
 }
 
 .save-bio, .save-email {
@@ -270,18 +270,31 @@ button {
 
 .delete-account .image-control {
     display: inline-block;
-    background-color: #ec1212;
-    color: white;
-    padding: 2% 0;
+    padding: 2% 1%;
 }
 
 .deleteBtn {
     color: #ec1212;
 }
 
+.confirm-delete {
+    background-color: #ec1212;
+    color: white;
+}
+
+.cancel-delete {
+    color: #727070;
+    background-color: #fafafa;
+    border: 1px solid #bebdbd;
+}
+
 .hidden {
     display: none;
 }
+
+/********************** footer *********************/
+
+
 
 footer {
     height: 10vh;
@@ -296,4 +309,21 @@ footer {
     bottom: 2px;
     right: 5px;
     margin: 0;
+}
+
+
+/********************** media queries *********************/
+
+/******* iPhone X **********/
+
+
+@media screen and (min-width: 375px) and (max-width:375px)
+   and (min-height: 812px) and (max-height: 812px){
+       .image-control {
+           font-size: 5.5vw;
+       }
+
+       .delete-account .image-control {
+            padding: 3% 1%;
+        }
 }

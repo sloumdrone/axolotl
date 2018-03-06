@@ -38,7 +38,7 @@ section > .user-search-container, section > .fellow-list-container {
     resize: none;
     overflow: hidden;
     padding: 5px;
-    outline-color: #928E8E;
+    outline-color: #eceaea;
 }
 
 .user-search-container div {
