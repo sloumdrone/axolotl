@@ -30,7 +30,7 @@ section > .user-search-container, section > .fellow-list-container {
 .user-search-container input {
     width: 50vw;
     height: 7vh;
-    border-radius: 5px 0 0 5px;
+    border-radius: 3px 0 0 3px;
     border: 1px solid #928E8E;
     border-right: none;
     box-sizing: border-box;
@@ -47,7 +47,7 @@ section > .user-search-container, section > .fellow-list-container {
     background-color: #9c9c9c;
     border: 1px solid #9c9c9c;
     border-left: 1px solid #9c9c9c;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 3px 3px 0;
     vertical-align: top;
     box-sizing: border-box;
     font-size: 1.5rem;
@@ -67,7 +67,7 @@ section > .user-search-container, section > .fellow-list-container {
 
 section.current-fellows-container {
     background-color: white;
-    height: 73vh;
+    height: 53vh;
     overflow: auto;
 }
 
@@ -82,7 +82,7 @@ section.current-fellows-container {
     width: 85vw;
     margin: auto;
     border: 1px solid #eceaea;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 #fellow-list li {
@@ -122,6 +122,11 @@ i {
     display: inline-block;
     font-size: 5.5vmin;
     font-weight: normal;
+}
+
+.material-icons {
+    color: gold;
+    text-shadow: 0 0 1px black;
 }
 
 
