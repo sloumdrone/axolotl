@@ -38,7 +38,9 @@ def settings():
         photo = str(user) + '.jpg'
     else:
         photo = 'axolotl.png'
-    return template('settings', username=user, userpic=photo)
+    emailaddy = select_user(user)['e-mail']
+    print emailaddy
+    return template('settings', username=user, userpic=photo, email=emailaddy)
 
 @route('/contact')
 def contact():
@@ -241,12 +243,12 @@ def check_and_build_db():
 def select_user(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT username, password, session_id FROM users WHERE username=?''',(user,))
+    c.execute('''SELECT username, password, session_id, email FROM users WHERE username=?''',(user,))
     row_data = c.fetchone()
     db_conn.close()
     if row_data is None:
         return False
-    user_data = {"username":row_data[0],"password":row_data[1],"session_id":row_data[2]}
+    user_data = {"username":row_data[0],"password":row_data[1],"session_id":row_data[2],"e-mail":row_data[3]}
 
     return user_data
 

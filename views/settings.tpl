@@ -35,7 +35,8 @@
                 <form action="/user_update" id="bio-form" method="post">
                     <div class="textAreaContainer">
                         <input name="content" autocomplete="off" minlength="1"></input>
-                        <input type="hidden" name="type" value="email">
+                        <input type="hidden" name="type" value="email"><br />
+                        Current e-mail: {{email}}
                     </div>
                     <input class='save-email bio-btn' type="submit" name="emailsave" value="save">
                     <input class='cancel-email bio-btn' type="reset" name="emailcancel" value="cancel">
