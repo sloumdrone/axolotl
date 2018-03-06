@@ -177,6 +177,10 @@ button {
     margin: 1%;
 }
 
+.edit-email h3:nth-child(1){
+    text-decoration: underline;
+}
+
 .edit-bio, .edit-email {
     background-color: white;
     position: absolute;
