@@ -83,3 +83,16 @@ footer {
            padding: 9vh 0;
        }
 }
+
+/******* iPad **********/
+
+@media screen and (min-width: 768px) and (max-width:768px)
+   and (min-height: 1024px) and (max-height: 1024px){
+       .contact-img {
+           width: 35vmin;
+       }
+
+       .profile-container {
+            padding: 7% 0;
+        }
+   }
