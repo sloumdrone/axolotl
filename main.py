@@ -25,7 +25,10 @@ def profile(user):
     if not select_user(user):
         user = logged_in_user
     biography = retrieve_bio(user) or ' '
-    return template('profile',username=logged_in_user,posts_user=user,bio=biography)
+    friend = False
+    if user in retrieve_fellows(logged_in_user):
+        friend = True
+    return template('profile',username=logged_in_user,posts_user=user,bio=biography,friend=friend)
 
 @route('/settings')
 def settings():
@@ -196,6 +199,12 @@ def update_user():
             return redirect('/profile/'+username)
     return json.dumps({'success':False,'error':'Issue updating ' + update_type})
 
+@route('/delete_fellow/<fellow>')
+def delete_fellow(fellow):
+    username = request.get_cookie('user')
+    sever_friendship(username, fellow)
+    # return redirect('/fellow')
+
 
 ###################################Routes Above/Functions below######################
 
@@ -356,19 +365,14 @@ def update_user_info(user,text,col):
         return True
     return False
 
+def sever_friendship(user, fellow):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    c.execute('''DELETE FROM friends WHERE username=? and friend=?''',(user, fellow))
+    db_conn.commit()
+    db_conn.close()
+    return
 
-
-# def verify_user_existence(user):
-#     db_conn = sqlite3.connect(db)
-#     c = db_conn.cursor()
-#     c.execute('''SELECT count(username) FROM users WHERE username=?''',(user,))
-#     data = c.fetchone()[0]
-#     print str(data) + ' results found for ' + user
-#     db_conn.commit()
-#     db_conn.close()
-#     if data==0:
-#         return False
-#     return True
 
 #####---------------------------Run-the-server-----------------------------#####
 if __name__ == '__main__':
