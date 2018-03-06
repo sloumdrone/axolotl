@@ -41,6 +41,7 @@
                     <input class='save-email bio-btn' type="submit" name="emailsave" value="save">
                     <input class='cancel-email bio-btn' type="reset" name="emailcancel" value="cancel">
                 </form>
+                <h3 class='current-email'>jsjunkie@mail.com</h3>
             </section>
             <section class="edit-bio">
                 <h3>edit bio</h3>

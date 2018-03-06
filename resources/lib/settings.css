@@ -66,7 +66,7 @@ button {
 .image-control {
     width: 35vw;
     height: 7vh;
-    font-size: 1.15em;
+    font-size: 3vh;
     border: 1px solid white;
     border-radius: 5px;
     margin: 5px;
@@ -86,7 +86,7 @@ button {
     width: 20%;
     background-color: #b4b2b2;
     height: 5vh;
-    border-radius: 5px;
+    border-radius: 3px;
     border-style: none;
     color: whitesmoke;
     font-size: 5.25vw;
@@ -103,7 +103,7 @@ button {
     top: 17vh;
     right: 31vw;
     background: #5f6060;
-    border-radius: 15%;
+    border-radius: 10%;
     padding: 1%;
     box-shadow: 1px 1px 3px #8d8989;
 }
@@ -129,7 +129,7 @@ button {
     display: block;
     font-size: 6vmin;
     height: 8.5vh;
-    border-radius: 5px;
+    border-radius: 3px;
     margin: 1% auto;
     text-align: left;
     color: #616060;
@@ -145,7 +145,7 @@ button {
     vertical-align: middle;
     background-color: #a04f45;
     padding: 1%;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .arrow {
@@ -191,7 +191,7 @@ button {
 .textAreaContainer input {
     width: 100%;
     height: 12vmin;
-    border-radius: 5px;
+    border-radius: 3px;
     margin-bottom: 5%;
     border-style: solid;
     color: #727070;
@@ -209,7 +209,7 @@ button {
     font-family: 'Mukta Malar', sans-serif;
     font-size: 5vmin;
     padding-left: 3%;
-    border-radius: 5px;
+    border-radius: 3px;
     border-color: #eceaea;
 }
 

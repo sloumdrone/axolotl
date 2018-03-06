@@ -55,7 +55,7 @@ nav ul li {
     font-family: monospace;
     text-align: center;
     padding: 3% 0 .75% 0;
-    border-radius: 5px 5px 0 0;
+    border-radius: 3px 3px 0 0;
     width: 23.75%;
     box-shadow: 0px 0px 10px 3px #34a3b1;
 }
@@ -112,7 +112,7 @@ nav ul li {
     resize: none;
     overflow: hidden;
     padding: 5%;
-    border-radius: 5px;
+    border-radius: 3px;
     letter-spacing: 1px;
     line-height: 5vmin;
     outline-color: #3bb3c2;
@@ -139,7 +139,7 @@ nav ul li {
     top: 0;
     left: 30vmin;
     background-color: #eceaea;
-    border-radius: 5px;
+    border-radius: 3px;
     vertical-align: top;
     box-sizing: border-box;
     box-shadow: 0px 0px 5px 0px;
@@ -172,7 +172,7 @@ nav ul li {
 .post-user-image {
     width: 13vmin;
     height: 13vmin;
-    border-radius: 5px;
+    border-radius: 3px;
     float: left;
     margin: 10px;
     display: inline-block;
