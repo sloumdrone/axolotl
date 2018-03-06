@@ -1,4 +1,4 @@
-from bottle import route, run, template, static_file, post, request, get, post, redirect, response
+from bottle import route, run, template, static_file, post, request, get, post, redirect, response, error
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
 from PIL import Image
 from shutil import copyfile
@@ -206,6 +206,31 @@ def delete_fellow(fellow):
     username = request.get_cookie('user')
     sever_friendship(username, fellow)
     # return redirect('/fellow')
+
+@error(404)
+@error(500)
+def catch_errors(error):
+    username = request.get_cookie('user')
+    print 'Error: ' + str(error)
+    # return template('error',errors=error)
+    return '''<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>Axolotl: The sky is falling!</title>
+            <link rel="stylesheet" href="/library/error.css">
+        </head>
+        <body>
+            <div class="container">
+                <div class="image"></div>
+                <h1>Axolotl</h1>
+                <p>Whoa! What is going on here? Something unexpected seems to have happened. Or maybe a wrong turn was taken somewhere? Either way, lets get you out of here!</p>
+                <p>
+                    <a href="/">Axolotl Homepage</a>
+                </p>
+            </div>
+        </body>
+    </html>'''
 
 
 ###################################Routes Above/Functions below######################
