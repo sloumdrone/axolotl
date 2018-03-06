@@ -212,7 +212,6 @@ def delete_fellow(fellow):
 def catch_errors(error):
     username = request.get_cookie('user')
     print 'Error: ' + str(error)
-    # return template('error',errors=error)
     return '''<!DOCTYPE html>
     <html>
         <head>
