@@ -51,6 +51,26 @@ function buildPost(arr){
 }
 //---**
 //---**
+function buildPostDesktop(arr){
+    let $header = $('<div>',{class: 'dt-post-header'});
+    let linkText = parseUserLinks(arr[1]);
+    let $body = $('<div>',{class: 'dt-post-body'}).html(linkText);
+    let $footer = $('<div>',{class: 'dt-post-footer'});
+
+    let $image = $('<div>',{class: 'dt-post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG)`).appendTo($header);
+    let $username = $('<div>',{class: 'dt-post-user-name',text: arr[0]}).appendTo($header);
+
+    let $time_elapsed = $('<div>',{class: 'dt-post-like',text: parseTime(arr[2])}).appendTo($footer);
+
+    let $container = $('<div>',{class: 'dt-post-container'}).append($header,$body,$footer);
+    $image.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $username.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $('.dt-thread-container').append($container);
+    last_post = arr[3];
+    return $container;
+}
+//---**
+//---**
 function parseUserLinks(message){
     const regex = /@{1}\w*(?=[\W!?\s]{1})/g;
     message = message + ' ';
@@ -122,12 +142,14 @@ function retrievePosts(){
         success: function(result){
             if (Object.keys(result).length == 0){
                 endoffeed = true;
-            } else {
+            } else if ($(document).width <= '414px'){
                 for (let row in result){
                     buildPost(result[row]);
+                }} else {
+                    for (let row in result){
+                        buildPostDesktop(result[row]);
+                    }
                 }
-            }
-
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');

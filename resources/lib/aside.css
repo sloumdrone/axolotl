@@ -1,0 +1,18 @@
+#dt-aside {
+    background-color: #ffffff;
+    width: 20vw;
+    height: 60vh;
+    position: fixed;
+    top: 20vh;
+    text-align: center;
+}
+
+.dt-profile-pic {
+    height: 11vw;
+    background-repeat: no-repeat;
+    width: 11vw;
+    background-position: center;
+    background-size: cover;
+    margin: 5% auto;
+    border-radius: 50%;
+}

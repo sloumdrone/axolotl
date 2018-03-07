@@ -7,6 +7,7 @@
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/home.css">
+        <link rel="stylesheet" href="/library/aside.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="/library/posts.js"></script>
     </head>
@@ -16,12 +17,21 @@
             <section class='thread-container'>
             </section>
             % include('footer.tpl')
-        </div>
-        <div id='landscape'>
-            <h1>Whoops! This app is designed for portrait mode.</h1>
+            <div id='landscape'>
+                <h1>Whoops! This app is designed for portrait mode.</h1>
+            </div>
         </div>
         <div id='desktop'>
-            <section class='dt-thread-container'>
+            <div id='dt-header'>
+                <div class='dt-logo-container'>
+                    <div id='dt-sitelogo'></div>
+                    <h1 class='dt-logotext'>Axolotl</h1>
+                </div>
+            </div>
+            <section class='dt-content-container'>
+                % include('aside.tpl')
+                <section class='dt-thread-container'>
+                </section>
             </section>
         </div>
     </body>

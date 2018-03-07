@@ -297,72 +297,199 @@ footer {
 
 
 
-/********************** media queries *********************/
-
-/******* iPhone X **********/
-
- @media screen and (min-width: 375px) and (max-width:375px)
-    and (min-height: 812px) and (max-height: 812px){
-        .currentUser {
-            height: 9vh;
-            font-size: 8vmin;
-        }
-
-        nav ul li {
-            height: 8vh;
-        }
-    }
 
 
+/*************************** desktop *****************************/
 
-/******* iPad **********/
-@media screen and (min-width: 768px) and (max-width:768px)
-   and (min-height: 1024px) and (max-height: 1024px){
-       .currentUser {
-           padding: 1% 0;
-       }
+  #dt-sitelogo {
+      background-image: url(/images/axolotl.png);
+      background-size: cover;
+      border-radius: 100%;
+      border: 1px solid #706F6F;
+      background-position: bottom;
+      width: 8vh;
+      height: 8vh;
+      background-color: #FFF;
+      margin: 1vh auto 0 0;
+      display: inline-block;
+  }
 
-       nav ul li {
-           width: 24.5vw;
-       }
+  .dt-logotext {
+      color: #3BB3C2;
+      font-family: monospace;
+      display: inline-block;
+      font-weight: lighter;
+      font-size: 5vmin;
+      vertical-align: top;
+  }
 
-       .nav-icon {
-           width: 8vmin;
-       }
+  .dt-logo-container {
+      width: 90vw;
+      max-width: 900px;
+      margin: auto;
+  }
 
-       #textCounter {
-           bottom: -5.1vh;
-       }
-   }
+  .dt-content-container {
+      width: 90vw;
+      max-width: 900px;
+      margin: auto;
+      height: 100vh;
+      position: relative;
+  }
+
+  #dt-header {
+      position: fixed;
+      width: 100%;
+      height: 10vh;
+      background-color: #ffffff;
+  }
 
 
-   /******* landscape mode **********/
-   @media only screen
-  and (max-width: 812px)
-  and (max-height: 414px)
-  and (orientation: landscape){
-      #landscape {
-          display: block;
-          position: absolute;
-          width: 100vw;
-          height: 100vh;
-          background-color: #eceaea;
-          color: #9c9c9c;
-          text-align: center;
-      }
+/********************** feed *********************/
 
-      #landscape h1 {
-          position: absolute;
-          transform: translate(-50%, -50%);
-          top: 50%;
-          left: 50%;
-          width: 80vw;
-      }
+
+  .dt-thread-container {
+      height: 83vh;
+      position: absolute;
+      top: 17vh;
+      right: 0;
+      overflow: auto;
+      overflow-x: hidden;
+      padding-bottom: 20px;
+      width: 65%;
+  }
+
+  .dt-post-container {
+      width: 90%;
+      height: auto;
+      border-left: 1px solid #dbd8d8;
+      border-right: 1px solid #dbd8d8;
+      margin: 0 auto;
+      background-color: #ffffff;
+  }
+
+  .dt-post-container:nth-child(1){
+      border-top: 1px solid #dbd8d8;
+  }
+
+  .dt-post-header {
+      width: 100%;
+      height: 7vh;
+      display: block;
+  }
+
+  .dt-post-user-image {
+      width: 11vmin;
+      height: 11vmin;
+      border-radius: 50%;
+      float: left;
+      margin: 10px 10px 5px 10px;
+      display: inline-block;
+      background-size: cover;
+      background-position: center;
+      background-color: white;
+      border: 1px solid #928E8E;
+  }
+
+  .dt-post-user-name {
+      float:left;
+      color: #928E8E;
+      display: inline-block;
+      margin: 10px 10px 0 10px;
+      font-size: 3vmin;
+      vertical-align: middle;
+      font-family: monospace;
+  }
+
+  .dt-post-body {
+      font-size: 3vmin;
+      color: #2F3331;
+      text-align: center;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin: 0px auto;
+      width: 80%;
+      line-height: 5vmin;
+      word-wrap: break-word;
+      letter-spacing: .25px;
+      clear: both;
+  }
+
+  .dt-post-like {
+      color: #928E8E;
+      border-bottom: 1px solid #dbd8d8;
+      font-size: 2vmin;
+      padding-right: 20px;
+      text-align: right;
+      padding-bottom: 5px;
   }
 
 
 
- @media screen and (max-width: 414px)
+/*************************** media queries *****************************/
+
+  /******* iPhone X **********/
+
+@media screen and (min-width: 375px) and (max-width:375px)
+      and (min-height: 812px) and (max-height: 812px){
+          .currentUser {
+              height: 9vh;
+              font-size: 8vmin;
+          }
+
+          nav ul li {
+              height: 8vh;
+          }
+      }
+
+
+
+  /******* iPad **********/
+@media screen and (min-width: 768px) and (max-width:768px)
+     and (min-height: 1024px) and (max-height: 1024px){
+         .currentUser {
+             padding: 1% 0;
+         }
+
+         nav ul li {
+             width: 24.5vw;
+         }
+
+         .nav-icon {
+             width: 8vmin;
+         }
+
+         #textCounter {
+             bottom: -5.1vh;
+         }
+     }
+
+
+  /******* landscape mode **********/
+@media only screen
+    and (max-width: 812px)
+    and (max-height: 414px)
+    and (orientation: landscape){
+        #landscape {
+            display: block;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: #eceaea;
+            color: #9c9c9c;
+            text-align: center;
+        }
+
+        #landscape h1 {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 80vw;
+        }
+    }
+
+@media screen and (max-width: 414px)
     and (max-height: 736px)
     and (orientation: portrait){
      #mobile {
@@ -374,12 +501,16 @@ footer {
      }
  }
 
- @media screen and (min-width: 415px) and (min-height: 737px){
+@media screen and (min-width: 415px) and (min-height: 737px){
      #mobile {
          display: none;
      }
 
      #desktop {
          display: block;
+     }
+
+     body {
+         background-color: #fafafa;
      }
  }

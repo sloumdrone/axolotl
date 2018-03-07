@@ -2,6 +2,7 @@
     <head>
         <title>Axolotl</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="library/login.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script src="library/login.js" defer></script>
