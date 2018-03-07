@@ -1,0 +1,60 @@
+body {
+    background-color: white;
+    margin: 0;
+    padding: 2vmin;
+    text-align: center;
+}
+
+.image {
+    background-image: url(/images/axolotl.png);
+    height: 20vw;
+    width: 20vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 2px 3px black;
+}
+
+.title {
+    width: auto;
+    border-radius: 0 10px 10px 0;
+    color: #3BB3C2;
+    vertical-align: text-bottom;
+    display: inline-block;
+    font-size: 8vmin;
+    font-family: monospace;
+    padding: 0 4vw;
+}
+
+p {
+    color: #616060;
+    text-align: center;
+    padding: 0 2vmin;
+    font-family: monospace;
+    margin-bottom: 35px;
+    font-size: 5vmin;
+}
+
+
+
+a {
+    color: #616060;
+    text-decoration: none;
+    border: 1px dotted #616060;
+    background-color: antiquewhite;
+    padding: 3vmin;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+    user-select: none;
+}
+
+a:active {
+    box-shadow: -1px -1px 5px black;
+}
+
+a:hover {
+    text-decoration: underline;
+}

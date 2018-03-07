@@ -5,8 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Axolotl: Settings - {{username}}</title>
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
-        <link rel=stylesheet href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />
-        <link href="https://fonts.googleapis.com/css?family=Averia+Libre|Neucha" rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/settings.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -32,11 +30,12 @@
                 <button class='settingsBtn deleteBtn'><img class='button-icon' src='/images/trashcan.svg' />delete account</button>
             </div>
             <section class="edit-email">
-                <h3>edit email</h3>
+                <h3>current email</h3>
+                <h3 class='current-email'>{{email}}</h3>
                 <form action="/user_update" id="bio-form" method="post">
                     <div class="textAreaContainer">
-                        <textarea name="content" autocomplete="off" minlength="1"></textarea>
-                        <input type="hidden" name="type" value="email">
+                        <input name="content" autocomplete="off" minlength="1"></input>
+                        <input type="hidden" name="type" value="email"><br />
                     </div>
                     <input class='save-email bio-btn' type="submit" name="emailsave" value="save">
                     <input class='cancel-email bio-btn' type="reset" name="emailcancel" value="cancel">

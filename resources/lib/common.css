@@ -54,8 +54,8 @@ nav ul li {
     font-size: 10vmin;
     font-family: monospace;
     text-align: center;
-    padding: 3% 0 .75% 0;
-    border-radius: 5px 5px 0 0;
+    padding: 2vh 0 1vh 0;
+    border-radius: 3px 3px 0 0;
     width: 23.75%;
     box-shadow: 0px 0px 10px 3px #34a3b1;
 }
@@ -112,7 +112,7 @@ nav ul li {
     resize: none;
     overflow: hidden;
     padding: 5%;
-    border-radius: 5px;
+    border-radius: 3px;
     letter-spacing: 1px;
     line-height: 5vmin;
     outline-color: #3bb3c2;
@@ -139,7 +139,7 @@ nav ul li {
     top: 0;
     left: 30vmin;
     background-color: #eceaea;
-    border-radius: 5px;
+    border-radius: 3px;
     vertical-align: top;
     box-sizing: border-box;
     box-shadow: 0px 0px 5px 0px;
@@ -172,7 +172,7 @@ nav ul li {
 .post-user-image {
     width: 13vmin;
     height: 13vmin;
-    border-radius: 5px;
+    border-radius: 3px;
     float: left;
     margin: 10px;
     display: inline-block;
@@ -209,7 +209,7 @@ nav ul li {
 .post-like {
     color: #928E8E;
     border-bottom: 1px solid #706F6F;
-    font-size: 0.8em;
+    font-size: 3vmin;
     padding-right: 20px;
     text-align: right;
     padding-bottom: 5px;
@@ -290,3 +290,43 @@ footer {
     top: -4vh;
     margin: 0 auto 4vh auto;
 }
+
+
+
+/********************** media queries *********************/
+
+/******* iPhone X **********/
+
+ @media screen and (min-width: 375px) and (max-width:375px)
+    and (min-height: 812px) and (max-height: 812px){
+        .currentUser {
+            height: 9vh;
+            font-size: 8vmin;
+        }
+
+        nav ul li {
+            height: 8vh;
+        }
+    }
+
+
+
+/******* iPad **********/
+@media screen and (min-width: 768px) and (max-width:768px)
+   and (min-height: 1024px) and (max-height: 1024px){
+       .currentUser {
+           padding: 1% 0;
+       }
+
+       nav ul li {
+           width: 24.5vw;
+       }
+
+       .nav-icon {
+           width: 8vmin;
+       }
+
+       #textCounter {
+           bottom: -5.1vh;
+       }
+   }

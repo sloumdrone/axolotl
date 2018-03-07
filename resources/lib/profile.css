@@ -25,20 +25,35 @@
     width: 15vh;
     display: inline-block;
     border: 2px solid #928E8E;
-    border-radius: 5px;
-    margin: 4.5% 2%;
+    border-radius: 3px;
+    /* margin: 4.5% 2%; */
+    margin: 2.4vh 2%;
     float: left;
 }
 
 .user-info {
     float: left;
-    width: 64%;
+    width: 63vw;
+    /* added be brian: */
+    margin-top: 1vh;
 }
 
 .add-btn {
-    font-size: 9vmin;
-    color: #cbc8c8;
-    vertical-align: middle;
+    /* font-size: 9vmin; */
+    font-size: 3vh;
+    /* color: #cbc8c8; */
+    /* color: #e6bf05; */
+    vertical-align: top;
+}
+
+.add-btn .material-icons {
+    color: gold;
+    text-shadow: 0 0 1px black;
+}
+
+.add-btn .material-icons.empty {
+    color: #cbc400;
+    text-shadow: none;
 }
 
 .bio {

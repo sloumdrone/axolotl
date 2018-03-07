@@ -1,28 +1,44 @@
 //--->>
 //--->>
-$(document).ready(function () {
-    retrievePosts();
-    applyClickHandlers();
-    addScrollHandler();
-});
+$(document).ready(profileSpecificClickHandlers);
 //---**
 //---**
-function applyClickHandlers(){
-    let $postBtn = $('#sitelogo');
-    let $post = $('section.make-post');
-
-    $postBtn.click(() => {
-        $post.toggleClass('show');
-    });
-
-    $('.textAreaContainer textarea').on('keyup',function(){
-        let length = $(this).val().length
-        if (length > 200){
-            $(this).val($(this).val().substring(0,200));
-            length = 200;
+function profileSpecificClickHandlers(){
+    $('.add-btn .material-icons').on('click',function(){
+        let username = $('#postsToGrab').text();
+        let current = $(this).text();
+        if (current === 'star'){
+            removeFellow(username);
+            $(this).text('star_border').toggleClass('empty');
+        } else {
+            addNewFellow(username);
+            $(this).text('star').toggleClass('empty');
         }
-        $('#textCounter').text(`${length}/200`);
+
+
     });
 }
-//---XX
-//---XX
+//---**
+//---**
+function addNewFellow(fellow){
+    $.ajax({
+        url: `/new-fellow/${fellow}`,
+        success: toggleStar
+    });
+}
+//---**
+//---**
+function removeFellow(fellow){
+    $.ajax({
+        url: `/delete_fellow/${fellow}`,
+        success: toggleStar
+    });
+}
+//---**
+//---**
+function toggleStar(){
+    $('.add-btn .empty').toggleClass('hide');
+    $('.add-btn .full').toggleClass('hide');
+}
+//---xx
+//---xx

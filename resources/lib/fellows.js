@@ -1,10 +1,11 @@
+//--->>
+//--->>
 $(document).ready(function () {
     applyClickHandlers();
     getFellowsList();
 });
-
-
-
+//---**
+//---**
 function applyClickHandlers(){
     let $searchBtn = $('.search-button');
 
@@ -15,8 +16,23 @@ function applyClickHandlers(){
             $('.user-search-container input[name=usersearch]').val('');
         };
     });
-}
 
+    $('#fellow-list').on('click','.material-icons',function(){
+        removeFellow(event.target);
+    });
+}
+//---**
+//---**
+function removeFellow(e){
+    $.ajax({
+        url: `/delete_fellow/${event.target.axolotlFellow}`,
+        success: function(result){
+            getFellowsList();
+        }
+    });
+}
+//---**
+//---**
 function addNewFellow(fellow){
     $.ajax({
         url: `/new-fellow/${fellow}`,
@@ -28,7 +44,8 @@ function addNewFellow(fellow){
         }
     });
 }
-
+//---**
+//---**
 function getFellowsList(){
     $('#fellow-list').empty();
     $.ajax({
@@ -45,17 +62,22 @@ function getFellowsList(){
         }
     });
 }
-
+//---**
+//---**
 function buildFellowForList(fellow){
     let $ul = $('#fellow-list');
     let $listItem = $('<li>');
     let $aLink = $('<a>',{href: '/profile/' + fellow})
-    let $image = $('<div>',{class: 'post-user-image'}).css({'background-image':`url(/images/user/${fellow}.JPEG)`}).prependTo($aLink);
-    let $userName = $('<h1>', {class: 'username', text: fellow}).appendTo($aLink);
-    let $deleteBtn = $('<i>', {class: 'fa fa-trash'}).appendTo($aLink);
-    $aLink.appendTo($listItem)
+    let $image = $('<div>',{class: 'post-user-image'}).css({'background-image':`url(/images/user/${fellow}.JPEG)`});
+    let $userName = $('<h1>', {class: 'username', text: fellow});
 
-
+    let $deleteBtn = $('<i>', {class: 'material-icons', text: 'star'})
+    $deleteBtn[0].axolotlFellow = fellow;
+    $listItem.append($image,$userName,$deleteBtn);
+    $userName.wrap($aLink)
+    $image.wrap($aLink)
     $ul.append($listItem);
     return $listItem;
 }
+//---xx
+//---xx
