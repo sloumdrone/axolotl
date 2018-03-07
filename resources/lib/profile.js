@@ -4,7 +4,6 @@ $(document).ready(profileSpecificClickHandlers);
 //---**
 //---**
 function profileSpecificClickHandlers(){
-    console.log('Adding handlers');
     $('.add-btn .material-icons').on('click',function(){
         let username = $('#postsToGrab').text();
         let current = $(this).text();

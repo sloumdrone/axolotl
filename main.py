@@ -3,21 +3,34 @@ import os.path, os, hashlib, datetime, sqlite3, time, json, re
 from PIL import Image
 from shutil import copyfile
 from cgi import escape as sanitize
-
-
+##---**
+##---**
+##################################################################################
+####--------------------------------Globals---------------------------------#####
+################################################################################
+##---**
+##---**
 db = './resources/inky.sqlite'
-
+##---**
+##---**
+##################################################################################
+####--------------------Routing for Pages/API Endpoints---------------------#####
+################################################################################
+##---**
+##---**
 @route('/')
 def main():
     status = str(request.query.statusCode)
     return template('login', loginissue=status)
-
+##---**
+##---**
 @route('/home')
 def home():
     is_logged_in()
     user = request.get_cookie('user')
     return template('home',username=user)
-
+##---**
+##---**
 @route('/profile/<user>')
 def profile(user):
     is_logged_in()
@@ -29,7 +42,8 @@ def profile(user):
     if user in retrieve_fellows(logged_in_user):
         friend = True
     return template('profile',username=logged_in_user,posts_user=user,bio=biography,friend=friend)
-
+##---**
+##---**
 @route('/settings')
 def settings():
     is_logged_in()
@@ -41,25 +55,29 @@ def settings():
     emailaddy = select_user(user)['e-mail']
     print emailaddy
     return template('settings', username=user, userpic=photo, email=emailaddy)
-
+##---**
+##---**
 @route('/contact')
 def contact():
     is_logged_in()
     user = request.get_cookie('user')
     return template('contact', username=user)
-
+##---**
+##---**
 @route('/fellows')
 def fellows():
     is_logged_in()
     user = request.get_cookie('user')
     return template('fellows',username=user)
-
+##---**
+##---**
 @route('/get_fellows')
 def get_fellows():
     is_logged_in()
     user = request.get_cookie('user')
     return json.dumps(retrieve_fellows(user))
-
+##---**
+##---**
 @route('/post', method='POST')
 def handle_post():
     username = request.get_cookie('user')
@@ -77,7 +95,8 @@ def handle_post():
         message = sanitize(message, True)
         post_to_db(username,message)
     return redirect('/home')
-
+##---**
+##---**
 @route('/new-fellow/<new_fellow>')
 def handle_new_fellow(new_fellow):
     username = request.get_cookie('user')
@@ -85,14 +104,16 @@ def handle_new_fellow(new_fellow):
         if follow(username,new_fellow):
             return json.dumps({'success': True})
     return json.dumps({'success': False})
-
+##---**
+##---**
 @route('/get_posts', method='POST')
 def retrievePosts():
     username = request.get_cookie('user')
     offset = int(request.forms.get('offset'))
     qty = int(request.forms.get('qty'))
     return json.dumps(retrieve_posts(username,offset,qty))
-
+##---**
+##---**
 @route('/get_profile_posts/<user>', method='POST')
 def retrieveProfilePosts(user):
     if select_user(user):
@@ -100,7 +121,8 @@ def retrieveProfilePosts(user):
         offset = int(request.forms.get('offset'))
         qty = int(request.forms.get('qty'))
         return json.dumps(retrieve_profile_posts(username,offset,qty))
-
+##---**
+##---**
 @route('/signup', method='POST')
 def sign_up():
     username = request.forms.get('username')
@@ -127,8 +149,8 @@ def sign_up():
         return redirect('/home')
     else:
         return redirect('/?statusCode=222')
-
-
+##---**
+##---**
 @post('/login', method='POST')
 def log_me_in():
     username = request.forms.get('username')
@@ -145,7 +167,8 @@ def log_me_in():
         redirect('/home')
     else:
         redirect('/?statusCode=111')
-
+##---**
+##---**
 @route('/logout')
 def logout():
     username = request.get_cookie("user")
@@ -155,15 +178,18 @@ def logout():
     response.delete_cookie("user")
     response.delete_cookie("session")
     redirect('/')
-
+##---**
+##---**
 @route('/images/<path:path>')
 def serve_pictures(path):
     return static_file(path, root='./resources/images/')
-
+##---**
+##---**
 @route('/library/<lib>')
 def serve_libs(lib):
     return static_file(lib, root='./resources/lib/')
-
+##---**
+##---**
 @route('/upload_file', method='POST')
 def do_upload():
     username = request.get_cookie('user')
@@ -174,7 +200,6 @@ def do_upload():
     error = json.dumps({'success':False,'error':'Filetype not accepted'})
     if ext.lower() not in ('.png', '.jpg', '.jpeg', '.gif'):
         return error
-
 
     outfile = './resources/images/user/' + username + ".JPEG"
     if upload.filename != outfile:
@@ -187,7 +212,8 @@ def do_upload():
             copyfile('./resources/images/user/axolotl.JPEG',newdefault)
 
     return redirect('/settings')
-
+##---**
+##---**
 @route('/user_update', method='POST')
 def update_user():
     username = request.get_cookie('user')
@@ -200,17 +226,18 @@ def update_user():
         if update_user_info(username,update_content,'email'):
             return redirect('/profile/'+username)
     return json.dumps({'success':False,'error':'Issue updating ' + update_type})
-
+##---**
+##---**
 @route('/delete_fellow/<fellow>')
 def delete_fellow(fellow):
     username = request.get_cookie('user')
     sever_friendship(username, fellow)
     # return redirect('/fellow')
-
+##---**
+##---**
 @error(404)
 @error(500)
 def catch_errors(error):
-    username = request.get_cookie('user')
     print 'Error: ' + str(error)
     return '''<!DOCTYPE html>
     <html>
@@ -230,10 +257,30 @@ def catch_errors(error):
             </div>
         </body>
     </html>'''
-
-
-###################################Routes Above/Functions below######################
-
+##---**
+##---**
+@route('/delete_account', method='POST')
+def delete_account():
+    is_logged_in()
+    user = request.get_cookie('user')
+    pwd = request.forms.get('pwd')
+    pwhash = hashlib.md5()
+    pwhash.update(password)
+    if verify_login(username,pwhash.hexdigest()):
+        if delete_account(user):
+            response.delete_cookie("user")
+            response.delete_cookie("session")
+            return redirect('/')
+        else:
+            return json.dumps('success':False,'error':'SQL error')
+    return json.dumps({'success':False,'error':'Passwords do not match.'})
+##---xx
+##---xx
+##################################################################################
+####----------------------Routes Above/Functions Below----------------------#####
+################################################################################
+##---**
+##---**
 def is_logged_in():
     if request.get_cookie("user") != None:
         un = request.get_cookie("user")
@@ -245,15 +292,16 @@ def is_logged_in():
             redirect('/')
     else:
         redirect('/')
-
+##---**
+##---**
 def verify_login(un,pw):
     udata = select_user(un)
     if udata:
         if pw == udata['password']:
             return True
     return False
-
-
+##---**
+##---**
 def check_and_build_db():
     if not os.path.isfile(db):
         db_conn = sqlite3.connect('./resources/inky.sqlite')
@@ -263,7 +311,8 @@ def check_and_build_db():
         c.execute("CREATE TABLE posts (ID integer PRIMARY KEY AUTOINCREMENT, username text NOT NULL, post_body text NOT NULL, post_time real NOT NULL)")
         db_conn.commit()
         db_conn.close()
-
+    ##---**
+    ##---**
 def select_user(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -275,21 +324,24 @@ def select_user(user):
     user_data = {"username":row_data[0],"password":row_data[1],"session_id":row_data[2],"e-mail":row_data[3]}
 
     return user_data
-
+##---**
+##---**
 def logout_user_db(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     c.execute('''UPDATE users SET session_id = 'Invalid' WHERE username=?''',(user,))
     db_conn.commit()
     db_conn.close()
-
+##---**
+##---**
 def create_session_db(user,session):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     c.execute('''UPDATE users SET session_id=? WHERE username=?''',(session,user))
     db_conn.commit()
     db_conn.close()
-
+##---**
+##---**
 def new_user(un,pw,em,sid):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -300,7 +352,8 @@ def new_user(un,pw,em,sid):
     if lastid:
         return True
     return False
-
+##---**
+##---**
 def post_to_db(user, message):
     current_time = time.time()
     message = message.strip()
@@ -313,7 +366,8 @@ def post_to_db(user, message):
     if lastid:
         return True
     return False
-
+##---**
+##---**
 def follow(user,new_friend):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -328,7 +382,8 @@ def follow(user,new_friend):
         return True
     db_conn.close()
     return False
-
+##---**
+##---**
 def retrieve_posts(user,offset,qty):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -342,7 +397,8 @@ def retrieve_posts(user,offset,qty):
     db_conn.commit()
     db_conn.close()
     return output
-
+##---**
+##---**
 def retrieve_profile_posts(user,offset,qty):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -356,7 +412,8 @@ def retrieve_profile_posts(user,offset,qty):
     db_conn.commit()
     db_conn.close()
     return output
-
+##---**
+##---**
 def retrieve_fellows(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -367,7 +424,8 @@ def retrieve_fellows(user):
     db_conn.commit()
     db_conn.close()
     return output
-
+##---**
+##---**
 def retrieve_bio(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -376,7 +434,8 @@ def retrieve_bio(user):
     db_conn.commit()
     db_conn.close()
     return bio
-
+##---**
+##---**
 def update_user_info(user,text,col):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -390,7 +449,8 @@ def update_user_info(user,text,col):
     if success:
         return True
     return False
-
+##---**
+##---**
 def sever_friendship(user, fellow):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
@@ -398,9 +458,24 @@ def sever_friendship(user, fellow):
     db_conn.commit()
     db_conn.close()
     return
-
-
-#####---------------------------Run-the-server-----------------------------#####
+##---**
+##---**
+def delete_account(user):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    c.execute('''DELETE FROM users WHERE username = ?''',(user,))
+    db_conn.commit()
+    c.execute('''DELETE FROM friends WHERE username = ? OR friend = ?''',(user,user))
+    db_conn.commit()
+##---xx
+##---xx
+##################################################################################
+#####---------------------------Run-the-server-----------------------------######
+################################################################################
+##---**
+##---**
 if __name__ == '__main__':
     check_and_build_db()
     run(host='localhost', port=8080)
+##---xx
+##---xx
