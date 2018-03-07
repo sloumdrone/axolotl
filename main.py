@@ -272,7 +272,7 @@ def delete_account():
             response.delete_cookie("session")
             return redirect('/')
         else:
-            return json.dumps('success':False,'error':'SQL error')
+            return json.dumps({'success':False,'error':'SQL error'})
     return json.dumps({'success':False,'error':'Passwords do not match.'})
 ##---xx
 ##---xx
