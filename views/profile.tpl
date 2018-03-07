@@ -14,26 +14,31 @@
         <script type="text/javascript" src="/library/profile.js"></script>
     </head>
     <body>
-        % include('header.tpl')
-        <section class='thread-container'>
-            <div class="profile-header">
-                <div class='profile-pic' style='background-image: url("/images/user/{{posts_user}}.JPEG")'></div>
-                <div class='user-info'>
-                    <div class="post-user-name"><span id="postsToGrab">{{posts_user}}</span></div>
-                    %if friend:
+        <div id='mobile'>
+            % include('header.tpl')
+            <section class='thread-container'>
+                <div class="profile-header">
+                    <div class='profile-pic' style='background-image: url("/images/user/{{posts_user}}.JPEG")'></div>
+                    <div class='user-info'>
+                        <div class="post-user-name"><span id="postsToGrab">{{posts_user}}</span></div>
+                        %if friend:
 
-                        <button class='add-btn'><i class="material-icons">star</i></button>
-                    %else:
-                        <button class='add-btn'><i class="material-icons empty">star_border</i></button>
-                    %end
-                    <div class='bio'>
-                        {{bio}}
+                            <button class='add-btn'><i class="material-icons">star</i></button>
+                        %else:
+                            <button class='add-btn'><i class="material-icons empty">star_border</i></button>
+                        %end
+                        <div class='bio'>
+                            {{bio}}
+                        </div>
                     </div>
                 </div>
+                <div class="post-container">
+                </div>
+            </section>
+            % include('footer.tpl')
+            <div id='landscape'>
+                <h1>Whoops! This app is designed for portrait mode.</h1>
             </div>
-            <div class="post-container">
-            </div>
-        </section>
-        % include('footer.tpl')
+        </div>
     </body>
 </html>

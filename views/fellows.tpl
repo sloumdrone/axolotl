@@ -13,25 +13,30 @@
         <script src="/library/fellows.js"></script>
     </head>
     <body>
-        % include('header.tpl')
-        <div class='content-container'>
-            <section class="search-container">
-                <p>add a new fellow:</p>
-                <div class="user-search-container">
-                    <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
-                </div>
-            </section>
-            <section class="current-fellows-container">
-                <div class="fellow-list-container">
-                    <h2>current fellows</h2>
-                    <ul id="fellow-list">
+        <div id=#mobile>
+            % include('header.tpl')
+            <div class='content-container'>
+                <section class="search-container">
+                    <p>add a new fellow:</p>
+                    <div class="user-search-container">
+                        <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
+                    </div>
+                </section>
+                <section class="current-fellows-container">
+                    <div class="fellow-list-container">
+                        <h2>current fellows</h2>
+                        <ul id="fellow-list">
 
-                    </ul>
-                </div>
-            </section>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <footer>
+                <h2 class='title'>Axolotl</h2>
+            </footer>
+            <div id='landscape'>
+                <h1>Whoops! This app is designed for portrait mode.</h1>
+            </div>
         </div>
-        <footer>
-            <h2 class='title'>Axolotl</h2>
-        </footer>
     </body>
 </html>

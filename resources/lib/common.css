@@ -11,6 +11,10 @@ body {
     font-family: 'Mukta Malar', sans-serif;
 }
 
+#landscape {
+    display: none;
+}
+
 #logout {
     display: inline-block;
     position: fixed;
@@ -330,3 +334,52 @@ footer {
            bottom: -5.1vh;
        }
    }
+
+
+   /******* landscape mode **********/
+   @media only screen
+  and (max-width: 812px)
+  and (max-height: 414px)
+  and (orientation: landscape){
+      #landscape {
+          display: block;
+          position: absolute;
+          width: 100vw;
+          height: 100vh;
+          background-color: #eceaea;
+          color: #9c9c9c;
+          text-align: center;
+      }
+
+      #landscape h1 {
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 50%;
+          left: 50%;
+          width: 80vw;
+      }
+  }
+
+
+
+ @media screen and (max-width: 414px)
+    and (max-height: 736px)
+    and (orientation: portrait){
+     #mobile {
+         display: block;
+     }
+
+     #desktop {
+         display: none;
+     }
+ }
+
+ @media screen and (min-width: 415px) and (min-height: 737px){
+     #mobile {
+         display: none;
+     }
+
+     #desktop {
+         display: block;
+     }
+ }

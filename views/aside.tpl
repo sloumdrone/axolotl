@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -11,18 +10,10 @@
         <script type="text/javascript" src="/library/posts.js"></script>
     </head>
     <body>
-        <div id='mobile'>
-            % include('header.tpl')
-            <section class='thread-container'>
-            </section>
-            % include('footer.tpl')
-        </div>
-        <div id='landscape'>
-            <h1>Whoops! This app is designed for portrait mode.</h1>
-        </div>
         <div id='desktop'>
-            <section class='dt-thread-container'>
-            </section>
+            <aside id='dt-aside'>
+                
+            </aside>
         </div>
     </body>
 </html>
