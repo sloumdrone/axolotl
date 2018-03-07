@@ -248,8 +248,7 @@ def catch_errors(error):
         </head>
         <body>
             <div class="container">
-                <div class="image"></div>
-                <h1>Axolotl</h1>
+                <div class="image"></div><div class="title">Axolotl</div>
                 <p>Whoa! What is going on here? Something unexpected seems to have happened. Or maybe a wrong turn was taken somewhere? Either way, lets get you out of here!</p>
                 <p>
                     <a href="/">Axolotl Homepage</a>
