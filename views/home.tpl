@@ -55,7 +55,7 @@
                 <form id="dt-bio-form" action="/user_update" method="post">
                     <div class="dt-textAreaContainer">
                         <textarea class="dt-bio-textarea" name="content" autocomplete="off" maxlength="85" minlength="1"></textarea>
-                        <span id="dt-textCounter">0/85</span>
+                        <span id="dt-textCounter-bio">0/85</span>
                         <input type="hidden" name="type" value="bio">
                     </div>
                     <button class='dt-save-bio dt-modal-btn' type="submit" name="biosave" value="save">save</button>
