@@ -10,9 +10,45 @@ $(document).ready(function () {
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
     let $post = $('section.make-post');
+    let $dt_postBtn = $('#dt-postBtn');
+    let $dt_post = $('section.dt-make-post');
+    let $dt_settings = $('.dt-settings');
+    let $dt_menu = $('.dt-settings-list')
 
     $postBtn.click(() => {
         $post.toggleClass('show');
+    });
+
+    $dt_postBtn.click(() => {
+        $dt_post.slideToggle();
+    });
+
+    $dt_settings.click(() => {
+        $dt_menu.slideToggle();
+    });
+
+    $('.dt-edit-email').click(() => {
+        $('.dt-edit-email-modal').removeClass('dt-hide');
+    });
+
+    $('.dt-cancel-email').click(() => {
+        $('.dt-edit-email-modal').addClass('dt-hide');
+    });
+
+    $('.dt-edit-bio').click(() => {
+        $('.dt-edit-bio-modal').removeClass('dt-hide');
+    });
+
+    $('.dt-cancel-bio').click(() => {
+        $('.dt-edit-bio-modal').addClass('dt-hide');
+    });
+
+    $('.dt-delete-account-btn').click(() => {
+        $('.dt-delete-account-modal').removeClass('dt-hide');
+    });
+
+    $('.dt-cancel-delete').click(() => {
+        $('.dt-delete-account-modal').addClass('dt-hide');
     });
 
     $('.textAreaContainer textarea').on('keyup',function(){
@@ -21,7 +57,7 @@ function applyClickHandlers(){
             $(this).val($(this).val().substring(0,200));
             length = 200;
         }
-        $('#textCounter').text(`${length}/200`);
+        $('.textCounter').text(`${length}/200`);
     });
 }
 //---**=

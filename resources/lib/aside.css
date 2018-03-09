@@ -1,7 +1,7 @@
 #dt-aside {
     background-color: #ffffff;
     width: 20vw;
-    height: 60vh;
+    height: 40vh;
     position: fixed;
     top: 20vh;
     text-align: center;
@@ -15,4 +15,28 @@
     background-size: cover;
     margin: 5% auto;
     border-radius: 50%;
+    border: 1px solid #928E8E;
+}
+
+.add-btn {
+    /* font-size: 9vmin; */
+    font-size: 3vh;
+    /* color: #cbc8c8; */
+    /* color: #e6bf05; */
+    vertical-align: top;
+}
+
+.add-btn .material-icons {
+    color: gold;
+    text-shadow: 0 0 1px black;
+}
+
+.add-btn .material-icons.empty {
+    color: #cbc400;
+    text-shadow: none;
+}
+
+.dt-bio {
+    width: 90%;
+    margin: auto;
 }
