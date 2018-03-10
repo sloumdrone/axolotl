@@ -29,7 +29,8 @@ def home():
     is_logged_in()
     user = request.get_cookie('user')
     biography = retrieve_bio(user) or ' '
-    return template('home',username=user,bio=biography)
+    emailaddy = select_user(user)['e-mail']
+    return template('home',username=user,bio=biography,email=emailaddy)
 ##---**
 ##---**
 @route('/profile/<user>')
@@ -39,10 +40,11 @@ def profile(user):
     if not select_user(user):
         user = logged_in_user
     biography = retrieve_bio(user) or ' '
+    emailaddy = select_user(user)['e-mail']
     friend = False
     if user in retrieve_fellows(logged_in_user):
         friend = True
-    return template('profile',username=logged_in_user,posts_user=user,bio=biography,friend=friend)
+    return template('profile',username=logged_in_user,posts_user=user,bio=biography,friend=friend,email=emailaddy)
 ##---**
 ##---**
 @route('/settings')
@@ -70,7 +72,8 @@ def fellows():
     is_logged_in()
     user = request.get_cookie('user')
     biography = retrieve_bio(user) or ' '
-    return template('fellows',username=user,bio=biography)
+    emailaddy = select_user(user)['e-mail']
+    return template('fellows',username=user,bio=biography,email=emailaddy)
 ##---**
 ##---**
 @route('/get_fellows')
