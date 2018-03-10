@@ -8,7 +8,7 @@
         <script src="library/login.js" defer></script>
     </head>
     <body>
-        <section id='mobile'>
+        <section>
             <div id="logoimage"></div>
             %if loginissue:
             <div class="wordBubble">
