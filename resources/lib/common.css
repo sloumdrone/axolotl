@@ -422,7 +422,7 @@ footer {
     text-align: center;
     color: #3BB3C2;
     font-size: 3vmin;
-    box-shadow: 1px 1px 3px #dbd8d8;
+    box-shadow: 1px 1px 10px #dbd8d8;
 }
 
 .dt-edit-email-modal h3, .dt-edit-bio-modal h3 {
@@ -730,6 +730,10 @@ footer {
           nav ul li {
               height: 8vh;
           }
+
+          #desktop {
+              display: none;
+          }
       }
 
 
@@ -778,6 +782,10 @@ footer {
             top: 50%;
             left: 50%;
             width: 80vw;
+        }
+
+        #desktop {
+            display: none;
         }
     }
 

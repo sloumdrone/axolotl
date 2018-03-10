@@ -32,6 +32,7 @@
                     </a>
                     <i class="material-icons dt-settings">settings</i>
                     <ul class='dt-settings-list'>
+                        <li><a href='/fellows'>fellows</a></li>
                         <li><a href='/logout'>log out</a></li>
                         <li class='dt-edit-bio'>edit bio</li>
                         <li class='dt-edit-email'>edit email</li>

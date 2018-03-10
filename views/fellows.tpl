@@ -38,5 +38,43 @@
                 <h1>Whoops! This app is designed for portrait mode.</h1>
             </div>
         </div>
+        <div id='desktop'>
+            <div id='dt-header'>
+                <div class='dt-sized-header'>
+                    <a href='/home'>
+                        <div id='dt-sitelogo'></div>
+                        <h1 class='dt-logotext'>Axolotl</h1>
+                    </a>
+                    <i class="material-icons dt-settings">settings</i>
+                    <ul class='dt-settings-list'>
+                        <li><a href='/fellows'>fellows</a></li>
+                        <li><a href='/logout'>log out</a></li>
+                        <li class='dt-edit-bio'>edit bio</li>
+                        <li class='dt-edit-email'>edit email</li>
+                        <li><a href='/contact'>contact us</a></li>
+                        <li class='dt-delete-account-btn'>delete account</li>
+                    </ul>
+                </div>
+            </div>
+            % include('setting_modals.tpl')
+            <section class='dt-content-container'>
+                % include('aside.tpl')
+                % include('post_slider.tpl')
+                <section class="search-container">
+                    <p>add a new fellow:</p>
+                    <div class="user-search-container">
+                        <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
+                    </div>
+                </section>
+                <section class="current-fellows-container">
+                    <div class="fellow-list-container">
+                        <h2>current fellows</h2>
+                        <ul id="fellow-list">
+
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </div>
     </body>
 </html>

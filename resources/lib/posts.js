@@ -213,14 +213,11 @@ function retrievePosts(){
         success: function(result){
             if (Object.keys(result).length == 0){
                 endoffeed = true;
-            } else if ($(document).width <= '414px'){
+            } else {
                 for (let row in result){
                     buildPost(result[row]);
-                }} else {
-                    for (let row in result){
-                        buildPostDesktop(result[row]);
-                    }
-                }
+                    buildPostDesktop(result[row]);
+                }} 
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
