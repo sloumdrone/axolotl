@@ -1,4 +1,4 @@
-from bottle import route, run, template, static_file, post, request, get, post, redirect, response, error
+from bottle import route, run, template, static_file, post, request, get, redirect, response, error
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
 from PIL import Image
 from shutil import copyfile
@@ -28,7 +28,8 @@ def main():
 def home():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('home',username=user)
+    biography = retrieve_bio(user) or ' '
+    return template('home',username=user,bio=biography)
 ##---**
 ##---**
 @route('/profile/<user>')
