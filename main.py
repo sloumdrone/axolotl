@@ -69,7 +69,8 @@ def contact():
 def fellows():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('fellows',username=user)
+    biography = retrieve_bio(user) or ' '
+    return template('fellows',username=user,bio=biography)
 ##---**
 ##---**
 @route('/get_fellows')
