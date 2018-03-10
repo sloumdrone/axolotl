@@ -309,6 +309,9 @@ footer {
 /*****************************************************************/
 
 
+/********************* header **********************************/
+
+
 #dt-sitelogo {
   background-image: url(/images/axolotl.png);
   background-size: cover;
@@ -326,7 +329,7 @@ footer {
   display: inline-block;
   font-weight: lighter;
   font-size: 5vmin;
-  vertical-align: top;
+  vertical-align: .15vh;
 }
 
 #sitelogo:hover, .dt-logotext:hover {
@@ -335,7 +338,7 @@ footer {
 
 .dt-sized-header {
   width: 90vw;
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   position: relative;
 }
@@ -363,13 +366,30 @@ footer {
   z-index: 1;
 }
 
+.dt-userName {
+    font-family: monospace;
+    font-size: 2.5vmin;
+    display: inline-block;
+    width: 20vw;
+    text-align: right;
+    color: #706F6F;
+    float: right;
+    margin-top: 5vh;
+    margin-right: 1vw;
+}
+
 /********************** settings dropdown nav *********************/
 
 .dt-settings {
     color: #706F6F;
     font-size: 4.5vmin;
-    margin: 0.8em;
-    float: right;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 3%;
+}
+
+.dt-settings i {
+    font-size: 1.25em;
 }
 
 .dt-settings:hover {
@@ -382,7 +402,7 @@ footer {
     width: 15vw;
     background-color: #ffffff;
     border: 1px solid #ececec;
-    right: 2vw;
+    right: 0;
     top: 7.5vh;
     padding: 0;
     display: none;
@@ -390,9 +410,9 @@ footer {
 }
 
 .dt-settings-list li {
-    text-align: center;
+    /* text-align: center; */
     color: #706F6F;
-    padding: 2%
+    padding: 2% 2% 2% 5%;
 }
 
 .dt-settings-list li:hover {
@@ -407,6 +427,35 @@ footer {
 
 .dt-settings-list .dt-delete-account-btn {
     color: #ec1212;
+}
+
+.dt-arrow {
+    font-size: 4.5vmin;
+    float: right;
+}
+
+
+/********************** settings sub nav *********************/
+
+.dt-sub-nav {
+    list-style: none;
+    width: 13vw;
+    background-color: white;
+    position: absolute;
+    font-size: 1em;
+    left: 14.5vw;
+    top: 15.5vh;
+    border: 1px solid #ececec;
+    padding: 0;
+    display: none;
+}
+
+.dt-sub-nav li:hover {
+    background-color: #fafafa;
+}
+
+.dt-sub-nav a {
+    text-decoration: none;
 }
 
 /********************** settings features *********************/
@@ -534,6 +583,8 @@ footer {
     display: block;
     margin-left: 5%;
 }
+
+
 
 /********************** feed *********************/
 
@@ -830,6 +881,8 @@ footer {
 
      #desktop {
          display: block;
+         height: 100vh;
+         width: 100vw;
      }
 
      body {
