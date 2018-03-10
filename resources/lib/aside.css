@@ -18,25 +18,38 @@
     border: 1px solid #928E8E;
 }
 
-.add-btn {
-    /* font-size: 9vmin; */
-    font-size: 3vh;
-    /* color: #cbc8c8; */
-    /* color: #e6bf05; */
+.dt-profile-pic:hover, .dt-currentUser:hover {
+    cursor: pointer;
+    color: #ececec;
+    border-color: #ececec;
+}
+
+.dt-add-btn {
+    border: none;
     vertical-align: top;
 }
 
-.add-btn .material-icons {
+.dt-add-btn:hover {
+    cursor: pointer;
+}
+
+.dt-add-btn .material-icons {
     color: gold;
     text-shadow: 0 0 1px black;
 }
 
-.add-btn .material-icons.empty {
+.dt-add-btn .material-icons.empty {
     color: #cbc400;
     text-shadow: none;
 }
 
 .dt-bio {
     width: 90%;
-    margin: auto;
+    margin: 5px auto 0px;
+    clear: both;
+}
+
+.dt-currentUser {
+    margin: 0;
+    float: none;
 }

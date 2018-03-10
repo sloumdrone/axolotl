@@ -2,10 +2,10 @@
 <html>
     <body>
         <aside id='dt-aside'>
-            <div class='dt-profile-pic' style='background-image: url("/images/user/{{username}}.JPEG")'></div>
+            <a href="/profile/{{username}}"><div class='dt-profile-pic' style='background-image: url("/images/user/{{username}}.JPEG")'></div></a>
             <p class="dt-currentUser">{{username}}</p>
             <div class='dt-bio'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor inci.                </div>
+                {{bio}}
         </aside>
     </body>
 </html>

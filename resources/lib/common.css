@@ -329,11 +329,19 @@ footer {
   vertical-align: top;
 }
 
+#sitelogo:hover, .dt-logotext:hover {
+    cursor: pointer;
+}
+
 .dt-sized-header {
   width: 90vw;
   max-width: 900px;
   margin: auto;
   position: relative;
+}
+
+.dt-sized-header a {
+    text-decoration: none;
 }
 
 .dt-content-container {
@@ -414,6 +422,7 @@ footer {
     text-align: center;
     color: #3BB3C2;
     font-size: 3vmin;
+    box-shadow: 1px 1px 3px #dbd8d8;
 }
 
 .dt-edit-email-modal h3, .dt-edit-bio-modal h3 {
@@ -442,6 +451,8 @@ footer {
 
 .dt-modal-btn:hover {
     cursor: pointer;
+    color: #3BB3C2;
+    background-color: white;
 }
 
 .dt-cancel {
@@ -475,6 +486,12 @@ footer {
     background-color: #ec1212;
 }
 
+.dt-confirm-delete:hover {
+    background-color: white;
+    color: #ec1212;
+    border: 1px solid #ec1212;
+}
+
 .warning-text {
     color: #ec1212;
 }
@@ -490,6 +507,12 @@ footer {
     color: #706F6F;
 }
 
+.dt-cancel-delete:hover {
+    background-color: white;
+    border: 1px solid #eceaea;
+    color: #706F6F;
+}
+
 .dt-cancel-delete, .dt-confirm-delete {
     width: 35%;
     margin: 0 0 5% 0;
@@ -499,6 +522,13 @@ footer {
 .dt-hide {
     display: none;
 }
+
+#dt-textCounter-bio {
+    text-align: left;
+    display: block;
+    margin-left: 5%;
+}
+
 /********************** feed *********************/
 
 .dt-currentUser {
@@ -591,6 +621,7 @@ footer {
     margin: 0 auto;
     padding: 10px 0;
     position: absolute;
+    display: none;
 }
 
 #dt-make-post-form {

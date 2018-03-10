@@ -43,13 +43,25 @@
         </div>
         <div id='desktop'>
             <div id='dt-header'>
-                <div class='dt-logo-container'>
-                    <div id='dt-sitelogo'></div>
-                    <h1 class='dt-logotext'>Axolotl</h1>
+                <div class='dt-sized-header'>
+                    <a href='/home'>
+                        <div id='dt-sitelogo'></div>
+                        <h1 class='dt-logotext'>Axolotl</h1>
+                    </a>
+                    <i class="material-icons dt-settings">settings</i>
+                    <ul class='dt-settings-list'>
+                        <li><a href='/logout'>log out</a></li>
+                        <li class='dt-edit-bio'>edit bio</li>
+                        <li class='dt-edit-email'>edit email</li>
+                        <li><a href='/contact'>contact us</a></li>
+                        <li class='dt-delete-account-btn'>delete account</li>
+                    </ul>
                 </div>
             </div>
+            % include('setting_modals.tpl')
             <section class='dt-content-container'>
-                % include('aside.tpl')
+                % include('profile_aside.tpl')
+                % include('post_slider.tpl')
                 <section class='dt-thread-container'>
                 </section>
             </section>
