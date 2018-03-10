@@ -379,13 +379,14 @@ footer {
 .dt-settings-list {
     position: absolute;
     list-style: none;
-    width: 14vw;
+    width: 15vw;
     background-color: #ffffff;
     border: 1px solid #ececec;
     right: 2vw;
     top: 7.5vh;
     padding: 0;
     display: none;
+    font-size: 2.5vmin;
 }
 
 .dt-settings-list li {
@@ -428,12 +429,13 @@ footer {
 .dt-edit-email-modal h3, .dt-edit-bio-modal h3 {
     margin: 0;
     font-weight: lighter;
-    text-shadow: 1px 0px #c0c0c0;
 }
 
 .dt-textAreaContainer input {
     width: 75%;
     height: 4vh;
+    font-size: .75em;
+    color: #706F6F;
 }
 
 .dt-modal-btn {
@@ -472,6 +474,10 @@ footer {
 
 .dt-edit-email-modal {
     height: 30vh;
+}
+
+.dt-current-email {
+    color: #706F6F;
 }
 
 .dt-textAreaContainer .dt-bio-textarea {
@@ -611,6 +617,7 @@ footer {
   text-align: right;
   padding-bottom: 5px;
 }
+
 
 /********************** make post *********************/
 
@@ -760,6 +767,21 @@ footer {
      }
 
 
+ @media screen and (max-width:980px){
+     .dt-currentUser {
+         font-size: 2.5vmin;
+     }
+
+     .dt-settings-list {
+         width: 20vw;
+     }
+
+     #dt-postBtn {
+         left: 15vw;
+     }
+ }
+
+
 /******* landscape mode **********/
 
 @media only screen
@@ -789,8 +811,8 @@ footer {
         }
     }
 
-@media screen and (max-width: 414px)
-    and (max-height: 736px)
+@media screen and (max-width: 500px)
+    /* and (max-height: 736px) */
     and (orientation: portrait){
      #mobile {
          display: block;
@@ -801,7 +823,7 @@ footer {
      }
  }
 
-@media screen and (min-width: 415px) and (min-height: 737px){
+@media screen and (min-width: 501px){
      #mobile {
          display: none;
      }

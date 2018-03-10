@@ -3,7 +3,7 @@
     <body>
         <section class="dt-edit-email-modal dt-modal dt-hide">
             <h3>current email</h3>
-            <h3 class='dt-current-email'>filler email</h3>
+            <h3 class='dt-current-email'>{{email}}</h3>
             <form action="/user_update" id="dt-bio-form" method="post">
                 <div class="dt-textAreaContainer">
                     <input name="content" autocomplete="off" minlength="1"></input>

@@ -6,9 +6,9 @@
                 <div class="post-user-name dt-currentUser"><span id="postsToGrab">{{posts_user}}</span></div>
                 %if friend:
 
-                    <button class='dt-add-btn'><i class="material-icons">star</i></button>
+                    <button class='dt-add-btn'><i class="material-icons dt-star">star</i></button>
                 %else:
-                    <button class='dt-add-btn'><i class="material-icons empty">star_border</i></button>
+                    <button class='dt-add-btn'><i class="material-icons dt-star empty">star_border</i></button>
                 %end
                 <div class='dt-bio'>
                     {{bio}}

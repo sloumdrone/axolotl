@@ -48,8 +48,9 @@
                         <div id='dt-sitelogo'></div>
                         <h1 class='dt-logotext'>Axolotl</h1>
                     </a>
-                    <i class="material-icons dt-settings">settings</i>
+                    <i class="material-icons dt-settings">line_weight</i>
                     <ul class='dt-settings-list'>
+                        <li><a href='/fellows'>fellows</a></li>
                         <li><a href='/logout'>log out</a></li>
                         <li class='dt-edit-bio'>edit bio</li>
                         <li class='dt-edit-email'>edit email</li>

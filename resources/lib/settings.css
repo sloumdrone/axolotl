@@ -22,9 +22,6 @@ button {
     cursor: pointer;
     text-decoration: none;
     z-index: 100;
-}
-
-.logoutBtn button {
     color: #3BB3C2;
     font-family: monospace;
     font-size: 5vmin;
@@ -64,12 +61,12 @@ button {
 }
 
 .image-control {
-    width: 37vw;
-    height: 7vh;
-    font-size: 3vh;
+    width: 40vw;
+    /* height: 7vh; */
+    font-size: 1em;
     border: 1px solid white;
     border-radius: 5px;
-    margin: 5px;
+    /* margin: 5px; */
     user-select: none;
     cursor: pointer;
 }
@@ -184,10 +181,10 @@ button {
 .edit-bio, .edit-email {
     background-color: white;
     position: absolute;
-    bottom: -38vh;
+    bottom: -41vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
-    height: 37vh;
+    height: 38vh;
     background-color: #E3F2FD;
     width: 100%;
 }
@@ -202,6 +199,7 @@ button {
     outline-color: #eceaea;
     padding-left: 3%;
     border: 1px solid #eceaea;
+    font-size: 1.5em;
 }
 
 .textAreaContainer textarea{
@@ -220,6 +218,10 @@ button {
 #textCounter {
     color: #727070;
     left: 7vw;
+    font-size: 1.5em;
+    position: absolute;
+    bottom: -4.1vh;
+    left: 4vw;
 }
 
 .bio-btn {

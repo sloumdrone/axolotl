@@ -9,11 +9,12 @@
       rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/fellows.css">
+        <link rel="stylesheet" href="/library/aside.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script src="/library/fellows.js"></script>
+        <script type="text/javascript" src="/library/fellows.js"></script>
     </head>
     <body>
-        <div id=#mobile>
+        <div id='mobile'>
             % include('header.tpl')
             <div class='content-container'>
                 <section class="search-container">
@@ -25,7 +26,7 @@
                 <section class="current-fellows-container">
                     <div class="fellow-list-container">
                         <h2>current fellows</h2>
-                        <ul id="fellow-list">
+                        <ul class="fellow-list">
 
                         </ul>
                     </div>
@@ -45,7 +46,7 @@
                         <div id='dt-sitelogo'></div>
                         <h1 class='dt-logotext'>Axolotl</h1>
                     </a>
-                    <i class="material-icons dt-settings">settings</i>
+                    <i class="material-icons dt-settings">line_weight</i>
                     <ul class='dt-settings-list'>
                         <li><a href='/fellows'>fellows</a></li>
                         <li><a href='/logout'>log out</a></li>
@@ -60,19 +61,21 @@
             <section class='dt-content-container'>
                 % include('aside.tpl')
                 % include('post_slider.tpl')
-                <section class="search-container">
-                    <p>add a new fellow:</p>
-                    <div class="user-search-container">
-                        <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
-                    </div>
-                </section>
-                <section class="current-fellows-container">
-                    <div class="fellow-list-container">
-                        <h2>current fellows</h2>
-                        <ul id="fellow-list">
+                <section class='dt-fellows-container'>
+                    <section class="search-container dt-search-container">
+                        <p>add a new fellow:</p>
+                        <div class="dt-user-search-container">
+                            <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"><img class='search-icon dt-search-icon' src='/images/binoculars.svg' /></div>
+                        </div>
+                    </section>
+                    <section class="current-fellows-container dt-current-fellows-container">
+                        <div class="fellow-list-container dt-fellow-list-container">
+                            <h2>current fellows</h2>
+                            <ul class='dt-fellow-list'>
 
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
+                    </section>
                 </section>
             </section>
         </div>

@@ -18,15 +18,15 @@
     border: 1px solid #928E8E;
 }
 
-.dt-profile-pic:hover, .dt-currentUser:hover {
+.dt-profile-pic:hover {
     cursor: pointer;
-    color: #ececec;
     border-color: #ececec;
 }
 
 .dt-add-btn {
     border: none;
     vertical-align: top;
+    outline-style: none;
 }
 
 .dt-add-btn:hover {

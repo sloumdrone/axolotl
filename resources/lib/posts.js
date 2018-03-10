@@ -24,7 +24,6 @@ function applyClickHandlers(){
         $dt_post.slideToggle();
     });
 
-
     $dt_settings.click(() => {
         if(!modalOpen){
             $dt_menu.slideToggle();
@@ -32,7 +31,6 @@ function applyClickHandlers(){
             return;
         }
     });
-
 
     $('.dt-settings-list li').click(() => {
         $dt_menu.slideUp();
@@ -161,7 +159,7 @@ function parseUserLinks(message){
 //---**
 //---**
 function addScrollHandler(){
-    $('.thread-container').on('scroll',function(){
+    $('.thread-container, .dt-thread-container').on('scroll',function(){
         if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
             loading = true;
             handleLoading();
@@ -217,7 +215,7 @@ function retrievePosts(){
                 for (let row in result){
                     buildPost(result[row]);
                     buildPostDesktop(result[row]);
-                }} 
+                }}
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');

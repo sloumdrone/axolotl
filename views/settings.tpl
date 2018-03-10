@@ -15,7 +15,7 @@
             % include('header.tpl')
             <section id='content-container'>
                 <div class="user-icon">
-                    <a href='/logout' class='logoutBtn'><button>log out</button></a>
+                    <a href='/logout' class='logoutBtn'>log out</a>
                     <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
                         <img id="iconPreview" alt="your image">
                         <input id="cancelBtn" type="reset" name="cancel" value="cancel">
