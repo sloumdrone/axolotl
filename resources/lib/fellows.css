@@ -3,6 +3,15 @@
     background-color: #34a3b1;
 }
 
+.content-container {
+    overflow: auto;
+    height: 73vh;
+    position: absolute;
+    top: 17vh;
+    overflow-x: hidden;
+    width: 100%;
+}
+
 section.search-container, section.current-fellows-container {
     width: 100%;
     height: 20vh;
@@ -10,7 +19,7 @@ section.search-container, section.current-fellows-container {
     background-color: #eceaea;
     padding: 10px 0;
     position: relative;
-    top: 17vh;
+    /* top: 17vh; */
     font-size: 4vmin;
 }
 
@@ -67,8 +76,7 @@ section > .user-search-container, section > .fellow-list-container {
 
 section.current-fellows-container {
     background-color: white;
-    height: 53vh;
-    overflow: auto;
+    height: auto;
 }
 
 .fellow-list-container h2 {
@@ -76,7 +84,7 @@ section.current-fellows-container {
     margin: 0;
 }
 
-#fellow-list {
+.fellow-list {
     list-style: none;
     padding: 0;
     width: 85vw;
@@ -85,28 +93,34 @@ section.current-fellows-container {
     border-radius: 3px;
 }
 
-#fellow-list li {
+.fellow-list li {
     padding: 2%;
     clear: both;
-    height: 11vh;
+    height: auto;
 }
 
-#fellow-list li:nth-child(2n+1){
+.fellow-list li:nth-child(2n+1){
     background-color: #E3F2FD;
 }
 
-#fellow-list li a {
+.fellow-list li a {
     text-decoration: none;
     font-size: 6vmin;
     color: #928E8E;
 }
 
-i {
+.dt-star {
     display: block;
     color: #ec1212;
     float: right;
     text-decoration: none;
-    padding: 4%;
+    padding: 6%;
+    color: gold;
+    text-shadow: 0 0 1px black;
+}
+
+.dt-star:hover {
+    cursor: pointer;
 }
 
 .fa {
@@ -124,10 +138,6 @@ i {
     font-weight: normal;
 }
 
-.material-icons {
-    color: gold;
-    text-shadow: 0 0 1px black;
-}
 
 
 /************** footer ********************/
@@ -148,3 +158,146 @@ footer {
     right: 5px;
     margin: 0;
 }
+
+
+
+/*****************************************************************/
+/*************************** desktop *****************************/
+/*****************************************************************/
+
+
+
+.dt-fellows-container {
+  height: 83vh;
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  width: 65%;
+}
+
+section.dt-search-container p {
+    font-size: 3vmin;
+}
+
+.dt-user-search-container input {
+    width: 20vw;
+    height: 5vh;
+    vertical-align: top;
+}
+
+.dt-user-search-container div {
+    width: 5vw;
+    height: 5vh;
+}
+
+section > .dt-user-search-container {
+    text-align: center;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.dt-user-search-container input {
+    border-radius: 3px 0 0 3px;
+    border: 1px solid #928E8E;
+    border-right: none;
+    box-sizing: border-box;
+    font-size: 1.25rem;
+    resize: none;
+    overflow: hidden;
+    padding: 5px;
+    outline-color: #eceaea;
+}
+
+.dt-user-search-container div {
+    background-color: #9c9c9c;
+    border: 1px solid #9c9c9c;
+    border-left: 1px solid #9c9c9c;
+    border-radius: 0 3px 3px 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.dt-search-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.dt-fellow-list-container h2 {
+    font-size: 3.5vmin;
+}
+
+.dt-fellow-list {
+    width: 85%;
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    border: 1px solid #eceaea;
+    border-radius: 3px;
+}
+
+.dt-fellow-list li {
+    padding: 2%;
+    clear: both;
+    height: auto;
+}
+
+.dt-fellow-list li a {
+    font-size: 3vmin;
+    text-decoration: none;
+    font-size: 6vmin;
+    color: #928E8E;
+}
+
+.dt-fellow-list .username {
+    font-size: 3vmin;
+}
+
+.dt-fellow-list .post-user-image {
+    width: 9vmin;
+    height: 9vmin;
+    border-radius: 50%;
+    float: left;
+    margin: 0;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    border: 1px solid #928E8E;
+}
+
+.dt-fellow-list li:nth-child(2n+1){
+    background-color: #E3F2FD;
+}
+
+
+
+
+
+/********************** media queries *********************/
+
+/******* iPad **********/
+
+/* @media screen and (min-width: 768px) and (max-width:768px)
+   and (min-height: 1024px) and (max-height: 1024px){
+       .search-icon {
+           width: 9vmin;
+       }
+
+       .user-search-container input {
+           font-size: 2rem;
+           border-radius: 5px 0 0 5px;
+       }
+
+       .user-search-container div {
+           border-radius: 0 5px 5px 0;
+       }
+   } */

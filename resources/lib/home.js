@@ -10,8 +10,15 @@ $(document).ready(function () {
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
     let $post = $('section.make-post');
+    let $dt_postBtn = $('#dt-postBtn');
+    let $post = $('section.dt-make-post');
+
 
     $postBtn.click(() => {
+        $post.toggleClass('show');
+    });
+
+    $dt_postBtn.click(() => {
         $post.toggleClass('show');
     });
 
