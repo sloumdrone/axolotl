@@ -10,9 +10,60 @@ $(document).ready(function () {
 function applyClickHandlers(){
     let $postBtn = $('#sitelogo');
     let $post = $('section.make-post');
+    let $dt_postBtn = $('#dt-postBtn');
+    let $dt_post = $('section.dt-make-post');
+    let $dt_settings = $('.dt-settings');
+    let $dt_menu = $('.dt-settings-list')
+    let modalOpen = false;
 
     $postBtn.click(() => {
         $post.toggleClass('show');
+    });
+
+    $dt_postBtn.click(() => {
+        $dt_post.slideToggle();
+    });
+
+    $dt_settings.click(() => {
+        if(!modalOpen){
+            $dt_menu.slideToggle();
+        } else {
+            return;
+        }
+    });
+
+    $('.dt-settings-list li').click(() => {
+        $dt_menu.slideUp();
+    })
+
+    $('.dt-edit-email').click(() => {
+        $('.dt-edit-email-modal').removeClass('dt-hide');
+        modalOpen = true;
+    });
+
+    $('.dt-cancel-email').click(() => {
+        $('.dt-edit-email-modal').addClass('dt-hide');
+        modalOpen = false;
+    });
+
+    $('.dt-edit-bio').click(() => {
+        $('.dt-edit-bio-modal').removeClass('dt-hide');
+        modalOpen = true;
+    });
+
+    $('.dt-cancel-bio').click(() => {
+        $('.dt-edit-bio-modal').addClass('dt-hide');
+        modalOpen = false;
+    });
+
+    $('.dt-delete-account-btn').click(() => {
+        $('.dt-delete-account-modal').removeClass('dt-hide');
+        modalOpen = true;
+    });
+
+    $('.dt-cancel-delete').click(() => {
+        $('.dt-delete-account-modal').addClass('dt-hide');
+        modalOpen = false;
     });
 
     $('.textAreaContainer textarea').on('keyup',function(){
@@ -21,7 +72,25 @@ function applyClickHandlers(){
             $(this).val($(this).val().substring(0,200));
             length = 200;
         }
-        $('#textCounter').text(`${length}/200`);
+        $('.textCounter').text(`${length}/200`);
+    });
+
+    $('.dt-message').on('keyup',function(){
+        let length = $(this).val().length
+        if (length > 200){
+            $(this).val($(this).val().substring(0,200));
+            length = 200;
+        }
+        $('.dt-textCounter').text(`${length}/200`);
+    });
+
+    $('.dt-bio-textarea').on('keyup',function(){
+        let length = $(this).val().length
+        if (length > 85){
+            $(this).val($(this).val().substring(0,85));
+            length = 85;
+        }
+        $('#dt-textCounter-bio').text(`${length}/85`);
     });
 }
 //---**=
@@ -51,6 +120,26 @@ function buildPost(arr){
 }
 //---**
 //---**
+function buildPostDesktop(arr){
+    let $header = $('<div>',{class: 'dt-post-header'});
+    let linkText = parseUserLinks(arr[1]);
+    let $body = $('<div>',{class: 'dt-post-body'}).html(linkText);
+    let $footer = $('<div>',{class: 'dt-post-footer'});
+
+    let $image = $('<div>',{class: 'dt-post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG)`).appendTo($header);
+    let $username = $('<div>',{class: 'dt-post-user-name',text: arr[0]}).appendTo($header);
+
+    let $time_elapsed = $('<div>',{class: 'dt-post-like',text: parseTime(arr[2])}).appendTo($footer);
+
+    let $container = $('<div>',{class: 'dt-post-container'}).append($header,$body,$footer);
+    $image.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $username.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $('.dt-thread-container').append($container);
+    last_post = arr[3];
+    return $container;
+}
+//---**
+//---**
 function parseUserLinks(message){
     const regex = /@{1}\w*(?=[\W!?\s]{1})/g;
     message = message + ' ';
@@ -70,7 +159,7 @@ function parseUserLinks(message){
 //---**
 //---**
 function addScrollHandler(){
-    $('.thread-container').on('scroll',function(){
+    $('.thread-container, .dt-thread-container').on('scroll',function(){
         if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
             loading = true;
             handleLoading();
@@ -125,9 +214,8 @@ function retrievePosts(){
             } else {
                 for (let row in result){
                     buildPost(result[row]);
-                }
-            }
-
+                    buildPostDesktop(result[row]);
+                }}
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');

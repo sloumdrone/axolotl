@@ -11,6 +11,16 @@ body {
     font-family: 'Mukta Malar', sans-serif;
 }
 
+
+/*****************************************************************/
+/*************************** mobile  *****************************/
+/*****************************************************************/
+
+
+#landscape {
+    display: none;
+}
+
 #logout {
     display: inline-block;
     position: fixed;
@@ -124,7 +134,7 @@ nav ul li {
     position: relative;
 }
 
-#textCounter {
+.textCounter {
     position: absolute;
     color: white;
     font-size: 6vmin;
@@ -293,40 +303,536 @@ footer {
 
 
 
-/********************** media queries *********************/
+
+/*****************************************************************/
+/*************************** desktop *****************************/
+/*****************************************************************/
+
+
+#dt-sitelogo {
+  background-image: url(/images/axolotl.png);
+  background-size: cover;
+  background-position: bottom;
+  width: 9vh;
+  height: 8vh;
+  background-color: #FFF;
+  margin: 1vh auto 0 0;
+  display: inline-block;
+}
+
+.dt-logotext {
+  color: #706F6F;
+  font-family: monospace;
+  display: inline-block;
+  font-weight: lighter;
+  font-size: 5vmin;
+  vertical-align: top;
+}
+
+#sitelogo:hover, .dt-logotext:hover {
+    cursor: pointer;
+}
+
+.dt-sized-header {
+  width: 90vw;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.dt-sized-header a {
+    text-decoration: none;
+}
+
+.dt-content-container {
+  width: 90vw;
+  max-width: 900px;
+  margin: auto;
+  height: 90vh;
+  position: relative;
+  top: 10vh;
+  color: #706F6F;
+}
+
+#dt-header {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ececec;
+  z-index: 1;
+}
+
+/********************** settings dropdown nav *********************/
+
+.dt-settings {
+    color: #706F6F;
+    font-size: 4.5vmin;
+    margin: 0.8em;
+    float: right;
+}
+
+.dt-settings:hover {
+    cursor: pointer;
+}
+
+.dt-settings-list {
+    position: absolute;
+    list-style: none;
+    width: 15vw;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    right: 2vw;
+    top: 7.5vh;
+    padding: 0;
+    display: none;
+    font-size: 2.5vmin;
+}
+
+.dt-settings-list li {
+    text-align: center;
+    color: #706F6F;
+    padding: 2%
+}
+
+.dt-settings-list li:hover {
+    cursor: pointer;
+    background-color: #fafafa;
+}
+
+.dt-settings-list a {
+    text-decoration: none;
+    color: #706F6F;
+}
+
+.dt-settings-list .dt-delete-account-btn {
+    color: #ec1212;
+}
+
+/********************** settings features *********************/
+
+.dt-edit-email-modal, .dt-edit-bio-modal, .dt-delete-account-modal {
+    background-color: #ffffff;
+    width: 30vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border: 1px solid #dbd8d8;
+    text-align: center;
+    color: #3BB3C2;
+    font-size: 3vmin;
+    box-shadow: 1px 1px 10px #dbd8d8;
+}
+
+.dt-edit-email-modal h3, .dt-edit-bio-modal h3 {
+    margin: 0;
+    font-weight: lighter;
+}
+
+.dt-textAreaContainer input {
+    width: 75%;
+    height: 4vh;
+    font-size: .75em;
+    color: #706F6F;
+}
+
+.dt-modal-btn {
+    width: 25%;
+    height: 4vh;
+    font-size: .65em;
+    border-radius: 3px;
+    color: #3BB3C2;
+    margin-top: 4%;
+    color: white;
+    background-color: #3BB3C2;
+    outline-style: none;
+    display: inline-block;
+}
+
+.dt-modal-btn:hover {
+    cursor: pointer;
+    color: #3BB3C2;
+    background-color: white;
+}
+
+.dt-cancel {
+    color: #706F6F;
+    background-color: #ececec;
+}
+
+.dt-save:hover {
+    color: #3BB3C2;
+    background-color: #ffffff;
+}
+
+.dt-cancel:hover {
+    background-color: #3BB3C2;
+    color: white;
+}
+
+.dt-edit-email-modal {
+    height: 30vh;
+}
+
+.dt-current-email {
+    color: #706F6F;
+}
+
+.dt-textAreaContainer .dt-bio-textarea {
+    width: 90%;
+}
+
+.dt-edit-bio-modal {
+    height: 45vh;
+}
+
+.dt-confirm-delete {
+    background-color: #ec1212;
+}
+
+.dt-confirm-delete:hover {
+    background-color: white;
+    color: #ec1212;
+    border: 1px solid #ec1212;
+}
+
+.warning-text {
+    color: #ec1212;
+}
+
+.dt-delete-account-modal p {
+    padding: 7%;
+    margin: 0;
+    color: #706F6F;
+}
+
+.dt-cancel-delete {
+    background-color: #eceaea;
+    color: #706F6F;
+}
+
+.dt-cancel-delete:hover {
+    background-color: white;
+    border: 1px solid #eceaea;
+    color: #706F6F;
+}
+
+.dt-cancel-delete, .dt-confirm-delete {
+    width: 35%;
+    margin: 0 0 5% 0;
+    padding: 1%
+}
+
+.dt-hide {
+    display: none;
+}
+
+#dt-textCounter-bio {
+    text-align: left;
+    display: block;
+    margin-left: 5%;
+}
+
+/********************** feed *********************/
+
+.dt-currentUser {
+    font-family: monospace;
+    font-size: 2.5vmin;
+}
+
+.dt-thread-container {
+  height: 83vh;
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  overflow: auto;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+  width: 65%;
+}
+
+.dt-post-container {
+  width: 90%;
+  height: auto;
+  border-left: 1px solid #dbd8d8;
+  border-right: 1px solid #dbd8d8;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.dt-post-container:nth-child(1){
+  border-top: 1px solid #dbd8d8;
+}
+
+.dt-post-header {
+  width: 100%;
+  height: 7vh;
+  display: block;
+}
+
+.dt-post-user-image {
+  width: 10vmin;
+  height: 10vmin;
+  border-radius: 50%;
+  float: left;
+  margin: 10px 10px 5px 10px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  background-color: white;
+  border: 1px solid #928E8E;
+}
+
+.dt-post-user-name {
+  float:left;
+  color: #928E8E;
+  display: inline-block;
+  margin: 10px 10px 0 10px;
+  font-size: 2.5vmin;
+  vertical-align: middle;
+  font-family: monospace;
+}
+
+.dt-post-body {
+  font-size: 2.5vmin;
+  color: #4b4949;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0px auto;
+  width: 80%;
+  line-height: 2.5vmin;
+  word-wrap: break-word;
+  letter-spacing: .25px;
+  clear: both;
+}
+
+.dt-post-like {
+  color: #928E8E;
+  border-bottom: 1px solid #dbd8d8;
+  font-size: 2vmin;
+  padding-right: 20px;
+  text-align: right;
+  padding-bottom: 5px;
+}
+
+
+/********************** make post *********************/
+
+.dt-make-post {
+    height: 35vh;
+    width: 20vw;
+    top: 52vh;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: absolute;
+    display: none;
+}
+
+#dt-make-post-form {
+    color: #fafafa;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#make-post-form textarea {
+    height: 35vh;
+    width: 90%;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 5vmin;
+    color: #808080;
+    font-family: 'Mukta Malar', sans-serif;
+    resize: none;
+    overflow: hidden;
+    padding: 5%;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    line-height: 5vmin;
+    outline-color: #3bb3c2;
+    background-color: #eceaea;
+    box-shadow: 2px 2px 10px 0px;
+}
+
+.dt-textAreaContainer {
+    position: relative;
+}
+
+.dt-textAreaContainer textarea {
+    height: 25vh;
+    display: block;
+    margin: auto;
+    width: 100%;
+    border-radius: 3px;
+    border-color: #dbd8d8;
+    color: #706F6F;
+    font-size: 2.5vmin;
+    line-height: 2.75vmin;
+    padding: 4%;
+    font-family: 'Mukta Malar', sans-serif;
+}
+
+.dt-textCounter {
+    position: absolute;
+    color: #706F6F;
+    font-size: 3vmin;
+    bottom: -4.1vh;
+    left: 1vw;
+}
+
+#dt-make-post-form input {
+    width: 7vw;
+    height: 4vh;
+    position: relative;
+    top: 1vh;
+    left: 32%;
+    background-color: #eceaea;
+    border-radius: 3px;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 2vmin;
+    cursor: pointer;
+    color: #706F6F;
+    font-family: 'Mukta Malar', sans-serif;
+}
+
+#dt-make-post-form input:hover {
+    color: goldenrod;
+}
+
+.dt-show {
+    bottom: 3vh;
+}
+
+#dt-postBtn {
+    position: relative;
+    top: 46vh;
+    left: 17vw;
+    z-index: 1;
+}
+
+#dt-postBtn:hover {
+    cursor: pointer;
+}
+
+
+
+
+/*****************************************************************/
+/************************* media queries *************************/
+/*****************************************************************/
+
 
 /******* iPhone X **********/
 
- @media screen and (min-width: 375px) and (max-width:375px)
-    and (min-height: 812px) and (max-height: 812px){
-        .currentUser {
-            height: 9vh;
-            font-size: 8vmin;
-        }
+@media screen and (min-width: 375px) and (max-width:375px)
+      and (min-height: 812px) and (max-height: 812px){
+          .currentUser {
+              height: 9vh;
+              font-size: 8vmin;
+          }
 
-        nav ul li {
-            height: 8vh;
-        }
-    }
+          nav ul li {
+              height: 8vh;
+          }
+
+          #desktop {
+              display: none;
+          }
+      }
 
 
 
 /******* iPad **********/
+
 @media screen and (min-width: 768px) and (max-width:768px)
-   and (min-height: 1024px) and (max-height: 1024px){
-       .currentUser {
-           padding: 1% 0;
-       }
+     and (min-height: 1024px) and (max-height: 1024px){
+         .currentUser {
+             padding: 1% 0;
+         }
 
-       nav ul li {
-           width: 24.5vw;
-       }
+         nav ul li {
+             width: 24.5vw;
+         }
 
-       .nav-icon {
-           width: 8vmin;
-       }
+         .nav-icon {
+             width: 8vmin;
+         }
 
-       #textCounter {
-           bottom: -5.1vh;
-       }
-   }
+         .textCounter {
+             bottom: -5.1vh;
+         }
+     }
+
+
+ @media screen and (max-width:980px){
+     .dt-currentUser {
+         font-size: 2.5vmin;
+     }
+
+     .dt-settings-list {
+         width: 20vw;
+     }
+
+     #dt-postBtn {
+         left: 15vw;
+     }
+ }
+
+
+/******* landscape mode **********/
+
+@media only screen
+    and (max-width: 812px)
+    and (max-height: 414px)
+    and (orientation: landscape){
+        #landscape {
+            display: block;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: #eceaea;
+            color: #9c9c9c;
+            text-align: center;
+        }
+
+        #landscape h1 {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 80vw;
+        }
+
+        #desktop {
+            display: none;
+        }
+    }
+
+@media screen and (max-width: 500px)
+    /* and (max-height: 736px) */
+    and (orientation: portrait){
+     #mobile {
+         display: block;
+     }
+
+     #desktop {
+         display: none;
+     }
+ }
+
+@media screen and (min-width: 501px){
+     #mobile {
+         display: none;
+     }
+
+     #desktop {
+         display: block;
+     }
+
+     body {
+         background-color: #fafafa;
+     }
+ }
