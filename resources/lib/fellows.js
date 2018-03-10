@@ -33,19 +33,32 @@ function applyClickHandlers(){
     let $dt_menu = $('.dt-settings-list')
     let modalOpen = false;
 
+//nav click handlers
+
     $dt_postBtn.click(() => {
         $dt_post.slideToggle();
     });
 
-    $dt_settings.click(() => {
+    $dt_settings.click((e) => {
         if(!modalOpen){
+            e.stopPropagation();
             $dt_menu.slideToggle();
         }
     });
 
-    $('.dt-settings-list li').click(() => {
+    $('.dt-sub-nav a').click(() => {
         $dt_menu.slideUp();
+    });
+
+    $(document.body).click( function(e) {
+         closeNav();
+    });
+
+    $('.dt-settings-li-item').hover(() => {
+        $('.dt-sub-nav').slideToggle();
     })
+
+// Modal click handlers
 
     $('.dt-edit-email').click(() => {
         $('.dt-edit-email-modal').removeClass('dt-hide');
@@ -77,6 +90,9 @@ function applyClickHandlers(){
         modalOpen = false;
     });
 
+// textarea click handlers
+
+
     $('.textAreaContainer textarea').on('keyup',function(){
         let length = $(this).val().length
         if (length > 200){
@@ -103,6 +119,11 @@ function applyClickHandlers(){
         }
         $('#dt-textCounter-bio').text(`${length}/85`);
     });
+}
+//---**
+//---**
+function closeNav(){
+    $('.dt-settings-list').slideUp();
 }
 //---**
 //---**
