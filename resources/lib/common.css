@@ -338,7 +338,7 @@ footer {
 
 .dt-sized-header {
   width: 90vw;
-  max-width: 900px;
+  max-width: 1200px;
   margin: auto;
   position: relative;
 }
@@ -881,6 +881,8 @@ footer {
 
      #desktop {
          display: block;
+         height: 100vh;
+         width: 100vw;
      }
 
      body {
