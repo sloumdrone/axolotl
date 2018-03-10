@@ -338,7 +338,7 @@ footer {
 
 .dt-sized-header {
   width: 90vw;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
   position: relative;
 }
@@ -443,7 +443,7 @@ footer {
     background-color: white;
     position: absolute;
     font-size: 1em;
-    left: 14.5vw;
+    left: 14.75vw;
     top: 15.5vh;
     border: 1px solid #ececec;
     padding: 0;
