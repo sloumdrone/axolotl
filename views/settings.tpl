@@ -5,9 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Axolotl: Settings - {{username}}</title>
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/settings.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="/library/nav.js"></script>
         <script src="/library/settings.js" defer></script>
     </head>
     <body>
@@ -78,6 +81,13 @@
                     <h1>Whoops! This app is designed for portrait mode.</h1>
                 </div>
             </section>
+        </div>
+        <div id='desktop'>
+            % include('dt_header')
+            <div class='dt-container'>
+                <h1 class='dt-settings-message'>Looks like you've switched from mobile to desktop. Click here to go to the home page.</h1>
+                <a href='/home'><button class='dt-home-btn'>home</button></a>
+            </div>
         </div>
     </body>
 </html>
