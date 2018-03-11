@@ -410,7 +410,7 @@ footer {
 }
 
 .dt-settings-list li {
-    /* text-align: center; */
+    text-align: center;
     color: #706F6F;
     padding: 2% 2% 2% 5%;
 }
@@ -443,7 +443,7 @@ footer {
     background-color: white;
     position: absolute;
     font-size: 1em;
-    left: 14.75vw;
+    right: 14.75vw;
     top: 15.5vh;
     border: 1px solid #ececec;
     padding: 0;
