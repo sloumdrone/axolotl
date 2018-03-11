@@ -6,11 +6,11 @@ checkFileExistence(userimage);
 //---**
 //---**
 $(document).ready(() => {
-    applyClickHandlers();
+    applySettingClickHandlers();
 });
 //---**
 //---**
-function applyClickHandlers() {
+function applySettingClickHandlers() {
     $('.deleteBtn').click(() => {
         $('.delete-account').addClass('show');
     });
@@ -22,7 +22,6 @@ function applyClickHandlers() {
                 $('.confirm-account-delete').toggleClass('hide');
                 $('.execute-account-delete').toggleClass('hide');
             },1000)
-
         }
     });
 

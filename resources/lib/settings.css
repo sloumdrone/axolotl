@@ -346,6 +346,42 @@ footer {
 }
 
 
+
+/*****************************************************************/
+/*************************** desktop *****************************/
+/*****************************************************************/
+
+.dt-container {
+    text-align: center;
+    color: #706F6F;
+}
+
+.dt-settings-message {
+    position: relative;
+    top: 20vh;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+}
+
+.dt-home-btn {
+    position: relative;
+    top: 25vh;
+    width: 10%;
+    border-radius: 3px;
+    font-size: 3vmin;
+    margin: auto;
+    color: #706F6F;
+    background-color: #ffffff;
+    outline-style: none;
+}
+
+.dt-home-btn:hover {
+    background-color: #fafafa;
+    cursor: pointer;
+}
+
+
 /********************** media queries *********************/
 
 /******* iPhone X **********/
