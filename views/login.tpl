@@ -9,6 +9,7 @@
     </head>
     <body>
         <section>
+            <a href='/about'>about</a>
             <div id="logoimage"></div>
             %if loginissue:
             <div class="wordBubble">

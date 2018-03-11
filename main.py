@@ -277,6 +277,11 @@ def delete_account():
         else:
             return json.dumps({'success':False,'error':'SQL error'})
     return json.dumps({'success':False,'error':'Passwords do not match.'})
+##---**
+##---**
+@route('/about')
+def about():
+    return template('about')
 ##---xx
 ##---xx
 ##################################################################################
