@@ -281,7 +281,7 @@ def delete_account():
 ##---**
 @route('/about')
 def about():
-    return template('about')
+    return template('aboutpage', username=' ')
 ##---xx
 ##---xx
 ##################################################################################
