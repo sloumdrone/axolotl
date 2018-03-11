@@ -9,7 +9,7 @@
             <a href='/home'><li>home</li></a>
             <a href='/profile/{{username}}'><li>profile</li></a>
             <a href='/fellows'><li>fellows</li></a>
-            <li class='dt-settings-li-item'>settings<i class="material-icons dt-arrow">keyboard_arrow_right</i>
+            <li class='dt-settings-li-item'>settings
                 <ul class='dt-sub-nav'>
                     <li class='dt-edit-bio'>edit bio</li>
                     <li class='dt-edit-email'>edit email</li>
