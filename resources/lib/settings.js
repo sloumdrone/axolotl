@@ -22,7 +22,6 @@ function applyClickHandlers() {
                 $('.confirm-account-delete').toggleClass('hide');
                 $('.execute-account-delete').toggleClass('hide');
             },1000)
-
         }
     });
 

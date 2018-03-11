@@ -3,10 +3,8 @@ body {
 }
 
 section {
-    /* height: 550px;
-    width: 320px; */
-    height: 60vh;
-    width: 40vh;
+    height: 70vh;
+    width: 45vh;
     border: 1px solid #2F3331;
     text-align: center;
     position: absolute;
