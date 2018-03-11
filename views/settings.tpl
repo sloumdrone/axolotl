@@ -33,7 +33,7 @@
                 <section class="edit-email">
                     <h3>current email</h3>
                     <h3 class='current-email'>{{email}}</h3>
-                    <form action="/user_update" id="bio-form" method="post">
+                    <form action="/user_update" id="email-form" method="post">
                         <div class="textAreaContainer">
                             <input name="content" autocomplete="off" minlength="1"></input>
                             <input type="hidden" name="type" value="email"><br />
@@ -55,9 +55,21 @@
                     </form>
                 </section>
                 <div class="delete-account">
-                    <p>WARNING!!! This CANNOT be undone and is not recoverable.</p>
-                    <div class='image-control cancel-delete'>cancel</div>
-                    <div class="image-control confirm-delete">delete account</div>
+                    <div class="confirm-account-delete">
+                        <p>WARNING!!! This CANNOT be undone and is not recoverable.</p>
+                        <div class='image-control cancel-delete'>cancel</div>
+                        <div class="image-control confirm-delete">delete account</div>
+                    </div>
+                    <div class="execute-account-delete hide">
+                        <div class="pwerror hide">
+                            Invalid password.
+                        </div>
+                        <p>Enter password for {{username}}:</p>
+                        <input type="password" name="pwd" value="" class="pwinput" id="pwinput" autocomplete="off" minlength="1">
+                        <div class='image-control cancel-delete'>cancel</div>
+                        <button class="image-control" id="deleteAccount">delete</button>
+                    </div>
+
                 </div>
                 <footer>
                     <h2 class='title'>Axolotl</h2>

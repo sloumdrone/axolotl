@@ -14,24 +14,45 @@ function applyClickHandlers() {
     $('.deleteBtn').click(() => {
         $('.delete-account').addClass('show');
     });
+
     $('.cancel-delete').click(() => {
         $('.delete-account').removeClass('show');
+        if ($('.confirm-account-delete').hasClass('hide')){
+            setTimeout(function(){
+                $('.confirm-account-delete').toggleClass('hide');
+                $('.execute-account-delete').toggleClass('hide');
+            },1000)
+
+        }
     });
+
+    $('#deleteAccount').click(deleteAccount);
+
+    $('.confirm-delete').click(() => {
+        $('.confirm-account-delete').toggleClass('hide');
+        $('.execute-account-delete').toggleClass('hide');
+    });
+
     $('.edit-email-btn').click(() => {
         $('.edit-email').addClass('show');
     });
+
     $('.cancel-email').click(() => {
         $('.edit-email').removeClass('show');
     });
+
     $('.edit-bio-btn').click(() => {
         $('.edit-bio').addClass('show');
     });
+
     $('.cancel-bio').click(() => {
         $('.edit-bio').removeClass('show');
     });
+
     $('.edit-email-btn').click(() => {
         $('.edit-email').addClass('show');
     });
+
     $('.textAreaContainer textarea').on('keyup',function(){
         let length = $(this).val().length
         if (length > 85){
@@ -47,7 +68,6 @@ function applyClickHandlers() {
 
     $('input[name=cancel]').on('click',function(e){
         checkFileExistence(userimage);
-        
     });
 }
 //---**
@@ -64,6 +84,33 @@ function checkFileExistence(url){
         }
     }
     xhr.send();
+}
+//---**
+//---**
+function deleteAccount(){
+
+    $.ajax({
+        url: '/delete_account',
+        dataType: 'json',
+        method: 'POST',
+        data: {
+            pwd: $('#pwinput').val()
+        },
+        success: function(result){
+            if (result.success){
+                window.location.replace('/');
+            } else {
+                $('.pwerror').toggle('fast');
+                setTimeout(function(){
+                    $('.pwerror').toggle('fast');
+                },4000);
+            }
+        },
+        error: function(result){
+            console.log(result);
+        }
+    });
+    $('#pwinput').val('');
 }
 //---xx
 //---xx

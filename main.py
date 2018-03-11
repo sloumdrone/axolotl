@@ -56,7 +56,6 @@ def settings():
     else:
         photo = 'axolotl.png'
     emailaddy = select_user(user)['e-mail']
-    print emailaddy
     return template('settings', username=user, userpic=photo, email=emailaddy)
 ##---**
 ##---**
@@ -269,12 +268,12 @@ def delete_account():
     user = request.get_cookie('user')
     pwd = request.forms.get('pwd')
     pwhash = hashlib.md5()
-    pwhash.update(password)
-    if verify_login(username,pwhash.hexdigest()):
+    pwhash.update(pwd)
+    if verify_login(user,pwhash.hexdigest()):
         if delete_account(user):
             response.delete_cookie("user")
             response.delete_cookie("session")
-            return redirect('/')
+            return json.dumps({'success':True, 'error':None})
         else:
             return json.dumps({'success':False,'error':'SQL error'})
     return json.dumps({'success':False,'error':'Passwords do not match.'})
@@ -465,12 +464,19 @@ def sever_friendship(user, fellow):
 ##---**
 ##---**
 def delete_account(user):
+    success = 0
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     c.execute('''DELETE FROM users WHERE username = ?''',(user,))
     db_conn.commit()
+    success += c.rowcount
     c.execute('''DELETE FROM friends WHERE username = ? OR friend = ?''',(user,user))
     db_conn.commit()
+    db_conn.close()
+    if success:
+        return True
+    return False
+
 ##---xx
 ##---xx
 ##################################################################################
