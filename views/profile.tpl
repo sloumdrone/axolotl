@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/library/aside.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script type="text/javascript" src="/library/posts.js"></script>
+        <script type="text/javascript" src="/library/nav.js"></script>
         <script type="text/javascript" src="/library/profile.js"></script>
     </head>
     <body>

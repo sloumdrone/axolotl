@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="/library/fellows.css">
         <link rel="stylesheet" href="/library/aside.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script type="text/javascript" src="/library/nav.js"></script>
         <script type="text/javascript" src="/library/fellows.js"></script>
     </head>
     <body>
