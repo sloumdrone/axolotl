@@ -148,12 +148,14 @@ select:-webkit-autofill:focus {
     user-select: none;
 }
 
-.about-link {
+.dt-about-link {
     float: right;
-    margin: 3%;
+    margin: 2%;
     text-decoration: none;
     color: #706F6F;
+    font-size: 2.5vmin;
 }
+
 
 @media screen and (max-width: 801px) {
     section {
@@ -246,19 +248,21 @@ select:-webkit-autofill:focus {
         height: 100%;
     }
 
+    .dt-about-link {
+        margin: 1%;
+        color: #706F6F;
+        position: absolute;
+        top: 2vh;
+        left: 80vw;
+        transform: none;
+        font-size: 4.5vmin;
+        z-index: 1;
+        text-decoration: none;
+    }
+
 }
 
-.about-link {
-    margin: 4%;
-    color: #706F6F;
-    position: absolute;
-    top: 2vh;
-    left: 75vw;
-    transform: none;
-    font-size: 4.5vmin;
-    z-index: 1;
-    text-decoration: none;
-}
+
 
 
 

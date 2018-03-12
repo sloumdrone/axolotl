@@ -8,7 +8,7 @@
         <script src="library/login.js" defer></script>
     </head>
     <body>
-        <a class='about-link' href='/about'>about</a>
+        <a class='dt-about-link' href='/about'>about</a>
         <section>
             <div id="logoimage"></div>
             %if loginissue:
