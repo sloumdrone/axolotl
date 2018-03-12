@@ -17,6 +17,7 @@
     <body>
         <div id='mobile'>
             % include('header.tpl')
+            % include('setting_modals.tpl')
             <section class='contact-content'>
                 <div class='profile-container'>
                     <div class='img-container'>

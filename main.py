@@ -94,7 +94,8 @@ def handle_post():
             message = str.replace(message,name,name[1:])
 
     length = len(message)
-    if length > 0 and length <= 200:
+
+    if length > 1 and length <= 200:
         message = re.sub('<[^<]+?>', '', message)
         message = sanitize(message, True)
         post_to_db(username,message)

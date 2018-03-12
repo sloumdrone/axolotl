@@ -311,6 +311,12 @@ footer {
 
 /********************* header **********************************/
 
+#desktop {
+    overflow: auto;
+    height: 90vh;
+    top: 10vh;
+    position: relative;
+}
 
 #dt-sitelogo {
   background-image: url(/images/axolotl.png);
@@ -348,12 +354,12 @@ footer {
 }
 
 .dt-content-container {
-  width: 90vw;
+  width: 100%;
   max-width: 900px;
   margin: auto;
-  height: 90vh;
+  /* height: 90vh; */
   position: relative;
-  top: 10vh;
+  /* top: 10vh; */
   color: #706F6F;
 }
 
@@ -364,6 +370,7 @@ footer {
   background-color: #ffffff;
   border-bottom: 1px solid #ececec;
   z-index: 1;
+  top: 0;
 }
 
 .dt-userName {
@@ -699,181 +706,81 @@ footer {
 }
 
 .dt-thread-container {
-  height: 83vh;
-  position: absolute;
-  top: 10vh;
-  right: 0;
-  overflow: auto;
-  overflow-x: hidden;
-  padding-bottom: 20px;
-  width: 65%;
+    position: relative;
+    top: 10vh;
+    right: 27px;
+    overflow: auto;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+    width: 60%;
+    float: right;
+    padding-bottom: 15%
 }
 
 .dt-post-container {
-  width: 90%;
-  height: auto;
-  border-left: 1px solid #dbd8d8;
-  border-right: 1px solid #dbd8d8;
-  margin: 0 auto;
-  background-color: #ffffff;
+    width: 90%;
+    height: auto;
+    border-left: 1px solid #dbd8d8;
+    border-right: 1px solid #dbd8d8;
+    margin: 0 auto;
+    background-color: #ffffff;
 }
 
 .dt-post-container:nth-child(1){
-  border-top: 1px solid #dbd8d8;
+    border-top: 1px solid #dbd8d8;
 }
 
 .dt-post-header {
-  width: 100%;
-  height: 7vh;
-  display: block;
+    width: 100%;
+    height: 7vh;
+    display: block;
 }
 
 .dt-post-user-image {
-  width: 10vmin;
-  height: 10vmin;
-  border-radius: 50%;
-  float: left;
-  margin: 10px 10px 5px 10px;
-  display: inline-block;
-  background-size: cover;
-  background-position: center;
-  background-color: white;
-  border: 1px solid #928E8E;
+    width: 10vmin;
+    height: 10vmin;
+    border-radius: 50%;
+    float: left;
+    margin: 10px 10px 5px 10px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    border: 1px solid #928E8E;
 }
 
 .dt-post-user-name {
-  float:left;
-  color: #928E8E;
-  display: inline-block;
-  margin: 10px 10px 0 10px;
-  font-size: 2.5vmin;
-  vertical-align: middle;
-  font-family: monospace;
+    float:left;
+    color: #928E8E;
+    display: inline-block;
+    margin: 10px 10px 0 10px;
+    font-size: 2.5vmin;
+    vertical-align: middle;
+    font-family: monospace;
 }
 
 .dt-post-body {
-  font-size: 2.5vmin;
-  color: #4b4949;
-  text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0px auto;
-  width: 80%;
-  line-height: 2.5vmin;
-  word-wrap: break-word;
-  letter-spacing: .25px;
-  clear: both;
+    font-size: 2.5vmin;
+    color: #4b4949;
+    text-align: center;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0px auto;
+    width: 80%;
+    line-height: 2.5vmin;
+    word-wrap: break-word;
+    letter-spacing: .25px;
+    clear: both;
 }
 
 .dt-post-like {
-  color: #928E8E;
-  border-bottom: 1px solid #dbd8d8;
-  font-size: 2vmin;
-  padding-right: 20px;
-  text-align: right;
-  padding-bottom: 5px;
-}
-
-
-/********************** make post *********************/
-
-.dt-make-post {
-    height: 35vh;
-    width: 20vw;
-    top: 52vh;
-    margin: 0 auto;
-    padding: 10px 0;
-    position: absolute;
-    display: none;
-}
-
-#dt-make-post-form {
-    color: #fafafa;
-    text-align: center;
-    margin: 0 auto;
-}
-
-#make-post-form textarea {
-    height: 35vh;
-    width: 90%;
-    position: relative;
-    box-sizing: border-box;
-    font-size: 5vmin;
-    color: #808080;
-    font-family: 'Mukta Malar', sans-serif;
-    resize: none;
-    overflow: hidden;
-    padding: 5%;
-    border-radius: 3px;
-    letter-spacing: 1px;
-    line-height: 5vmin;
-    outline-color: #3bb3c2;
-    background-color: #eceaea;
-    box-shadow: 2px 2px 10px 0px;
-}
-
-.dt-textAreaContainer {
-    position: relative;
-}
-
-.dt-textAreaContainer textarea {
-    height: 25vh;
-    display: block;
-    margin: auto;
-    width: 100%;
-    border-radius: 3px;
-    border-color: #dbd8d8;
-    color: #706F6F;
-    font-size: 2.5vmin;
-    line-height: 2.75vmin;
-    padding: 4%;
-    font-family: 'Mukta Malar', sans-serif;
-}
-
-.dt-textCounter {
-    position: absolute;
-    color: #706F6F;
-    font-size: 3vmin;
-    bottom: -4.1vh;
-    left: 1vw;
-}
-
-#dt-make-post-form input {
-    width: 7vw;
-    height: 4vh;
-    position: relative;
-    top: 1vh;
-    left: 32%;
-    background-color: #eceaea;
-    border-radius: 3px;
-    vertical-align: top;
-    box-sizing: border-box;
+    color: #928E8E;
+    border-bottom: 1px solid #dbd8d8;
     font-size: 2vmin;
-    cursor: pointer;
-    color: #706F6F;
-    font-family: 'Mukta Malar', sans-serif;
+    padding-right: 20px;
+    text-align: right;
+    padding-bottom: 5px;
 }
-
-#dt-make-post-form input:hover {
-    color: goldenrod;
-}
-
-.dt-show {
-    bottom: 3vh;
-}
-
-#dt-postBtn {
-    position: relative;
-    top: 46vh;
-    left: 17vw;
-    z-index: 1;
-}
-
-#dt-postBtn:hover {
-    cursor: pointer;
-}
-
-
 
 
 /*****************************************************************/
