@@ -1,4 +1,4 @@
-from bottle import route, run, template, static_file, post, request, get, post, redirect, response, error
+from bottle import route, run, template, static_file, post, request, get, redirect, response, error
 import os.path, os, hashlib, datetime, sqlite3, time, json, re
 from PIL import Image
 from shutil import copyfile
@@ -28,7 +28,9 @@ def main():
 def home():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('home',username=user)
+    biography = retrieve_bio(user) or ' '
+    emailaddy = select_user(user)['e-mail']
+    return template('home',username=user,bio=biography,email=emailaddy)
 ##---**
 ##---**
 @route('/profile/<user>')
@@ -38,10 +40,11 @@ def profile(user):
     if not select_user(user):
         user = logged_in_user
     biography = retrieve_bio(user) or ' '
+    emailaddy = select_user(user)['e-mail']
     friend = False
     if user in retrieve_fellows(logged_in_user):
         friend = True
-    return template('profile',username=logged_in_user,posts_user=user,bio=biography,friend=friend)
+    return template('profile',username=logged_in_user,posts_user=user,bio=biography,friend=friend,email=emailaddy)
 ##---**
 ##---**
 @route('/settings')
@@ -53,7 +56,6 @@ def settings():
     else:
         photo = 'axolotl.png'
     emailaddy = select_user(user)['e-mail']
-    print emailaddy
     return template('settings', username=user, userpic=photo, email=emailaddy)
 ##---**
 ##---**
@@ -61,14 +63,17 @@ def settings():
 def contact():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('contact', username=user)
+    emailaddy = select_user(user)['e-mail']
+    return template('contact', username=user,email=emailaddy)
 ##---**
 ##---**
 @route('/fellows')
 def fellows():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('fellows',username=user)
+    biography = retrieve_bio(user) or ' '
+    emailaddy = select_user(user)['e-mail']
+    return template('fellows',username=user,bio=biography,email=emailaddy)
 ##---**
 ##---**
 @route('/get_fellows')
@@ -90,7 +95,8 @@ def handle_post():
             message = str.replace(message,name,name[1:])
 
     length = len(message)
-    if length > 0 and length <= 200:
+
+    if length > 1 and length <= 200:
         message = re.sub('<[^<]+?>', '', message)
         message = sanitize(message, True)
         post_to_db(username,message)
@@ -264,15 +270,20 @@ def delete_account():
     user = request.get_cookie('user')
     pwd = request.forms.get('pwd')
     pwhash = hashlib.md5()
-    pwhash.update(password)
-    if verify_login(username,pwhash.hexdigest()):
+    pwhash.update(pwd)
+    if verify_login(user,pwhash.hexdigest()):
         if delete_account(user):
             response.delete_cookie("user")
             response.delete_cookie("session")
-            return redirect('/')
+            return json.dumps({'success':True, 'error':None})
         else:
             return json.dumps({'success':False,'error':'SQL error'})
     return json.dumps({'success':False,'error':'Passwords do not match.'})
+##---**
+##---**
+@route('/about')
+def about():
+    return template('aboutpage', username=' ')
 ##---xx
 ##---xx
 ##################################################################################
@@ -460,12 +471,22 @@ def sever_friendship(user, fellow):
 ##---**
 ##---**
 def delete_account(user):
+    success = 0
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
     c.execute('''DELETE FROM users WHERE username = ?''',(user,))
     db_conn.commit()
+    success += c.rowcount
     c.execute('''DELETE FROM friends WHERE username = ? OR friend = ?''',(user,user))
     db_conn.commit()
+    c.execute('''DELETE FROM posts WHERE username = ?''',(user,))
+    db_conn.commit()
+    success += c.rowcount
+    db_conn.close()
+    if success:
+        return True
+    return False
+
 ##---xx
 ##---xx
 ##################################################################################

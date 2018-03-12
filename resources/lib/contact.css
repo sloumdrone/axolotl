@@ -27,7 +27,7 @@
     text-shadow: 1px 1px #fafafa;
 }
 
-h1 {
+.info h1 {
     font-size: 8vmin;
     margin: 3% 0;
     border: 1px solid;
@@ -71,6 +71,62 @@ footer {
     right: 5px;
     margin: 0;
 }
+
+
+/*****************************************************************/
+/*************************** desktop *****************************/
+/*****************************************************************/
+
+.dt-contact-content {
+    position: relative;
+    width: 80vw;
+    margin: auto;
+    top: 15vh;
+}
+
+.dt-about-contact-content {
+    position: relative;
+    width: 80vw;
+    margin: auto;
+}
+
+.dt-contact-img {
+    width: 40vmin;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+}
+
+.dt-info {
+    color: #616060;
+    margin-top: 5%;
+    text-shadow: 1px solid #706f6f;
+}
+
+.dt-profile-container {
+    padding: 0;
+    width: 49%;
+    display: inline-block;
+    text-align: center;
+}
+
+.dt-profile-container:nth-child(1){
+    border-bottom: none;
+}
+
+.dt-icon {
+    text-decoration: none;
+    font-size: 6vmin;
+    color: #616060;
+    padding: 4%;
+}
+
+.dt-name {
+    font-family: monospace;
+    font-weight: lighter;
+    font-size: 2.5em;
+}
+
+
 
 /********************** media queries *********************/
 

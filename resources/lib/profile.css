@@ -26,7 +26,6 @@
     display: inline-block;
     border: 2px solid #928E8E;
     border-radius: 3px;
-    /* margin: 4.5% 2%; */
     margin: 2.4vh 2%;
     float: left;
 }
@@ -34,16 +33,15 @@
 .user-info {
     float: left;
     width: 63vw;
-    /* added be brian: */
-    margin-top: 1vh;
+    margin-top: 2vh;
 }
 
 .add-btn {
-    /* font-size: 9vmin; */
     font-size: 3vh;
-    /* color: #cbc8c8; */
-    /* color: #e6bf05; */
     vertical-align: top;
+    border: none;
+    background-color: #e4f2fe;
+    outline-style: none;
 }
 
 .add-btn .material-icons {
