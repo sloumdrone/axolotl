@@ -1,11 +1,11 @@
 #dt-aside {
     background-color: #ffffff;
-    width: 30%;
+    width: 20%;
     height: auto;
-    float: left;
     text-align: center;
-    position: relative;
-    top: 10vh;
+    position: fixed;
+    top: 20vh;
+    max-width: 325px;
 }
 
 .dt-profile-pic {

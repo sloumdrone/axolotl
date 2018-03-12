@@ -71,7 +71,7 @@
                     <div class='dt-userName'><a href='/'><button class="dt-backBtn">back</button></a></div>
                 </div>
             </div>
-            <section class='dt-contact-content'>
+            <section class='dt-about-contact-content'>
                 <p class='about-content'>Axolotl was built to get back to basics. To keep things positive. There are no counters for people to keep track of popularity. There are no comment boards in which to get into flame wars. There is simply posting and following.</p>
                 <p>We believe this approach allows people to express themselves as they want, without getting trolled. We want to be conscious of what features are and why we are adding them, with our core mission: build a social space on the web that is geared toward positivity.</p>
                 <h1>meet the creators:</h1>
