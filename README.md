@@ -7,16 +7,16 @@ Axolotl is a social space for posting short messages with friends. The goal of t
 * [About](#about)
   * [Overview](#overview)
   * [Release Platforms](#release-platforms)
-  * [User Data](#user data)
+  * [User Data](#user-data)
   * [License](#license)
   * [Version History](#version-history)
   
-* [Application Usage](#application usage)
-  * [Creating Accounts](#creating accounts)
+* [Application Usage](#application-usage)
+  * [Creating Accounts](#creating-accounts)
   * [Posting](#posting)
   * [Fellows](#fellows)
-  * [User info](#user info)
-  * [Deleting accounts](#deleting accounts)
+  * [User info](#user-info)
+  * [Deleting accounts](#deleting-accounts)
   
 * Building/Developing
   * Dependencies
