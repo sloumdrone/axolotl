@@ -378,6 +378,111 @@ footer {
     margin-right: 1vw;
 }
 
+.dt-backBtn {
+    font-size: 2.5vmin;
+    color: #706F6F;
+    background-color: #fafafa;
+    border-radius: 3px;
+    outline-style: none;
+}
+
+.dt-backBtn:hover {
+    cursor: pointer;
+}
+
+.dt-contact-content{
+    color: #706F6F;
+}
+
+.dt-about-img {
+    width: 30vmin;
+    border: 1px solid;
+}
+
+/************* mobile about page **************/
+
+#about-header {
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background-color: #3BB3C2;
+    border-bottom: 1px solid #ececec;
+    z-index: 1;
+    top: 0;
+}
+
+.about-backBtn {
+    font-size: 4.5vmin;
+    color: #ffffff;
+    background-color: #3BB3C2;
+    border-radius: 3px;
+    outline-style: none;
+    border: 1px solid #ffffff;
+}
+
+.about-info h1 {
+    font-size: 6vmin;
+    margin: 3% 0;
+    border: 1px solid;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0px 1px 2px;
+}
+
+.about-img {
+    width: 35vmin;
+    border-radius: 50%;
+    border: 1px solid #fafafa;
+}
+
+.about-logotext {
+  color: #ffffff;
+  font-family: monospace;
+  display: inline-block;
+  font-weight: lighter;
+  font-size: 5vmin;
+  vertical-align: .15vh;
+}
+
+.about-container {
+    position: relative;
+    top: 10vh;
+    height: 80vh;
+    background-color: #eceaea;
+    padding: 3%;
+    overflow: auto;
+}
+
+.about-profile-container .img-container {
+    text-align: left;
+}
+
+.about-content {
+}
+
+#about-sitelogo {
+    background-image: url(/images/axolotl.png);
+    background-size: cover;
+    background-position: bottom;
+    width: 8vh;
+    height: 8vh;
+    background-color: #FFF;
+    margin: 1vh auto 0 0;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.about-profile-container {
+    padding: 5% 0;
+    height: 31vh;
+}
+
+#about-header .dt-userName {
+    margin-top: 3vh;
+}
+
+
+
 /********************** settings dropdown nav *********************/
 
 .dt-settings {

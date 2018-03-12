@@ -148,6 +148,13 @@ select:-webkit-autofill:focus {
     user-select: none;
 }
 
+.about-link {
+    float: right;
+    margin: 3%;
+    text-decoration: none;
+    color: #706F6F;
+}
+
 @media screen and (max-width: 801px) {
     section {
         height: auto;
@@ -240,6 +247,19 @@ select:-webkit-autofill:focus {
     }
 
 }
+
+.about-link {
+    margin: 4%;
+    color: #706F6F;
+    position: absolute;
+    top: 2vh;
+    left: 75vw;
+    transform: none;
+    font-size: 4.5vmin;
+    z-index: 1;
+    text-decoration: none;
+}
+
 
 
 /********************** media queries *********************/

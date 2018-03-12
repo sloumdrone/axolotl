@@ -8,8 +8,8 @@
         <script src="library/login.js" defer></script>
     </head>
     <body>
+        <a class='about-link' href='/about'>about</a>
         <section>
-            <a href='/about'>about</a>
             <div id="logoimage"></div>
             %if loginissue:
             <div class="wordBubble">
