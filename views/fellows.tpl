@@ -45,7 +45,6 @@
             % include('setting_modals.tpl')
             <section class='dt-content-container'>
                 % include('aside.tpl')
-                % include('post_slider.tpl')
                 <section class='dt-fellows-container'>
                     <section class="search-container dt-search-container">
                         <p>add a new fellow:</p>
