@@ -1,10 +1,11 @@
 #dt-aside {
     background-color: #ffffff;
-    width: 20vw;
-    height: 40vh;
-    position: fixed;
-    top: 20vh;
+    width: 30%;
+    height: auto;
+    float: left;
     text-align: center;
+    position: relative;
+    top: 10vh;
 }
 
 .dt-profile-pic {
@@ -52,4 +53,104 @@
 .dt-currentUser {
     margin: 0;
     float: none;
+}
+
+/********************** make post *********************/
+
+.dt-make-post {
+    height: 35vh;
+    width: 90%;
+    top: 5%;
+    margin: 0 auto;
+    padding: 10px 0;
+    position: relative;
+    clear: both;
+    display: none;
+}
+
+#dt-make-post-form {
+    color: #fafafa;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#make-post-form textarea {
+    height: 35vh;
+    width: 90%;
+    position: relative;
+    box-sizing: border-box;
+    font-size: 5vmin;
+    color: #808080;
+    font-family: 'Mukta Malar', sans-serif;
+    resize: none;
+    overflow: hidden;
+    padding: 5%;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    line-height: 5vmin;
+    outline-color: #3bb3c2;
+    background-color: #eceaea;
+    box-shadow: 2px 2px 10px 0px;
+}
+
+.dt-textAreaContainer {
+    position: relative;
+}
+
+.dt-textAreaContainer textarea {
+    height: 25vh;
+    display: block;
+    margin: auto;
+    width: 95%;
+    border-radius: 3px;
+    border-color: #dbd8d8;
+    color: #706F6F;
+    font-size: 2.5vmin;
+    line-height: 2.75vmin;
+    padding: 4%;
+    font-family: 'Mukta Malar', sans-serif;
+    resize: none;
+}
+
+.dt-textCounter {
+    position: absolute;
+    color: #706F6F;
+    font-size: 3vmin;
+    bottom: -4.1vh;
+    left: 1vw;
+}
+
+#dt-make-post-form input {
+    width: 7vw;
+    height: 4vh;
+    position: relative;
+    top: 1vh;
+    left: 32%;
+    background-color: #eceaea;
+    border-radius: 3px;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-size: 2vmin;
+    cursor: pointer;
+    color: #706F6F;
+    font-family: 'Mukta Malar', sans-serif;
+}
+
+#dt-make-post-form input:hover {
+    color: goldenrod;
+}
+
+.dt-show {
+    bottom: 3vh;
+}
+
+#dt-postBtn {
+    float: right;
+    margin-right: 4%;
+    margin-bottom: 4%;
+    z-index: 1;
+}
+
+#dt-postBtn:hover {
+    cursor: pointer;
 }

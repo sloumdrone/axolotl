@@ -47,7 +47,6 @@
             % include('setting_modals.tpl')
             <section class='dt-content-container'>
                 % include('profile_aside.tpl')
-                % include('post_slider.tpl')
                 <section class='dt-thread-container'>
                 </section>
             </section>

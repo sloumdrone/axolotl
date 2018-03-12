@@ -54,6 +54,7 @@
         </div>
         <div id='desktop'>
             % include('dt_header.tpl')
+            % include('setting_modals.tpl')
             <section class='dt-contact-content'>
                 <div class='dt-profile-container'>
                     <div class='dt-img-container'>
