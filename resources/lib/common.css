@@ -551,7 +551,7 @@ footer {
 
 .dt-sub-nav {
     list-style: none;
-    width: 13vw;
+    width: 100%;
     background-color: white;
     position: absolute;
     font-size: 1em;
