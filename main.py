@@ -63,7 +63,8 @@ def settings():
 def contact():
     is_logged_in()
     user = request.get_cookie('user')
-    return template('contact', username=user)
+    emailaddy = select_user(user)['e-mail']
+    return template('contact', username=user,email=emailaddy)
 ##---**
 ##---**
 @route('/fellows')
@@ -478,6 +479,9 @@ def delete_account(user):
     success += c.rowcount
     c.execute('''DELETE FROM friends WHERE username = ? OR friend = ?''',(user,user))
     db_conn.commit()
+    c.execute('''DELETE FROM posts WHERE username = ?''',(user,))
+    db_conn.commit()
+    success += c.rowcount
     db_conn.close()
     if success:
         return True
