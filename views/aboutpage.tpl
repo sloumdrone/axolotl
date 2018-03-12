@@ -14,9 +14,20 @@
     </head>
     <body>
         <div id='mobile'>
-            % include('header.tpl')
-            <section class='contact-content'>
-                <div class='profile-container'>
+            <div id='about-header'>
+                <div class='dt-sized-header'>
+                    <a href='/home'>
+                        <div id='about-sitelogo'></div>
+                        <h1 class='about-logotext'>Axolotl</h1>
+                    </a>
+                    <div class='dt-userName'><a href='/'><button class="about-backBtn">back</button></a></div>
+                </div>
+            </div>
+            <section class='about-container'>
+                <p class='about-content'>Axolotl was built to get back to basics. To keep things positive. There are no counters for people to keep track of popularity. There are no comment boards in which to get into flame wars. There is simply posting and following.</p>
+                <p>We believe this approach allows people to express themselves as they want, without getting trolled. We want to be conscious of what features are and why we are adding them, with our core mission: build a social space on the web that is geared toward positivity.</p>
+                <h1>meet the creators:</h1>
+                <div class='about-profile-container'>
                     <div class='img-container'>
                         <img class='contact-img' src='/images/brian.jpg' />
                     </div>
@@ -29,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div class='profile-container'>
+                <div class='about-profile-container'>
                     <div class='img-container'>
                         <img class='contact-img' src='/images/lori.JPG' />
                     </div>
@@ -51,11 +62,22 @@
             </div>
         </div>
         <div id='desktop'>
-            % include('dt_header.tpl')
+            <div id='dt-header'>
+                <div class='dt-sized-header'>
+                    <a href='/home'>
+                        <div id='dt-sitelogo'></div>
+                        <h1 class='dt-logotext'>Axolotl</h1>
+                    </a>
+                    <div class='dt-userName'><a href='/'><button class="dt-backBtn">back</button></a></div>
+                </div>
+            </div>
             <section class='dt-contact-content'>
+                <p class='about-content'>Axolotl was built to get back to basics. To keep things positive. There are no counters for people to keep track of popularity. There are no comment boards in which to get into flame wars. There is simply posting and following.</p>
+                <p>We believe this approach allows people to express themselves as they want, without getting trolled. We want to be conscious of what features are and why we are adding them, with our core mission: build a social space on the web that is geared toward positivity.</p>
+                <h1>meet the creators:</h1>
                 <div class='dt-profile-container'>
                     <div class='dt-img-container'>
-                        <img class='dt-contact-img' src='/images/brian.jpg' />
+                        <img class='dt-about-img' src='/images/brian.jpg' />
                     </div>
                     <div class='dt-info'>
                         <h1 class='dt-name'>brian evans</h1>
@@ -68,7 +90,7 @@
                 </div>
                 <div class='dt-profile-container'>
                     <div class='dt-img-container'>
-                        <img class='dt-contact-img' src='/images/lori.JPG' />
+                        <img class='dt-about-img' src='/images/lori.JPG' />
                     </div>
                     <div class='dt-info'>
                         <h1 class='dt-name'>lori mitchell</h1>
