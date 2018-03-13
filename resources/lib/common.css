@@ -10,8 +10,10 @@ body {
     padding: 0;
     font-family: 'Mukta Malar', sans-serif;
 }
-
-button, input.text,
+button,
+input,
+input.text,
+input:matches([type="button"], [type="submit"], [type="reset"]),
 input[type="text"],
 input[type="button"],
 input[type="submit"],
@@ -46,6 +48,7 @@ header {
     height: 17vh;
     background-color: #3BB3C2;
     color: #2F3331;
+    z-index: 100;
 }
 
 .currentUser {
@@ -97,11 +100,12 @@ nav ul li {
     margin: 0 auto;
     padding: 10px 0;
     position: absolute;
-    /* display: none; */
+    display: none;
 }
 
 .show {
     top: 17vh !important;
+    display: block;
 }
 
 .thread-container {

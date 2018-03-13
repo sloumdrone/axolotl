@@ -66,7 +66,6 @@ button {
 
 .image-control {
     width: 40vw;
-    height: 6vh;
     font-size: 1em;
     border: 1px solid white;
     border-radius: 5px;
@@ -86,7 +85,6 @@ button {
 #saveBtn, #cancelBtn {
     width: 20%;
     background-color: #b4b2b2;
-    height: 5vh;
     border-radius: 3px;
     border-style: none;
     color: whitesmoke;
@@ -94,6 +92,9 @@ button {
     cursor: pointer;
     box-shadow: 1px 1px 3px buttonface;
     outline-color: #3BB3C2;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 2%;
 }
 
 .customUploadBtn img {
@@ -193,6 +194,7 @@ button {
     background-color: #E3F2FD;
     width: 100%;
     z-index: 10;
+    display: none;
 }
 
 .textAreaContainer input {
@@ -232,7 +234,6 @@ button {
 
 .bio-btn {
     width: 20vw;
-    height: 6vh;
     color: #727070;
     border-style: solid;
     background-color: #fafafa;
@@ -240,6 +241,9 @@ button {
     font-size: 5vmin;
     border-radius: 5px;
     outline-color: #E3F2FD;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 2%;
 }
 
 .save-bio, .save-email {
@@ -262,6 +266,7 @@ button {
     background-color: #eceaea;
     width: 100%;
     z-index: 10;
+    display: none;
 }
 
 .delete-account p {
