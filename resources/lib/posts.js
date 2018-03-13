@@ -18,7 +18,7 @@ function applyPostClickHandlers(){
     // });
     //
     $postBtn.click(() => {
-        $post.slideToggle(1000);
+        $post.slideDown(1000);
     })
 
     $dt_postBtn.click(() => {
