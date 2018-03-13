@@ -103,7 +103,7 @@ nav ul li {
     display: none;
 } */
 
-.make-post {
+/* .make-post {
     height: 0;
     width: 100%;
     top: 100vh;
@@ -113,7 +113,19 @@ nav ul li {
     margin: 0 auto;
     padding: 0;
     position: absolute;
+} */
+
+.make-post {
+    height: 100vh;
+    width: 100%;
+    top: 17vh;
+    background-color: #3bb3c2;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    display: none;
 }
+
 
 .thread-container {
     height: 70vh;
