@@ -12,11 +12,11 @@ $(document).ready(() => {
 //---**
 function applySettingClickHandlers() {
     $('.deleteBtn').click(() => {
-        $('.delete-account').addClass('show');
+        $('.delete-account').addClass('settings-show');
     });
 
     $('.cancel-delete').click(() => {
-        $('.delete-account').removeClass('show');
+        $('.delete-account').removeClass('settings-show');
         if ($('.confirm-account-delete').hasClass('hide')){
             setTimeout(function(){
                 $('.confirm-account-delete').toggleClass('hide');
@@ -33,23 +33,23 @@ function applySettingClickHandlers() {
     });
 
     $('.edit-email-btn').click(() => {
-        $('.edit-email').addClass('show');
+        $('.edit-email').addClass('settings-show');
     });
 
     $('.cancel-email').click(() => {
-        $('.edit-email').removeClass('show');
+        $('.edit-email').removeClass('settings-show');
     });
 
     $('.edit-bio-btn').click(() => {
-        $('.edit-bio').addClass('show');
+        $('.edit-bio').addClass('settings-show');
     });
 
     $('.cancel-bio').click(() => {
-        $('.edit-bio').removeClass('show');
+        $('.edit-bio').removeClass('settings-show');
     });
 
     $('.edit-email-btn').click(() => {
-        $('.edit-email').addClass('show');
+        $('.edit-email').addClass('settings-show');
     });
 
     $('.textAreaContainer textarea').on('keyup',function(){
