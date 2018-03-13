@@ -194,7 +194,11 @@ button {
     background-color: #E3F2FD;
     width: 100%;
     z-index: 10;
-    display: none;
+    /* display: none; */
+    height: 0;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
 }
 
 .textAreaContainer input {
@@ -250,27 +254,29 @@ button {
     margin-left: 5px;
 }
 
-.settings-show {
-    top: 17vh !important;
-    display: block;
-}
-
 
 /************* delete account *************/
 
 .delete-account {
     background-color: white;
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
     text-align: center;
-    position: absolute;
+    /* position: absolute;
     top: 100vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
     height: 100vh;
-    background-color: #eceaea;
-    width: 100%;
+    width: 100%; */
     z-index: 10;
-    display: none;
+    /* display: none; */
+    height: 0;
+    width: 100%;
+    top: 100vh;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
 }
 
 .delete-account p {
@@ -305,6 +311,12 @@ button {
 
 .hidden {
     display: none;
+}
+
+.settings-show {
+    top: 17vh;
+    height: 100vh;
+    padding: 10px 0;
 }
 
 .pwinput {
