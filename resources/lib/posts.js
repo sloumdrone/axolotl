@@ -13,13 +13,13 @@ function applyPostClickHandlers(){
     let $dt_postBtn = $('#dt-postBtn');
     let $dt_post = $('section.dt-make-post');
 
-    // $postBtn.click(() => {
-    //     $post.toggleClass('show');
-    // });
-    //
     $postBtn.click(() => {
-        $post.slideDown(1000);
-    })
+        $post.toggleClass('show');
+    });
+
+    // $postBtn.click(() => {
+    //     $post.slideDown(1000);
+    // })
 
     $dt_postBtn.click(() => {
         $dt_post.slideToggle();

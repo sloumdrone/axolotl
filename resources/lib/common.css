@@ -103,7 +103,7 @@ nav ul li {
     display: none;
 } */
 
-/* .make-post {
+.make-post {
     height: 0;
     width: 100%;
     top: 100vh;
@@ -113,9 +113,10 @@ nav ul li {
     margin: 0 auto;
     padding: 0;
     position: absolute;
-} */
+    visibility: hidden;
+}
 
-.make-post {
+/* .make-post {
     height: 100vh;
     width: 100%;
     top: 17vh;
@@ -124,7 +125,7 @@ nav ul li {
     padding: 0;
     position: relative;
     display: none;
-}
+} */
 
 
 .thread-container {
@@ -141,6 +142,7 @@ nav ul li {
     color: #fafafa;
     text-align: center;
     margin: 0 auto;
+    padding-top: 5%;
 }
 
 #make-post-form textarea {
@@ -189,6 +191,7 @@ nav ul li {
     cursor: pointer;
     color: #808080;
     font-family: 'Mukta Malar', sans-serif;
+    border: 1px solid #a6a5a5;
 }
 
 #make-post-form input:hover {
@@ -203,6 +206,10 @@ nav ul li {
     border-right: 3px solid #dbd8d8;
     margin: 0 auto;
     background-color: #fafafa;
+}
+
+.post-container:nth-last-child(1){
+    border-bottom: 3px solid #dbd8d8;
 }
 
 .post-header {
@@ -269,6 +276,7 @@ nav ul li {
     top: 17vh !important;
     height: 100vh;
     padding: 10px 0;
+    visibility: visible;
 }
 
 @keyframes spinner {
@@ -329,7 +337,7 @@ footer {
     background-image: url(/images/axolotl.png);
     background-size: cover;
     border-radius: 100%;
-    border: 3px solid #706F6F;
+    border: 2px solid #706F6F;
     background-position: bottom;
     width: 13vh;
     height: 13vh;
@@ -456,13 +464,21 @@ footer {
     top: 0;
 }
 
+.about-content {
+    color: #616060;
+}
+
 .about-backBtn {
-    font-size: 4.5vmin;
+    font-size: 5vmin;
     color: #ffffff;
     background-color: #3BB3C2;
     border-radius: 3px;
     outline-style: none;
-    border: 1px solid #ffffff;
+    border: none;
+}
+
+.about-backBtn:hover {
+    color: #ececec;
 }
 
 .about-info h1 {
@@ -472,6 +488,7 @@ footer {
     width: 90%;
     text-align: center;
     box-shadow: 0px 1px 2px;
+    color: #616060;
 }
 
 .about-img {
@@ -612,9 +629,9 @@ footer {
 
 .dt-edit-email-modal, .dt-edit-bio-modal, .dt-delete-account-modal {
     background-color: #ffffff;
-    width: 30vw;
+    width: 40vw;
     position: fixed;
-    top: 40%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
@@ -623,6 +640,8 @@ footer {
     color: #3BB3C2;
     font-size: 3vmin;
     box-shadow: 1px 1px 10px #dbd8d8;
+    border-radius: 3px;
+    padding: 2%;
 }
 
 .dt-edit-email-modal h3, .dt-edit-bio-modal h3 {
@@ -648,6 +667,8 @@ footer {
     background-color: #3BB3C2;
     outline-style: none;
     display: inline-block;
+    border-style: none;
+    box-shadow: 0px 1px 5px #a4a4a4;
 }
 
 .dt-modal-btn:hover {
@@ -671,9 +692,9 @@ footer {
     color: white;
 }
 
-.dt-edit-email-modal {
-    height: 30vh;
-}
+/* .dt-edit-email-modal {
+    padding: 3%;
+} */
 
 .dt-current-email {
     color: #706F6F;
@@ -683,9 +704,9 @@ footer {
     width: 90%;
 }
 
-.dt-edit-bio-modal {
+/* .dt-edit-bio-modal {
     height: 45vh;
-}
+} */
 
 .dt-confirm-delete {
     background-color: #ec1212;

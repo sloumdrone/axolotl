@@ -193,11 +193,11 @@ button {
     background-color: #E3F2FD;
     width: 100%;
     z-index: 10;
-    /* display: none; */
     height: 0;
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    visibility: hidden;
 }
 
 .textAreaContainer input {
@@ -268,6 +268,7 @@ button {
     margin: 0 auto;
     padding: 0;
     position: absolute;
+    visibility: hidden;
 }
 
 .delete-account p {
@@ -308,6 +309,7 @@ button {
     top: 17vh;
     height: 100vh;
     padding: 10px 0;
+    visibility: visible;
 }
 
 .pwinput {
