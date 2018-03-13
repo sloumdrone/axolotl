@@ -169,14 +169,14 @@ footer {
 
 
 .dt-fellows-container {
-  height: 83vh;
-  position: absolute;
-  top: 10vh;
-  right: 0;
-  overflow: auto;
-  overflow-x: hidden;
-  padding-bottom: 20px;
-  width: 65%;
+    position: relative;
+    top: 10vh;
+    overflow: auto;
+    overflow-x: hidden;
+    float: right;
+    padding-bottom: 15%;
+    right: 0;
+    width: 60%;
 }
 
 section.dt-search-container p {

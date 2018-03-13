@@ -79,7 +79,13 @@ footer {
 
 .dt-contact-content {
     position: relative;
-    top: 17vh;
+    width: 80vw;
+    margin: auto;
+    top: 15vh;
+}
+
+.dt-about-contact-content {
+    position: relative;
     width: 80vw;
     margin: auto;
 }

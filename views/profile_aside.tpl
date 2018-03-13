@@ -13,6 +13,7 @@
                 <div class='dt-bio'>
                     {{bio}}
                 </div>
+                % include('post_slider.tpl')
         </aside>
     </body>
 </html>
