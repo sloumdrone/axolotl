@@ -194,6 +194,7 @@ button {
     background-color: #E3F2FD;
     width: 100%;
     z-index: 10;
+    display: none;
 }
 
 .textAreaContainer input {
@@ -249,6 +250,10 @@ button {
     margin-left: 5px;
 }
 
+.settings-show {
+    top: 17vh !important;
+    display: block;
+}
 
 
 /************* delete account *************/
@@ -265,6 +270,7 @@ button {
     background-color: #eceaea;
     width: 100%;
     z-index: 10;
+    display: none;
 }
 
 .delete-account p {
