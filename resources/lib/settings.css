@@ -25,7 +25,7 @@ button {
     right: 2%;
     cursor: pointer;
     text-decoration: none;
-    z-index: 100;
+    z-index: 1;
     color: #3BB3C2;
     font-family: monospace;
     font-size: 5vmin;
@@ -185,12 +185,13 @@ button {
 .edit-bio, .edit-email {
     background-color: white;
     position: absolute;
-    bottom: -41vh;
+    top: 100vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
-    height: 38vh;
+    height: 100vh;
     background-color: #E3F2FD;
     width: 100%;
+    z-index: 10;
 }
 
 .textAreaContainer input {
@@ -253,16 +254,13 @@ button {
     padding: 20px 20px;
     text-align: center;
     position: absolute;
-    bottom: -38vh;
+    top: 100vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
-    height: 37vh;
+    height: 100vh;
     background-color: #eceaea;
     width: 100%;
-}
-
-.show {
-    bottom: 0;
+    z-index: 10;
 }
 
 .delete-account p {
@@ -333,6 +331,7 @@ button {
 footer {
     height: 10vh;
     background-color: #3BB3C2;
+    z-index: 50;
 }
 
 .title {
