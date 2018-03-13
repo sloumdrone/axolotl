@@ -11,9 +11,13 @@ body {
     font-family: 'Mukta Malar', sans-serif;
 }
 
-button {
-    -moz-appearance: !important none;
-    -webkit-appearance: !important none;
+button, input.text,
+input[type="text"],
+input[type="button"],
+input[type="submit"],
+.input-checkbox  {
+    -moz-appearance: none !important;
+    -webkit-appearance: none !important;
 }
 
 
@@ -101,7 +105,7 @@ nav ul li {
 }
 
 .thread-container {
-    /* height: 70vh; */
+    height: 70vh;
     position: absolute;
     top: 17vh;
     overflow: auto;
