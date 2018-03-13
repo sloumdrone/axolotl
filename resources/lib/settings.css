@@ -136,7 +136,8 @@ button {
     color: #616060;
     outline-color: #3BB3C2;
     border-style: solid;
-    box-shadow: 1px 1px 3px buttonface;
+    box-shadow: 1px 1px 3px #d3d3d3;
+    border-color: #eceaea;
 }
 
 .button-icon {
