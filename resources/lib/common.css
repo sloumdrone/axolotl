@@ -12,8 +12,8 @@ body {
 }
 
 button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    -moz-appearance: !important none;
+    -webkit-appearance: !important none;
 }
 
 
@@ -42,7 +42,6 @@ header {
     height: 17vh;
     background-color: #3BB3C2;
     color: #2F3331;
-    border-bottom: 1px solid #928E8E;
 }
 
 .currentUser {
@@ -854,8 +853,8 @@ footer {
 /******* landscape mode **********/
 
 @media only screen
-    and (max-width: 812px)
-    and (max-height: 414px)
+    and (min-width: 480px)
+    and (max-width: 767px)
     and (orientation: landscape){
         #landscape {
             display: block;
@@ -881,10 +880,12 @@ footer {
     }
 
 @media screen and (max-width: 500px)
-    /* and (max-height: 736px) */
     and (orientation: portrait){
      #mobile {
          display: block;
+         height: 100vh;
+         width: 100vw;
+         overflow: hidden;
      }
 
      #desktop {
