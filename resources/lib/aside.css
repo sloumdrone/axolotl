@@ -150,7 +150,7 @@
     margin-right: 4%;
     margin-bottom: 4%;
     z-index: 1;
-    border: 1px solid #a6a5a5;
+    /* border: 1px solid #a6a5a5; */
     background-color: #fffdfd;
 }
 
