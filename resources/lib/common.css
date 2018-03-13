@@ -11,7 +11,7 @@ body {
     font-family: 'Mukta Malar', sans-serif;
 }
 
-button, input.text,
+button, input, input.text,
 input[type="text"],
 input[type="button"],
 input[type="submit"],
