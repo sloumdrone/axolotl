@@ -1,5 +1,11 @@
+var user;
+var userimage;
 $(document).ready(function () {
     applyClickHandlers();
+    user = $('p.currentUser').text();
+    userimage = `/images/user/${user}.JPEG`;
+    checkFileExistence(userimage);
+
 });
 //---**
 //---**
@@ -7,6 +13,8 @@ function applyClickHandlers(){
     let $dt_settings = $('.dt-settings');
     let $dt_menu = $('.dt-settings-list')
     let modalOpen = false;
+
+
 
 // nav click handlers
 
@@ -30,6 +38,27 @@ function applyClickHandlers(){
     })
 
 // modal click handlers
+    $('.dt-edit-image').click(() => {
+        $('.dt-edit-image-modal').removeClass('dt-hide');
+        modalOpen = true;
+    });
+
+    $('.dt-edit-image-modal #cancelBtn').click(() => {
+        $('.dt-edit-image-modal').addClass('dt-hide');
+        modalOpen = false;
+    });
+
+    $('.dt-edit-image-modal #uploadBtn').on('change',function(){
+        $('.dt-edit-image-modal #iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png')
+    });
+
+    $('.dt-edit-image-modal #cancelBtn').on('click',function(e){
+        checkFileExistence(userimage);
+        $('dt-edit-image-modal').addClass('dt-hide')
+
+    });
+
+
 
     $('.dt-edit-email').click(() => {
         $('.dt-edit-email-modal').removeClass('dt-hide');
@@ -94,4 +123,19 @@ function applyClickHandlers(){
 //---**
 function closeNav(){
     $('.dt-settings-list').slideUp();
+}
+//---**
+//---**
+function checkFileExistence(url){
+    var xhr = new XMLHttpRequest();
+    xhr.open('HEAD', url, true);
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState === XMLHttpRequest.DONE){
+            if(parseInt(xhr.status) >= 400){
+                userimage = '/images/user/axolotl.png';
+            }
+            $('#iconPreview').attr('src', userimage);
+        }
+    }
+    xhr.send();
 }

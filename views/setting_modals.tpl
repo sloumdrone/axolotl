@@ -25,10 +25,28 @@
                 <button class='dt-cancel-bio dt-modal-btn' type="reset" name="biocancel" value="cancel">cancel</button>
             </form>
         </section>
+        <section class="dt-modal dt-hide dt-edit-image-modal">
+            <h3>edit user image</h3>
+            <form id="upload" action="/upload_file" method="post" enctype="multipart/form-data">
+                <img id="iconPreview" alt="your image">
+                <input id="cancelBtn" type="reset" class="dt-modal-btn" name="cancel" value="cancel">
+                <label for="uploadBtn" class="customUploadBtn"><img src='../images/camera.png' /></label>
+                <input id="uploadBtn" type="file" name="upload">
+                <input id="saveBtn" type="submit" class="dt-modal-btn"  name="submit" value="save">
+            </form>
+        </section>
+
+
         <div class="dt-delete-account-modal dt-modal dt-hide">
             <p><span class='warning-text'>WARNING!!!</span> This CANNOT be undone and is not recoverable.</p>
             <div class='dt-cancel-delete dt-modal-btn'>cancel</div>
             <div class="dt-confirm-delete dt-modal-btn">delete</div>
         </div>
+
+        <script type="text/javascript">
+
+
+
+        </script>
     </body>
 </html>

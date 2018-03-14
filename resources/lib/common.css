@@ -610,7 +610,7 @@ footer {
 
 /********************** settings features *********************/
 
-.dt-edit-email-modal, .dt-edit-bio-modal, .dt-delete-account-modal {
+.dt-edit-email-modal, .dt-edit-bio-modal, .dt-delete-account-modal, .dt-edit-image-modal {
     background-color: #ffffff;
     width: 30vw;
     position: fixed;
@@ -687,6 +687,10 @@ footer {
     height: 45vh;
 }
 
+.dt-edit-image-modal {
+    height: 45vh
+}
+
 .dt-confirm-delete {
     background-color: #ec1212;
 }
@@ -734,6 +738,38 @@ footer {
     margin-left: 5%;
 }
 
+/*----user image update --*/
+.dt-edit-image-modal #upload {
+    position: relative;
+    text-align: center;
+}
+
+.dt-edit-image-modal .customUploadBtn img {
+    height: 35px;
+    width: 35px;
+    filter: invert(100%);
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    background: #5f6060;
+    border-radius: 10%;
+    padding: 1%;
+    box-shadow: 1px 1px 3px #8d8989;
+    transform: translateX(60px);
+}
+
+.dt-edit-image-modal #iconPreview {
+    width: 125px;
+    height: 125px;
+    display: block;
+    margin: 2% auto 1% auto;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.dt-edit-image-modal #uploadBtn {
+    display: none;
+}
 
 
 /********************** feed *********************/

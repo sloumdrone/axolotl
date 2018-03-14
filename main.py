@@ -217,7 +217,7 @@ def do_upload():
             newdefault = './resources/images/user/'+ username + '.JPEG'
             copyfile('./resources/images/user/axolotl.JPEG',newdefault)
 
-    return redirect('/settings')
+    return redirect('/home')
 ##---**
 ##---**
 @route('/user_update', method='POST')

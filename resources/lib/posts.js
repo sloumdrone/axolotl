@@ -13,13 +13,15 @@ function applyPostClickHandlers(){
     let $dt_postBtn = $('#dt-postBtn');
     let $dt_post = $('section.dt-make-post');
 
-    // $postBtn.click(() => {
-    //     $post.toggleClass('show');
-    // });
-    //
-    $postBtn.click(() => {
-        $post.slideDown(1000);
-    })
+    if (['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform) >= 0){
+        $postBtn.click(() => {
+            $post.slideToggle(1000);
+        })
+    } else {
+        $postBtn.click(() => {
+            $post.toggleClass('show');
+        });
+    }
 
     $dt_postBtn.click(() => {
         $dt_post.slideToggle();
