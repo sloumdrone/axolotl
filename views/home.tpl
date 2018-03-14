@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#2d8591">
+        <link rel="manifest" href="/library/manifest.json">
         <title>Axolotl</title>
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
