@@ -28,6 +28,7 @@
     border: none;
     vertical-align: top;
     outline-style: none;
+    background-color: #ffffff;
 }
 
 .dt-add-btn:hover {
@@ -126,7 +127,7 @@
     height: 4vh;
     position: relative;
     top: 1vh;
-    left: 32%;
+    left: 30%;
     background-color: #eceaea;
     border-radius: 3px;
     vertical-align: top;
@@ -135,6 +136,7 @@
     cursor: pointer;
     color: #706F6F;
     font-family: 'Mukta Malar', sans-serif;
+    border-style: none;
 }
 
 #dt-make-post-form input:hover {
@@ -150,7 +152,6 @@
     margin-right: 4%;
     margin-bottom: 4%;
     z-index: 1;
-    /* border: 1px solid #a6a5a5; */
     background-color: #fffdfd;
 }
 
