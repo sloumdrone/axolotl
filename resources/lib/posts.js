@@ -13,15 +13,11 @@ function applyPostClickHandlers(){
     let $dt_postBtn = $('#dt-postBtn');
     let $dt_post = $('section.dt-make-post');
 
-    if (['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform) >= 0){
-        $postBtn.click(() => {
-            $post.slideToggle(1000);
-        })
-    } else {
-        $postBtn.click(() => {
-            $post.toggleClass('show');
-        });
-    }
+
+    $postBtn.click(() => {
+        $post.toggleClass('show');
+    });
+
 
     $dt_postBtn.click(() => {
         $dt_post.slideToggle();

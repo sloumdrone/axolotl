@@ -186,18 +186,18 @@ button {
 
 .edit-bio, .edit-email {
     background-color: white;
-    position: absolute;
-    top: 100vh;
+    position: fixed;
+    top: 87vh;
+    bottom: 10vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
     background-color: #E3F2FD;
     width: 100%;
     z-index: 10;
-    /* display: none; */
-    height: 0;
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    overflow-y: hidden;
 }
 
 .textAreaContainer input {
@@ -260,14 +260,15 @@ button {
     background-color: white;
     text-align: center;
     z-index: 10;
-    height: 0;
+    bottom: 10vh;
     width: 100%;
-    top: 100vh;
+    top: 87vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
     margin: 0 auto;
     padding: 0;
-    position: absolute;
+    position: fixed;
+    overflow-y: hidden;
 }
 
 .delete-account p {
@@ -308,6 +309,7 @@ button {
     top: 17vh;
     height: 100vh;
     padding: 10px 0;
+    visibility: visible;
 }
 
 .pwinput {
