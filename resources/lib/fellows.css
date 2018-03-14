@@ -5,6 +5,7 @@
 
 .content-container {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     height: 73vh;
     position: absolute;
     top: 17vh;
@@ -19,7 +20,6 @@ section.search-container, section.current-fellows-container {
     background-color: #eceaea;
     padding: 10px 0;
     position: relative;
-    /* top: 17vh; */
     font-size: 4vmin;
 }
 
@@ -172,6 +172,7 @@ footer {
     position: relative;
     top: 10vh;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
     float: right;
     padding-bottom: 15%;
