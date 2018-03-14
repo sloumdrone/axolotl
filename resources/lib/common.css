@@ -20,6 +20,7 @@ input[type="submit"],
 .input-checkbox  {
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
+    appearance: none;
 }
 
 
@@ -89,20 +90,6 @@ nav ul li {
 
 /********************** feed *********************/
 
-
-/* .make-post {
-    height: 100vh;
-    width: 100%;
-    top: 100vh;
-    transition-duration: 1s;
-    -webkit-transition-duration: 1s;
-    background-color: #3bb3c2;
-    margin: 0 auto;
-    padding: 10px 0;
-    position: absolute;
-    display: none;
-} */
-
 .make-post {
     width: 100%;
     top: 87vh;
@@ -114,18 +101,6 @@ nav ul li {
     padding: 0;
     position: fixed;
 }
-
-/* .make-post {
-    height: 100vh;
-    width: 100%;
-    top: 17vh;
-    background-color: #3bb3c2;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-    display: none;
-} */
-
 
 .thread-container {
     height: 70vh;
@@ -424,14 +399,13 @@ footer {
     text-align: right;
     color: #706F6F;
     float: right;
-    margin-top: 5vh;
+    margin-top: 4vh;
     margin-right: 1vw;
 }
 
 .dt-backBtn {
     font-size: 2.5vmin;
     color: #706F6F;
-    background-color: #fafafa;
     border-radius: 3px;
     outline-style: none;
 }
@@ -517,7 +491,8 @@ footer {
     text-align: left;
 }
 
-.about-content {
+.creators {
+    color: #616060;
 }
 
 #about-sitelogo {
@@ -652,6 +627,8 @@ footer {
     height: 4vh;
     font-size: .75em;
     color: #706F6F;
+    border-style: solid;
+    border-color: #eceaea;
 }
 
 .dt-modal-btn {
@@ -864,6 +841,11 @@ footer {
     word-wrap: break-word;
     letter-spacing: .25px;
     clear: both;
+}
+
+.dt-post-body a {
+    text-decoration: none;
+    color: #3bb3c2;
 }
 
 .dt-post-like {
