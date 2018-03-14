@@ -95,8 +95,6 @@ function addScrollHandler(){
             handleLoading();
             setTimeout(()=>{
                 retrievePosts();
-                $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
-                loading = false;
             },300);
         }
     });
@@ -145,7 +143,10 @@ function retrievePosts(){
                 for (let row in result){
                     buildPost(result[row]);
                     buildPostDesktop(result[row]);
-                }}
+                }
+            }
+            $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
+            loading = false;
         },
         error: function(result){
             let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
