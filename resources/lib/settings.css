@@ -187,7 +187,7 @@ button {
 .edit-bio, .edit-email {
     background-color: white;
     position: fixed;
-    top: 87vh;
+    top: 90vh;
     bottom: 10vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
@@ -246,6 +246,7 @@ button {
     outline-color: #E3F2FD;
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
     padding: 2%;
 }
 
@@ -262,7 +263,7 @@ button {
     z-index: 10;
     bottom: 10vh;
     width: 100%;
-    top: 87vh;
+    top: 90vh;
     transition-duration: 1s;
     -webkit-transition-duration: 1s;
     margin: 0 auto;
@@ -307,9 +308,7 @@ button {
 
 .settings-show {
     top: 17vh;
-    height: 100vh;
     padding: 10px 0;
-    visibility: visible;
 }
 
 .pwinput {

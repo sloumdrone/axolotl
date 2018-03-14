@@ -20,6 +20,7 @@ input[type="submit"],
 .input-checkbox  {
     -moz-appearance: none !important;
     -webkit-appearance: none !important;
+    appearance: none;
 }
 
 
@@ -398,14 +399,13 @@ footer {
     text-align: right;
     color: #706F6F;
     float: right;
-    margin-top: 5vh;
+    margin-top: 4vh;
     margin-right: 1vw;
 }
 
 .dt-backBtn {
     font-size: 2.5vmin;
     color: #706F6F;
-    background-color: #fafafa;
     border-radius: 3px;
     outline-style: none;
 }
@@ -491,7 +491,8 @@ footer {
     text-align: left;
 }
 
-.about-content {
+.creators {
+    color: #616060;
 }
 
 #about-sitelogo {
@@ -626,6 +627,8 @@ footer {
     height: 4vh;
     font-size: .75em;
     color: #706F6F;
+    border-style: solid;
+    border-color: #eceaea;
 }
 
 .dt-modal-btn {

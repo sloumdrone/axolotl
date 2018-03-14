@@ -26,7 +26,7 @@
             <section class='about-container'>
                 <p class='about-content'>Axolotl was built to get back to basics. To keep things positive. There are no counters for people to keep track of popularity. There are no comment boards in which to get into flame wars. There is simply posting and following.</p>
                 <p class='about-content'>We believe this approach allows people to express themselves as they want, without getting trolled. We want to be conscious of what features are and why we are adding them, with our core mission: build a social space on the web that is geared toward positivity.</p>
-                <h1>meet the creators:</h1>
+                <h1 class='creators'>meet the creators:</h1>
                 <div class='about-profile-container'>
                     <div class='img-container'>
                         <img class='contact-img' src='/images/brian.jpg' />
@@ -68,13 +68,13 @@
                         <div id='dt-sitelogo'></div>
                         <h1 class='dt-logotext'>Axolotl</h1>
                     </a>
-                    <div class='dt-userName'><a href='/'><button class="dt-backBtn">back</button></a></div>
+                    <div class='dt-userName'><a href='/' class="dt-backBtn">back</a></div>
                 </div>
             </div>
             <section class='dt-about-contact-content'>
                 <p class='about-content'>Axolotl was built to get back to basics. To keep things positive. There are no counters for people to keep track of popularity. There are no comment boards in which to get into flame wars. There is simply posting and following.</p>
-                <p>We believe this approach allows people to express themselves as they want, without getting trolled. We want to be conscious of what features are and why we are adding them, with our core mission: build a social space on the web that is geared toward positivity.</p>
-                <h1>meet the creators:</h1>
+                <p class='about-content'>We believe this approach allows people to express themselves as they want, without getting trolled. We want to be conscious of what features are and why we are adding them, with our core mission: build a social space on the web that is geared toward positivity.</p>
+                <h1 class='creators'>meet the creators:</h1>
                 <div class='dt-profile-container'>
                     <div class='dt-img-container'>
                         <img class='dt-about-img' src='/images/brian.jpg' />
