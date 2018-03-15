@@ -7,22 +7,22 @@
     "theme_color": "#2d8591",
     "icons": [
         {
-            "src": "images/axolotl-icon-256.png",
+            "src": "../images/axolotl-icon-256.png",
             "sizes": "256x256",
             "type": "image/png"
             },
         {
-            "src": "images/axolotl-icon-192.png",
+            "src": "../images/axolotl-icon-192.png",
             "sizes": "192x192",
             "type": "image/png"
             },
         {
-            "src": "images/axolotl-icon-128.png",
+            "src": "../images/axolotl-icon-128.png",
             "sizes": "128x128",
             "type": "image/png"
             },
         {
-            "src": "images/axolotl-icon-76.png",
+            "src": "../images/axolotl-icon-76.png",
             "sizes": "76x76",
             "type": "image/png"
             }
