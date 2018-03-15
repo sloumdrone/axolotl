@@ -121,3 +121,9 @@ function resizeForKeybaobrd(){
 }
 //---xx
 //---xx
+setTimeout(function () {
+    let viewheight = $(window).height();
+    let viewwidth = $(window).width();
+    let viewport = document.querySelector("meta[name=viewport]");
+    viewport.setAttribute("content", "height=" + parseInt(viewheight) + "px, width=" + parseInt(viewwidth) + "px, initial-scale=1.0");
+}, 300);
