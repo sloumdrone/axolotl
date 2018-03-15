@@ -48,6 +48,7 @@ section > .user-search-container, section > .fellow-list-container {
     overflow: hidden;
     padding: 5px;
     outline-color: #eceaea;
+    color: #928E8E;
 }
 
 .user-search-container div {
@@ -286,20 +287,50 @@ section > .dt-user-search-container {
 
 /********************** media queries *********************/
 
-/******* iPad **********/
+@media only screen and (min-width: 412px) and (max-width: 412px)
+and (max-height: 320px){
 
-/* @media screen and (min-width: 768px) and (max-width:768px)
-   and (min-height: 1024px) and (max-height: 1024px){
-       .search-icon {
-           width: 9vmin;
-       }
+    .currentUser {
+        display: none;
+    }
 
-       .user-search-container input {
-           font-size: 2rem;
-           border-radius: 5px 0 0 5px;
-       }
+    #make-post-form input {
+        height: 9vh;
+    }
 
-       .user-search-container div {
-           border-radius: 0 5px 5px 0;
-       }
-   } */
+    nav ul li {
+        height: 16vh;
+    }
+
+    .search-icon {
+        width: 9vmin;
+    }
+
+    .user-search-container input {
+        height: 9vh;
+    }
+
+    .search-icon {
+        width: 9vmin;
+    }
+
+    section.search-container p {
+        font-size: 5vmin;
+        margin: 0;
+        padding: 0;
+        padding-left: 1%
+    }
+
+    .user-search-container div {
+        height: 9vh;
+    }
+
+    section > .user-search-container {
+        padding: 0;
+    }
+
+    section.search-container {
+        padding: 0;
+    }
+
+}
