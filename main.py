@@ -498,7 +498,10 @@ def delete_account(user):
     if success:
         return True
     return False
-
+##---**
+##---**
+def user_name_search(partial_name):
+    pass
 ##---xx
 ##---xx
 ##################################################################################
