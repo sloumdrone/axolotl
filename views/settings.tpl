@@ -7,7 +7,7 @@
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-        <link rel="apple-touch-icon" href="/images/axolotl-icon-192.png">
+        <link rel="apple-touch-icon" href="/icons/axolotl-icon-192.png">
         <link rel="manifest" href="/library/manifest.json">
         <title>Axolotl: Settings - {{username}}</title>
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
