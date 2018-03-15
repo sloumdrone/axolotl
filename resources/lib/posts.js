@@ -149,7 +149,7 @@ function retrievePosts(){
             loading = false;
         },
         error: function(result){
-            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
+            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css({'color':'red','background-color':'white','padding': '10px','text-align':'center'});
             $('.thread-container').append($container);
         }
     })

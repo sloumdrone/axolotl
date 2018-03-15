@@ -20,6 +20,13 @@ db = './resources/inky.sqlite'
 ##---**
 @route('/')
 def main():
+    if request.get_cookie("user") != None:
+        un = request.get_cookie("user")
+        udata = select_user(un)
+        if un == udata["username"]:
+            if udata["session_id"] == request.get_cookie("session"):
+                redirect('/home')
+
     status = str(request.query.statusCode)
     return template('login', loginissue=status)
 ##---**
