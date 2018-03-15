@@ -98,8 +98,11 @@ def handle_post():
     regex = r'@{1}\w*(?=[\W!?\s]{1})'
 
     for name in re.findall(regex,message):
-        if not select_user(str(name[1:]).rstrip()):
+        validity = select_user(str(name[1:]).rstrip())
+        if not validity:
             message = str.replace(message,name,name[1:])
+        else:
+            message = str.replace(message,name,'@'+str(validity['username']))
 
     length = len(message)
 
