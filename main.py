@@ -284,11 +284,6 @@ def delete_account():
 @route('/about')
 def about():
     return template('aboutpage', username=' ')
-##---**
-##---**
-@route('/icons/<filename>')
-def icons(filename):
-    return static_file(filename, root='./resources/icons/', mimetype='image/png')
 ##---xx
 ##---xx
 ##################################################################################
