@@ -3,6 +3,7 @@
 $(document).ready(function () {
     applyFellowClickHandlers();
     getFellowsList();
+    $('#mobile .user-search-container input').on('focus',resizeForKeybaobrd)
 });
 //---**
 //---**
@@ -106,6 +107,16 @@ function buildFellowForList(fellow){
     $ul.append($listItem);
     $ulDesktop.append($listItemDt);
     return $listItem;
+}
+//--**
+//--**
+function resizeForKeybaobrd(){
+    setTimeout(function () {
+        let viewheight = $(window).height();
+        let viewwidth = $(window).width();
+        let viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute("content", "height=" + viewheight + "px, width=" + viewwidth + "px, initial-scale=1.0");
+    }, 300);
 }
 //---xx
 //---xx
