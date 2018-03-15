@@ -147,6 +147,7 @@ def sign_up():
         return redirect('/?statusCode=225')
     if not re.match(r"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{6,15}$",password):
         return redirect('/?statusCode=224')
+
     if not select_user(username):
         ts = datetime.datetime.now()+datetime.timedelta(days=1)
         pwhash = hashlib.md5()
@@ -170,12 +171,13 @@ def log_me_in():
     password = request.forms.get('password')
     pwhash = hashlib.md5()
     pwhash.update(password)
-    if verify_login(username,pwhash.hexdigest()):
+    validity = verify_login(username,pwhash.hexdigest())
+    if validity:
         ts = datetime.datetime.now()+datetime.timedelta(days=1)
         session_id = hashlib.md5()
         session_id.update(str(ts))
-        create_session_db(username,session_id.hexdigest())
-        response.set_cookie('user',username,expires=ts)
+        create_session_db(validity['username'],session_id.hexdigest())
+        response.set_cookie('user',validity['username'],expires=ts)
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         redirect('/home')
     else:
@@ -315,7 +317,7 @@ def verify_login(un,pw):
     udata = select_user(un)
     if udata:
         if pw == udata['password']:
-            return True
+            return udata
     return False
 ##---**
 ##---**
@@ -333,7 +335,7 @@ def check_and_build_db():
 def select_user(user):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT username, password, session_id, email FROM users WHERE username=?''',(user,))
+    c.execute('''SELECT username, password, session_id, email FROM users WHERE lower(username)=lower(?)''',(user,))
     row_data = c.fetchone()
     db_conn.close()
     if row_data is None:
@@ -388,12 +390,12 @@ def post_to_db(user, message):
 def follow(user,new_friend):
     db_conn = sqlite3.connect(db)
     c = db_conn.cursor()
-    c.execute('''SELECT count(*) FROM users WHERE username = ?''',(new_friend,))
-    validfriend = c.fetchone()[0]
-    c.execute('''SELECT count(*) FROM friends WHERE username = ? and friend = ?''',(user,new_friend))
+    c.execute('''SELECT count(*), username FROM users WHERE lower(username) = ?''',(new_friend.lower(),))
+    validfriend = c.fetchone()
+    c.execute('''SELECT count(*) FROM friends WHERE username = ? and lower(friend) = ?''',(user,new_friend.lower()))
     duplicate = c.fetchone()[0]
-    if validfriend == 1 and duplicate == 0:
-        c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,new_friend))
+    if validfriend[0] == 1 and duplicate == 0:
+        c.execute('''INSERT INTO friends(username,friend) VALUES(?,?)''',(user,validfriend[1]))
         db_conn.commit()
         db_conn.close()
         return True

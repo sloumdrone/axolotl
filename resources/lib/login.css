@@ -1,5 +1,6 @@
 body {
     background-color: #fafafa;
+    overflow: auto !important;
 }
 
 section {
@@ -15,6 +16,8 @@ section {
     padding: 10px;
     background-color: #FAFAFA;
     box-shadow: 5px 5px 10px silver;
+    min-height: 540px;
+    min-width:300px;
 }
 
 form {
