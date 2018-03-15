@@ -1,9 +1,16 @@
 //--->>
 //--->>
+const screenheight = $(window).height();
 $(document).ready(function () {
     applyFellowClickHandlers();
     getFellowsList();
-    $('#mobile .user-search-container input').on('focus',resizeForKeybaobrd)
+    $(window).resize(function(){
+        if( /Android/i.test(navigator.userAgent) ) {
+            setTimeout(function(){
+                $(window).height(screenheight);
+            },1000);
+        }
+    });
 });
 //---**
 //---**
@@ -108,22 +115,5 @@ function buildFellowForList(fellow){
     $ulDesktop.append($listItemDt);
     return $listItem;
 }
-//--**
-//--**
-function resizeForKeybaobrd(){
-    console.log('trigger resize');
-    setTimeout(function () {
-        let viewheight = $(window).height();
-        let viewwidth = $(window).width();
-        let viewport = document.querySelector("meta[name=viewport]");
-        viewport.setAttribute("content", "height=" + parseInt(viewheight) + "px, width=" + parseInt(viewwidth) + "px, initial-scale=1.0");
-    }, 300);
-}
 //---xx
 //---xx
-setTimeout(function () {
-    let viewheight = $(window).height();
-    let viewwidth = $(window).width();
-    let viewport = document.querySelector("meta[name=viewport]");
-    viewport.setAttribute("content", "height=" + parseInt(viewheight) + "px, width=" + parseInt(viewwidth) + "px, initial-scale=1.0");
-}, 300);
