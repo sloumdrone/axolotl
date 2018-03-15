@@ -29,7 +29,7 @@
                 <section class="search-container">
                     <p>add a new fellow:</p>
                     <div class="user-search-container">
-                        <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"><img class='search-icon' src='/images/binoculars.svg' /></div>
+                        <input type="text" name="usersearch" value="" placeholder="username"><div class="search-button"></div>
                     </div>
                 </section>
                 <section class="current-fellows-container">
