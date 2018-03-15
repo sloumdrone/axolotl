@@ -1,7 +1,7 @@
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("https://axolotl.network/library/service-worker.js",{
-        scope: '/'
+        scope: '../'
     }).then(function(){
         console.log('Service worker registered');
     }).error(function(err){
