@@ -31,6 +31,7 @@ input[type="submit"],
 
 #landscape {
     display: none;
+    z-index: 1000;
 }
 
 #logout {

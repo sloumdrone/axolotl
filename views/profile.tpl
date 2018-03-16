@@ -42,6 +42,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- <h1 class='no-post-message'>You haven't posted. You should do so now...</h1> -->
                 <div class="post-container">
                 </div>
             </section>
