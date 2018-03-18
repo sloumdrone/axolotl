@@ -101,7 +101,6 @@ nav ul li {
     margin: 0 auto;
     padding: 0;
     position: fixed;
-    margin-bottom: 50px;
 }
 
 .thread-container {
@@ -113,6 +112,7 @@ nav ul li {
     overflow-x: hidden;
     padding-bottom: 20px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 #make-post-form {
