@@ -161,6 +161,7 @@ def sign_up():
         response.set_cookie('session',session_id.hexdigest(),expires=ts)
         new_user(username,pwhash.hexdigest(),email,session_id.hexdigest())
         follow(username,username)
+        follow(username,'Alexolotl')
         newdefault = './resources/images/user/'+ username +'.JPEG'
         copyfile('./resources/images/user/axolotl.JPEG',newdefault)
         return redirect('/home')
