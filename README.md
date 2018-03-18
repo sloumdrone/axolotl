@@ -1,6 +1,6 @@
 # Axolotl
-
-#### TLDR
+ 
+#### *TLDR*
 Axolotl is a social space for posting short messages with friends. The goal of the project is to get back to basics and provide a non-trolled environment to share posts.
 
 ### Contents
@@ -74,6 +74,11 @@ To delete your account simply go to the settings menu on mobile (the hamburger m
 
 #### Web App
 Axolotl is being developed as a web app. What this means, especially for Android users, is that you can save the app to your phone's home screen (via the 3 dots at the top right of chrome for Android). Once you do so, the app will run much more like a native app: splash screen, no more address bar, separate task switching. We are working on developing some offline features as well! It is possible to save a web app on iOS devices as well, and we are ironing out the kinks currently. Results will vary at the moment from phone to phone, but we certainly recommend trying this out!
+
+
+
+![](https://axolotl.network/images/axolotl-login.png)|![](https://axolotl.network/images/axolotl-home.png)|![](https://axolotl.network/images/axolotl-post.png)
+:-----:|:----:|:-------:
 
 ## Building and Developing
 #### Dependencies
