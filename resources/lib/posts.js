@@ -13,13 +13,11 @@ function applyPostClickHandlers(){
     let $dt_postBtn = $('#dt-postBtn');
     let $dt_post = $('section.dt-make-post');
 
-    // $postBtn.click(() => {
-    //     $post.toggleClass('show');
-    // });
-    //
+
     $postBtn.click(() => {
-        $post.slideToggle(1000);
-    })
+        $post.toggleClass('show');
+    });
+
 
     $dt_postBtn.click(() => {
         $dt_post.slideToggle();
@@ -97,8 +95,6 @@ function addScrollHandler(){
             handleLoading();
             setTimeout(()=>{
                 retrievePosts();
-                $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
-                loading = false;
             },300);
         }
     });
@@ -147,10 +143,13 @@ function retrievePosts(){
                 for (let row in result){
                     buildPost(result[row]);
                     buildPostDesktop(result[row]);
-                }}
+                }
+            }
+            $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
+            loading = false;
         },
         error: function(result){
-            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css('color','red');
+            let $container = $('<div>',{class: 'post-container',text: 'An error has occurred'}).css({'color':'red','background-color':'white','padding': '10px','text-align':'center'});
             $('.thread-container').append($container);
         }
     })

@@ -1,8 +1,16 @@
 //--->>
 //--->>
+const screenheight = $(window).height();
 $(document).ready(function () {
     applyFellowClickHandlers();
     getFellowsList();
+    $(window).resize(function(){
+        if( /Android/i.test(navigator.userAgent) ) {
+            setTimeout(function(){
+                $(window).height(screenheight);
+            },1000);
+        }
+    });
 });
 //---**
 //---**

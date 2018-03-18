@@ -1,5 +1,6 @@
 body {
     background-color: #fafafa;
+    overflow: auto !important;
 }
 
 section {
@@ -15,6 +16,8 @@ section {
     padding: 10px;
     background-color: #FAFAFA;
     box-shadow: 5px 5px 10px silver;
+    min-height: 540px;
+    min-width:300px;
 }
 
 form {
@@ -193,7 +196,7 @@ select:-webkit-autofill:focus {
         background-image: url('/images/axolotl.png');
         background-size: cover;
         border-radius: 100%;
-        border: 4px solid #706F6F;
+        border: 3px solid #706F6F;
         background-position: bottom;
         width: 110px;
         height: 110px;
@@ -204,7 +207,7 @@ select:-webkit-autofill:focus {
     .logotext {
         margin: -10px auto 20px auto;
         font-family: monospace;
-        border: 3px solid #706F6F;
+        border: 2px solid #706F6F;
         position: relative;
         display: block;
     }

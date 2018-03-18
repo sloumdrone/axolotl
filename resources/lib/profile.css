@@ -18,6 +18,11 @@
     clear: both;
 }
 
+.post-body a {
+    text-decoration: none;
+    color: #34a3b1;
+}
+
 .profile-pic {
     background-repeat: no-repeat;
     background-size: cover;

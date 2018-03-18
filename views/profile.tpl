@@ -3,6 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#2d8591">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="apple-touch-icon" href="/images/axolotl-icon-apple.png">
+        <link rel="apple-touch-startup-image" href="/images/axolotl-icon-256.png">
+        <meta name="apple-mobile-web-app-title" content="Axolotl">
+        <link rel="manifest" href="/library/manifest.json">
         <title>Axolotl</title>
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -34,6 +42,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- <h1 class='no-post-message'>You haven't posted. You should do so now...</h1> -->
                 <div class="post-container">
                 </div>
             </section>

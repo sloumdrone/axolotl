@@ -11,6 +11,7 @@
             <a href='/fellows'><li>fellows</li></a>
             <li class='dt-settings-li-item'>settings
                 <ul class='dt-sub-nav'>
+                    <li class="dt-edit-image">edit image</li>
                     <li class='dt-edit-bio'>edit bio</li>
                     <li class='dt-edit-email'>edit email</li>
                     <li class='dt-delete-account-btn'>delete account</li>
