@@ -94,6 +94,7 @@ section.current-fellows-container {
     margin: auto;
     border: 1px solid #eceaea;
     border-radius: 3px;
+    margin-bottom: 50px;
 }
 
 .fellow-list li {

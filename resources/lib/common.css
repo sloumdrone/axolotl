@@ -112,6 +112,7 @@ nav ul li {
     overflow-x: hidden;
     padding-bottom: 20px;
     width: 100%;
+    margin-bottom: 50px;
 }
 
 #make-post-form {
@@ -148,7 +149,7 @@ nav ul li {
     position: absolute;
     color: white;
     font-size: 6vmin;
-    bottom: -4.1vh;
+    bottom: -6.1vh;
     left: 12vw;
 }
 
@@ -926,7 +927,7 @@ footer {
 
 
 @media only screen and (max-width: 412px)
-and (max-height: 400px){
+and (max-height: 450px){
 
     .nav-icon {
         width: 12vmin;
@@ -937,7 +938,7 @@ and (max-height: 400px){
     }
 
     #make-post-form input {
-        height: 9vh;
+        height: 2rem;
     }
 
     nav ul li {
@@ -945,7 +946,7 @@ and (max-height: 400px){
     }
 
     #textCounter {
-        bottom: -7.1vh;
+        bottom: -9.1vh;
     }
 }
 
