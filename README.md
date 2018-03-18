@@ -18,11 +18,11 @@ Axolotl is a social space for posting short messages with friends. The goal of t
   * [User info](#user-info)
   * [Deleting accounts](#deleting-accounts)
   
-* Building/Developing
-  * Dependencies
-  * API
-  * Deployment
-* Contact
+* [Building and Developing](#building-and-developing)
+  * [Dependencies](#dependencies)
+  * [API](#api)
+  * [Deployment](#deployment)
+* [Contact](#contact)
 
   
 
@@ -70,3 +70,22 @@ Axolotl features a few customizable options. A user can update their e-mail addr
 
 #### Deleting Accounts
 To delete your account simply go to the settings menu on mobile (the hamburger menu on desktop) and select *delete account*. You will be asked if you are sure, then prompted to enter your password. If everything works out: **POOF!** ...your account is gone. There is no recovery, this is a permanent option. Upon deletion, your username will become available to new users and there is no guarantee you will be able to get it back. We will, of course, be sad to see you go.
+
+## Building and Developing
+#### Dependencies
+Axolotl is built on a Python 2.7 back end utilizing the [*Bottle*](https://bottlepy.org/docs/dev/) web framework. You will need to install Python 2.7 if you do not have it and then use *PIP* to get Bottle. You will also need to *PIP* Pillow (formerly PIL, Pythin Image Library). All other Python imports are from the standard library.
+
+Because the alpha release (*Atomic Tangerine*) uses SQLite3 for the database there will be no need to isntall a database to your environment. One will be created for you upon running *main.py*. 
+
+Jquery is used on the front end, and at Alpha is included via a CDN. This will be updated for the beta release (*Blizzard Blue*) to be included as a local file.
+
+#### API
+A full RESTful web service is in the works for Axolotl. At present it is not full featured enough to be officially documented or released as part of the base package. However, it is a hogh priority for the development team and various read options should be available very soon. Talks are ongoing as to what other CRUD operations are appropriate to include for this application.
+
+#### Deployment
+There are a number of deployment options that can be read about in the documentation for *Bottle*. The current deployment model for the [live site](https://axolotl.network) is via an Apache2 server. To use *Bottl** with Apache2 you must set up WSGI on the server, as such that can be considered another dependency if you deploy in this manner. 
+
+## Contact
+Axolotl is developed and maintained by:
+[Brian Evans](https://github.com/sloumdrone) and [Lori Mitchell](https://github.com/lmitchell524)
+Please feel free to reach out with any questions or comments!
