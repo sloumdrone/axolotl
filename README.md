@@ -17,6 +17,7 @@ Axolotl is a social space for posting short messages with friends. The goal of t
   * [Fellows](#fellows)
   * [User info](#user-info)
   * [Deleting accounts](#deleting-accounts)
+  * [Web App](#web-app)
   
 * [Building and Developing](#building-and-developing)
   * [Dependencies](#dependencies)
@@ -70,6 +71,9 @@ Axolotl features a few customizable options. A user can update their e-mail addr
 
 #### Deleting Accounts
 To delete your account simply go to the settings menu on mobile (the hamburger menu on desktop) and select *delete account*. You will be asked if you are sure, then prompted to enter your password. If everything works out: **POOF!** ...your account is gone. There is no recovery, this is a permanent option. Upon deletion, your username will become available to new users and there is no guarantee you will be able to get it back. We will, of course, be sad to see you go.
+
+#### Web App
+Axolotl is being developed as a web app. What this means, especially for Android users, is that you can save the app to your phone's home screen (via the 3 dots at the top right of chrome for Android). Once you do so, the app will run much more like a native app: splash screen, no more address bar, separate task switching. We are working on developing some offline features as well! It is possible to save a web app on iOS devices as well, and we are ironing out the kinks currently. Results will vary at the moment from phone to phone, but we certainly recommend trying this out!
 
 ## Building and Developing
 #### Dependencies
