@@ -36,7 +36,7 @@ function buildPost(arr){
     let $body = $('<div>',{class: 'post-body'}).html(linkText);
     let $footer = $('<div>',{class: 'post-footer'});
 
-    let $image = $('<div>',{class: 'post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG)`).appendTo($header);
+    let $image = $('<div>',{class: 'post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG?hash=${Math.random() *500})`).appendTo($header);
     let $username = $('<div>',{class: 'post-user-name',text: arr[0]}).appendTo($header);
 
     let $time_elapsed = $('<div>',{class: 'post-like',text: parseTime(arr[2])}).appendTo($footer);
