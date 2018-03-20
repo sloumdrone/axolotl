@@ -557,6 +557,7 @@ footer {
     text-align: center;
     color: #706F6F;
     padding: 2% 2% 2% 5%;
+    position: relative;
 }
 
 .dt-settings-list li:hover {
@@ -587,8 +588,8 @@ footer {
     background-color: white;
     position: absolute;
     font-size: 1em;
-    right: 14.75vw;
-    top: 15.5vh;
+    left: -100%;
+    top: 0;
     border: 1px solid #ececec;
     padding: 0;
     display: none;
