@@ -217,14 +217,20 @@ def do_upload():
 
     size = (128, 128)
     error = json.dumps({'success':False,'error':'Filetype not accepted'})
-    if ext.lower() not in ('.png', '.jpg', '.jpeg', '.gif'):
+    if ext.lower() not in ('.jpg', '.jpeg', '.gif'):
         return error
 
     outfile = './resources/images/user/' + username + ".JPEG"
     if upload.filename != outfile:
         try:
             im = Image.open(upload.file)
-            im.resize(size).save(outfile, "JPEG",quality=100)
+            if im.size[0] < im.size[1]:
+                crop_size = im.size[0]
+                crop_pos = [0,int(im.size[1]/2) - int(im.size[0]/2)]
+            else:
+                crop_size = im.size[1]
+                crop_pos = [int(im.size[0]/2) - int(im.size[1]/2),0]
+            im.crop((crop_pos[0],crop_pos[1],crop_size,crop_size)).resize(size,Image.ANTIALIAS).save(outfile, "JPEG",quality=100)
         except IOError:
             print "Cannot create thumbnail for", upload.filename
             newdefault = './resources/images/user/'+ username + '.JPEG'

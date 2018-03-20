@@ -38,6 +38,10 @@ function applyClickHandlers(){
     })
 
 // modal click handlers
+    $('#saveBtn.dt-modal-btn, #cancelBtn.dt-modal-btn').click(()=>{
+        $('#cancelBtn, #saveBtn').css('visibility','hidden');
+    });
+
     $('.dt-edit-image').click(() => {
         $('.dt-edit-image-modal').removeClass('dt-hide');
         modalOpen = true;
@@ -49,7 +53,8 @@ function applyClickHandlers(){
     });
 
     $('.dt-edit-image-modal #uploadBtn').on('change',function(){
-        $('.dt-edit-image-modal #iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png')
+        $('.dt-edit-image-modal #iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png');
+        $('#cancelBtn, #saveBtn').css('visibility','visible');
     });
 
     $('.dt-edit-image-modal #cancelBtn').on('click',function(e){

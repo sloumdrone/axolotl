@@ -1,7 +1,7 @@
 //--->>
 //--->>
 var user = $('p.currentUser').text();
-var userimage = `/images/user/${user}.JPEG`;
+var userimage = `/images/user/${user}.JPEG?hash=${Math.random() * 500}`;
 checkFileExistence(userimage);
 //---**
 //---**
@@ -11,6 +11,10 @@ $(document).ready(() => {
 //---**
 //---**
 function applySettingClickHandlers() {
+    $('#cancelBtn, #saveBtn').click(()=>{
+        $('#cancelBtn, #saveBtn').css('visibility','hidden');
+    });
+
     $('.deleteBtn').click(() => {
         $('.delete-account').addClass('settings-show');
     });
@@ -62,7 +66,8 @@ function applySettingClickHandlers() {
     });
 
     $('#uploadBtn').on('change',function(){
-        $('#iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png')
+        $('#iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png');
+        $('#cancelBtn, #saveBtn').css('visibility','visible');
     });
 
     $('input[name=cancel]').on('click',function(e){
