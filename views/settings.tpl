@@ -15,11 +15,11 @@
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-        <link rel="stylesheet" href="/library/common.css">
-        <link rel="stylesheet" href="/library/settings.css">
+        <link rel="stylesheet" href="/library/common.css?v=1">
+        <link rel="stylesheet" href="/library/settings.css?v=1">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-        <script type="text/javascript" src="/library/nav.js"></script>
-        <script src="/library/settings.js" defer></script>
+        <script type="text/javascript" src="/library/nav.js?v=1"></script>
+        <script src="/library/settings.js?v=1" defer></script>
     </head>
     <body>
         <div id='mobile'>
