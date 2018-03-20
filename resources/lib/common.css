@@ -23,6 +23,11 @@ input[type="submit"],
     appearance: none;
 }
 
+.smallText {
+    text-align: center;
+    font-size: 0.7em;
+    color: silver;
+}
 
 /*****************************************************************/
 /*************************** mobile  *****************************/
@@ -693,7 +698,7 @@ footer {
 } */
 
 .dt-edit-image-modal {
-    height: 45vh
+    /* height: 45vh */
 }
 
 .dt-confirm-delete {

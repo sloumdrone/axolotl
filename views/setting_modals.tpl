@@ -34,6 +34,7 @@
                 <input id="uploadBtn" type="file" name="upload">
                 <input id="saveBtn" type="submit" class="dt-modal-btn"  name="submit" value="save">
             </form>
+            <p class="smallText">* accepts: jpg, jpeg, and gif (non-animated)</p>
         </section>
 
 
