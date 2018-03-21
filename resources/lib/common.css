@@ -23,6 +23,11 @@ input[type="submit"],
     appearance: none;
 }
 
+.smallText {
+    text-align: center;
+    font-size: 0.7em;
+    color: silver;
+}
 
 /*****************************************************************/
 /*************************** mobile  *****************************/
@@ -365,7 +370,7 @@ footer {
 
 .dt-sized-header {
   width: 90vw;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: auto;
   position: relative;
 }
@@ -557,6 +562,7 @@ footer {
     text-align: center;
     color: #706F6F;
     padding: 2% 2% 2% 5%;
+    position: relative;
 }
 
 .dt-settings-list li:hover {
@@ -587,8 +593,8 @@ footer {
     background-color: white;
     position: absolute;
     font-size: 1em;
-    right: 14.75vw;
-    top: 15.5vh;
+    left: -100%;
+    top: 0;
     border: 1px solid #ececec;
     padding: 0;
     display: none;
@@ -656,6 +662,10 @@ footer {
     background-color: white;
 }
 
+#saveBtn.dt-modal-btn, #cancelBtn.dt-modal-btn {
+    visibility: hidden;
+}
+
 .dt-cancel {
     color: #706F6F;
     background-color: #ececec;
@@ -688,7 +698,7 @@ footer {
 } */
 
 .dt-edit-image-modal {
-    height: 45vh
+    /* height: 45vh */
 }
 
 .dt-confirm-delete {

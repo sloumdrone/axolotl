@@ -18,6 +18,10 @@ button {
     display: none;
 }
 
+#cancelBtn, #saveBtn {
+    visibility: hidden;
+}
+
 /******* user icon ************/
 
 .logoutBtn {

@@ -28,7 +28,9 @@
             % include('header.tpl')
             <section class='thread-container'>
                 <div class="profile-header">
-                    <div class='profile-pic' style='background-image: url("/images/user/{{posts_user}}.JPEG")'></div>
+                    % from random import *
+                    % hash = randint(1,500)
+                    <div class='profile-pic' style='background-image: url("/images/user/{{posts_user}}.JPEG?hash={{hash}}")'></div>
                     <div class='user-info'>
                         <div class="post-user-name"><span id="postsToGrab">{{posts_user}}</span></div>
                         %if friend:
