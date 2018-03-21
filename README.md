@@ -89,10 +89,10 @@ Because the alpha release (*Atomic Tangerine*) uses SQLite3 for the database the
 Jquery is used on the front end, and at Alpha is included via a CDN. This will be updated for the beta release (*Blizzard Blue*) to be included as a local file.
 
 #### API
-A full RESTful web service is in the works for Axolotl. At present it is not full featured enough to be officially documented or released as part of the base package. However, it is a hogh priority for the development team and various read options should be available very soon. Talks are ongoing as to what other CRUD operations are appropriate to include for this application.
+A full RESTful web service is in the works for Axolotl. At present it is not full featured enough to be officially documented or released as part of the base package. However, it is a high priority for the development team and various read options should be available very soon. Talks are ongoing as to what other CRUD operations are appropriate to include for this application.
 
 #### Deployment
-There are a number of deployment options that can be read about in the documentation for *Bottle*. The current deployment model for the [live site](https://axolotl.network) is via an Apache2 server. To use *Bottl** with Apache2 you must set up WSGI on the server, as such that can be considered another dependency if you deploy in this manner. 
+There are a number of deployment options that can be read about in the documentation for *Bottle*. The current deployment model for the [live site](https://axolotl.network) is via an Apache2 server. To use *Bottle* with Apache2 you must set up WSGI on the server, as such that can be considered another dependency if you deploy in this manner. 
 
 ## Contact
 Axolotl is developed and maintained by:
