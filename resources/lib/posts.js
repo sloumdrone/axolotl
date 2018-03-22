@@ -33,7 +33,7 @@ var imgHash = Math.random() * 500
 //---**/
 function buildPost(arr){
     let $header = $('<div>',{class: 'post-header'});
-    let linkText = parseUserLinks(arr[1]);
+    let linkText = parseUserLinks(parseWebLinks(arr[1]));
     let $body = $('<div>',{class: 'post-body'}).html(linkText);
     let $footer = $('<div>',{class: 'post-footer'});
 
@@ -53,7 +53,7 @@ function buildPost(arr){
 //---**
 function buildPostDesktop(arr){
     let $header = $('<div>',{class: 'dt-post-header'});
-    let linkText = parseUserLinks(arr[1]);
+    let linkText = parseUserLinks(parseWebLinks(arr[1]));
     let $body = $('<div>',{class: 'dt-post-body'}).html(linkText);
     let $footer = $('<div>',{class: 'dt-post-footer'});
 
@@ -78,10 +78,25 @@ function parseUserLinks(message){
     let matches = message.match(regex);
     let uniqueMatches = [...new Set(matches)];
     let edited_message = message;
-
     uniqueMatches.forEach(function(link){
         let user = link.substring(1);
         let alink = `<a href="/profile/${link.substring(1)}">${link}</a>`;
+        edited_message = edited_message.replace(new RegExp(`${link}`,"g"),alink);
+    });
+    return edited_message;
+}
+//---**
+//---**
+function parseWebLinks(message){
+    const regex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/g;
+
+    let matches = message.match(regex);
+    let uniqueMatches = [...new Set(matches)];
+    let edited_message = message;
+
+    uniqueMatches.forEach(function(link){
+        let url = link.search('http') < 0 && link[0].toLowerCase() == 'w' ? 'http://' + link : link;
+        let alink = `<a href="${url}" target="_blank">${link}</a>`;
         edited_message = edited_message.replace(new RegExp(`${link}`,"g"),alink);
     });
 

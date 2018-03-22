@@ -263,7 +263,6 @@ def delete_fellow(fellow):
 @error(404)
 @error(500)
 def catch_errors(error):
-    print 'Error: ' + str(error)
     return '''<!DOCTYPE html>
     <html>
         <head>
