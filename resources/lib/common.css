@@ -386,7 +386,8 @@ footer {
   min-width: 700px;
   margin: auto;
   position: relative;
-  overflow-x:auto;
+  overflow-x: auto;
+  overflow-y: hidden;
   color: #706F6F;
 }
 
