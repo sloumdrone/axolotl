@@ -33,9 +33,8 @@ function applyFellowClickHandlers(){
         }
     });
 
-    $('.fellow-list, .dt-fellow-list').on('click','.dt-star',function(){
+    $('.fellow-list, .dt-fellow-list').on('click','.dt-star',function(event){
         removeFellow(event.target);
-
     });
 
     $postBtn.click(() => {
