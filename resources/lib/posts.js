@@ -3,7 +3,7 @@
 $(document).ready(function () {
     retrievePosts();
     applyPostClickHandlers();
-    addScrollHandler();
+    // addScrollHandler();
 });
 //---**
 //---**
@@ -22,6 +22,9 @@ function applyPostClickHandlers(){
     $dt_postBtn.click(() => {
         $dt_post.slideToggle();
     });
+
+    $('#desktop').on('scroll',scrollHandler);
+    $('.thread-container').on('scroll',scrollHandler);
 }
 //---**
 //---**
@@ -104,16 +107,14 @@ function parseWebLinks(message){
 }
 //---**
 //---**
-function addScrollHandler(){
-    $('.thread-container, .dt-thread-container').on('scroll',function(){
-        if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
-            loading = true;
-            handleLoading();
-            setTimeout(()=>{
-                retrievePosts();
-            },300);
-        }
-    });
+function scrollHandler(){
+    if (($(this).scrollTop() + $(this).innerHeight()) >= $(this)[0].scrollHeight - 200 && !loading && !endoffeed){
+        loading = true;
+        handleLoading();
+        setTimeout(()=>{
+            retrievePosts();
+        },300);
+    }
 }
 //---**
 //---**
@@ -135,10 +136,15 @@ function parseTime(post_time){
 //---**
 //---**
 function handleLoading(){
-    $container = $('<div>',{'id':'loadContainer'});
-    $spinnyLoader = $('<div>',{'id':'loadingSpinner'});
-    $spinnyLoader.appendTo($container);
-    $('.thread-container').append($container);
+    function container(){
+        $container = $('<div>',{'class':'loadContainer'});
+        $spinnyLoader = $('<div>',{'class':'loadingSpinner'});
+        $spinnyLoader.appendTo($container);
+        return $container;
+    }
+
+    $('.thread-container').append(container());
+    $('.dt-thread-container').append(container());
 }
 //---**
 //---**
@@ -161,7 +167,9 @@ function retrievePosts(){
                     buildPostDesktop(result[row]);
                 }
             }
-            $('#loadContainer').fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
+            $('.loadContainer').each(function(){
+                $(this).fadeOut(1000,'swing',()=>{$('#loadContainer').remove()});
+            });
             loading = false;
         },
         error: function(result){

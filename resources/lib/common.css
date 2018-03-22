@@ -246,7 +246,7 @@ nav ul li {
     padding-bottom: 5px;
 }
 
-#loadContainer {
+.loadContainer {
     width: 90%;
     position: relative;
     margin: 0 auto;
@@ -276,7 +276,7 @@ nav ul li {
     }
 }
 
-#loadingSpinner {
+.loadingSpinner {
     width: 4.5vh;
     height: 4.5vh;
     border-radius: 100%;
@@ -1016,7 +1016,7 @@ and (max-height: 450px){
 
      #desktop {
          display: block;
-         height: 100vh;
+         height: 90vh;
          width: 100vw;
      }
 
