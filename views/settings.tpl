@@ -31,7 +31,7 @@
                         <img id="iconPreview" alt="your image">
                         <input id="cancelBtn" type="reset" name="cancel" value="cancel">
                         <label for="uploadBtn" class="customUploadBtn"><img src='../images/camera.png'</label>
-                        <input id="uploadBtn" type="file" name="upload">
+                        <input id="uploadBtn" type="file" name="upload" accept=".jpg,.jpeg,.JPG,.JPEG,.gif,.GIF">
                         <input id="saveBtn" type="submit"  name="submit" value="save">
                     </form>
                 </div>

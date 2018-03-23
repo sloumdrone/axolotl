@@ -66,7 +66,7 @@ function applySettingClickHandlers() {
     });
 
     $('#uploadBtn').on('change',function(){
-        $('#iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png');
+        $('#iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || `/images/user/axolotl.png?hash=${Math.random() * 500}`);
         $('#cancelBtn, #saveBtn').css('visibility','visible');
     });
 
