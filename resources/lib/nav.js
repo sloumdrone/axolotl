@@ -39,7 +39,7 @@ function applyClickHandlers(){
 
 // modal click handlers
     $('#saveBtn.dt-modal-btn, #cancelBtn.dt-modal-btn').click(()=>{
-        $('#cancelBtn, #saveBtn').css('visibility','hidden');
+        $('#saveBtn').hide();
     });
 
     $('.dt-edit-image').click(() => {
@@ -54,7 +54,7 @@ function applyClickHandlers(){
 
     $('.dt-edit-image-modal #uploadBtn').on('change',function(){
         $('.dt-edit-image-modal #iconPreview').attr('src',window.URL.createObjectURL(this.files[0]) || '/images/user/axolotl.png');
-        $('#cancelBtn, #saveBtn').css('visibility','visible');
+        $('#saveBtn').show();
     });
 
     $('.dt-edit-image-modal #cancelBtn').on('click',function(e){

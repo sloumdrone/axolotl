@@ -218,7 +218,7 @@ def do_upload():
     size = (128, 128)
     error = json.dumps({'success':False,'error':'Filetype not accepted'})
     if ext.lower() not in ('.jpg', '.jpeg', '.gif'):
-        return error
+        return redirect('/home')
 
     outfile = './resources/images/user/' + username + ".JPEG"
     if upload.filename != outfile:
