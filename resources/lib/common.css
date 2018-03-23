@@ -665,8 +665,8 @@ footer {
     background-color: white;
 }
 
-#saveBtn.dt-modal-btn, #cancelBtn.dt-modal-btn {
-    visibility: hidden;
+#saveBtn.dt-modal-btn {
+    display: none;
 }
 
 .dt-cancel {
