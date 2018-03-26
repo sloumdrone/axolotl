@@ -11,7 +11,7 @@
         <meta name="apple-mobile-web-app-title" content="Axolotl">
         <meta name="theme-color" content="#2d8591">
         <link rel="manifest" href="/library/manifest.json">
-        <title>Axolotl: About</title>
+        <title>Axolotl: A Social Space</title>
         <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
         <link rel=stylesheet href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -19,8 +19,12 @@
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/contact.css">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+        <script src="/library/singlePost.js"></script>
     </head>
     <body>
+        <input type="hidden" name="username" value="{{username}}">
+        <input type="hidden" name="time" value="{{time}}">
+        <input type="hidden" name="post" value="{{post}}">
         <div id='mobile'>
             <div id='about-header'>
                 <div class='dt-sized-header'>
@@ -28,15 +32,12 @@
                         <div id='about-sitelogo'></div>
                         <h1 class='about-logotext'>Axolotl</h1>
                     </a>
-                    <div class='dt-userName'></div>
+                    <div class='dt-userName'>{{username}}</div>
                 </div>
             </div>
-            <section class='single-post'>
-                <ul>
-                    <li>User: {{username}}</li>
-                    <li>Body: {{post}}</li>
-                    <li>Time: {{time}}</li>
-                </ul>
+            <section class='thread-container'>
+
+
             </section>
             <footer>
                 <h2 class='title'>Axolotl</h2>
@@ -55,7 +56,7 @@
                     <div class='dt-userName'><a href='/' class="dt-backBtn">back</a></div>
                 </div>
             </div>
-            <section class='dt-single-post'>
+            <section class='dt-thread-container'>
 
             </section>
         </div>
