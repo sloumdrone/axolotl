@@ -18,6 +18,20 @@
       rel="stylesheet">
         <link rel="stylesheet" href="/library/common.css">
         <link rel="stylesheet" href="/library/contact.css">
+        <style>
+            .dt-thread-container {
+                position: relative;
+                top: 10vh;
+                right: 50%;
+                overflow: auto;
+                overflow-x: hidden;
+                padding-bottom: 20px;
+                width: 600px;
+                float: right;
+                margin-bottom: 200px;
+                transform: translate(50%);
+            }
+        </style>
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <script src="/library/singlePost.js"></script>
     </head>
@@ -32,7 +46,7 @@
                         <div id='about-sitelogo'></div>
                         <h1 class='about-logotext'>Axolotl</h1>
                     </a>
-                    <div class='dt-userName'>{{username}}</div>
+                    <div class='dt-userName'><a href="../profile/{{username}}" style="color:white;">{{username}}</a></div>
                 </div>
             </div>
             <section class='thread-container'>
@@ -53,7 +67,7 @@
                         <div id='dt-sitelogo'></div>
                         <h1 class='dt-logotext'>Axolotl</h1>
                     </a>
-                    <div class='dt-userName'><a href='/' class="dt-backBtn">back</a></div>
+                    <div class='dt-userName'><a href="../profile/{{username}}" style="color: #6f6f6f;">{{username}}</a></div>
                 </div>
             </div>
             <section class='dt-thread-container'>
