@@ -113,6 +113,18 @@ def handle_post():
     return redirect('/home')
 ##---**
 ##---**
+@route('/post/<pid>', method='GET')
+def get_single_post(pid):
+    print pid
+    post_data = retrieve_single_post(pid)
+    if not post_data == None:
+        return template('singlePost',username=post_data[1],post=post_data[2],time=post_data[3])
+    else:
+        return redirect('/')
+
+
+##---**
+##---**
 @route('/new-fellow/<new_fellow>')
 def handle_new_fellow(new_fellow):
     username = request.get_cookie('user')
@@ -424,6 +436,17 @@ def retrieve_posts(user,offset,qty):
         output.append([row[1],row[2],row[3],row[0]])
     db_conn.commit()
     db_conn.close()
+    return output
+##---**
+##---**
+def retrieve_single_post(post_id):
+    db_conn = sqlite3.connect(db)
+    c = db_conn.cursor()
+    c.execute('''SELECT * FROM posts WHERE id = ?''',(post_id,))
+    output = c.fetchone()
+    db_conn.commit()
+    db_conn.close()
+    print output
     return output
 ##---**
 ##---**
