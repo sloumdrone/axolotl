@@ -12,9 +12,9 @@ function buildSinglePost(){
 }
 //---**
 //---**
-var imgHash = Math.random() * 500
-//---**/
-//---**/
+var imgHash = Math.random() * 500;
+//---**
+//---**
 function buildPost(arr){
     let $header = $('<div>',{class: 'post-header'});
     let linkText = parseUserLinks(parseWebLinks(arr[1]));
