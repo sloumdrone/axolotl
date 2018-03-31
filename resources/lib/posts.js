@@ -35,6 +35,7 @@ var imgHash = Math.random() * 500
 //---**/
 //---**/
 function buildPost(arr){
+    console.log(arr);
     let $header = $('<div>',{class: 'post-header'});
     let linkText = parseUserLinks(parseWebLinks(arr[1]));
     let $body = $('<div>',{class: 'post-body'}).html(linkText);
@@ -43,10 +44,12 @@ function buildPost(arr){
     let $image = $('<div>',{class: 'post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG?hash=${imgHash})`).appendTo($header);
     let $username = $('<div>',{class: 'post-user-name',text: arr[0]}).appendTo($header);
 
-    let $time_elapsed = $('<div>',{class: 'post-like',text: parseTime(arr[2])}).appendTo($footer);
+    let $link = $('<div>',{class: 'material-icons outlink',text: 'link'}).appendTo($footer);
+    let $time_elapsed = $('<div>',{class: 'post-time',text: parseTime(arr[2])}).appendTo($footer);
 
     let $container = $('<div>',{class: 'post-container'}).append($header,$body,$footer);
     $image.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $link.wrap(`<a href="/post/${arr[3]}" target="_blank"></a>`);
     $username.wrap(`<a href="/profile/${arr[0]}"></a>`);
     $('.thread-container').append($container);
     last_post = arr[3];
@@ -63,10 +66,12 @@ function buildPostDesktop(arr){
     let $image = $('<div>',{class: 'dt-post-user-image'}).css('background-image',`url(/images/user/${arr[0]}.JPEG?hash=${imgHash})`).appendTo($header);
     let $username = $('<div>',{class: 'dt-post-user-name',text: arr[0]}).appendTo($header);
 
-    let $time_elapsed = $('<div>',{class: 'dt-post-like',text: parseTime(arr[2])}).appendTo($footer);
+    let $link = $('<div>',{class: 'material-icons outlink',text: 'link'}).appendTo($footer);
+    let $time_elapsed = $('<div>',{class: 'dt-post-time',text: parseTime(arr[2])}).appendTo($footer);
 
     let $container = $('<div>',{class: 'dt-post-container'}).append($header,$body,$footer);
     $image.wrap(`<a href="/profile/${arr[0]}"></a>`);
+    $link.wrap(`<a href="/post/${arr[3]}" target="_blank"></a>`);
     $username.wrap(`<a href="/profile/${arr[0]}"></a>`);
     $('.dt-thread-container').append($container);
     last_post = arr[3];
