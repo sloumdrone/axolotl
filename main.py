@@ -115,7 +115,6 @@ def handle_post():
 ##---**
 @route('/post/<pid>', method='GET')
 def get_single_post(pid):
-    print pid
     post_data = retrieve_single_post(pid)
     if not post_data == None:
         return template('singlePost',username=post_data[1],post=post_data[2],time=post_data[3])
@@ -269,7 +268,6 @@ def update_user():
 def delete_fellow(fellow):
     username = request.get_cookie('user')
     sever_friendship(username, fellow)
-    # return redirect('/fellow')
 ##---**
 ##---**
 @error(404)
@@ -446,7 +444,6 @@ def retrieve_single_post(post_id):
     output = c.fetchone()
     db_conn.commit()
     db_conn.close()
-    print output
     return output
 ##---**
 ##---**
