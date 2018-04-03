@@ -48,7 +48,7 @@ Axolotl is licensed under the GNU GPLv3 license. The license.txt file in the roo
 Version Number | Version Name | Release Date | Notes
 ---------------|--------------|--------------|------
 0.5.0 | Atomic Tangerine | 03/20/18 | Alpha Release. Posting, @ links, account editing
-0.6.0 | Blizzard Blue | *tbd* | Hash tags, out-linking
+0.6.0 | Blizzard Blue | *tbd* | Linkable posts, clickable links in posts, hash tags
 
 ## Application Usage
 #### Creating Accounts
